@@ -13,15 +13,14 @@ const badges = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-hero hero-pattern">
-      {/* Layered gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-900/85 to-teal-900/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-dark-950/95 via-dark-900/85 to-dark-800/60 pointer-events-none" />
       <div className="absolute inset-0 bg-hero-pattern opacity-100 pointer-events-none" />
 
       {/* Decorative blobs */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-teal-600/8 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-navy-600/20 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-600/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-dark-600/20 blur-3xl pointer-events-none" />
 
-      {/* Decorative grid lines */}
+      {/* Grid lines */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
@@ -41,8 +40,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-500/15 border border-teal-400/25 text-teal-300 text-xs font-semibold rounded-full uppercase tracking-widest mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-500/15 border border-brand-400/25 text-brand-300 text-xs font-semibold rounded-full uppercase tracking-widest mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
               Oncology &amp; Radiotherapy Specialists
             </span>
           </motion.div>
@@ -55,7 +54,7 @@ export default function Hero() {
             className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6"
           >
             Advancing{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-300">
               Oncology Technology
             </span>{' '}
             Across Egypt
@@ -80,7 +79,7 @@ export default function Hero() {
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-teal-500/25 group"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-brand-500/25 group"
             >
               Explore Our Services
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
@@ -102,7 +101,7 @@ export default function Hero() {
           >
             {badges.map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-2 text-white/50">
-                <Icon size={14} className="text-teal-400" />
+                <Icon size={14} className="text-brand-400" />
                 <span className="text-xs font-medium">{text}</span>
               </div>
             ))}
@@ -117,15 +116,12 @@ export default function Hero() {
           className="hidden xl:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-0 bg-white/5 backdrop-blur border border-white/10 rounded-2xl overflow-hidden w-52 shadow-xl"
         >
           {[
-            { value: '10+', label: 'Years Experience' },
-            { value: '3',   label: 'Global Partners' },
-            { value: '50+', label: 'Clients Served' },
+            { value: '10+',  label: 'Years Experience' },
+            { value: '3',    label: 'Global Partners' },
+            { value: '50+',  label: 'Clients Served' },
             { value: '2014', label: 'Year Founded' },
           ].map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`px-6 py-5 ${i < 3 ? 'border-b border-white/10' : ''}`}
-            >
+            <div key={stat.label} className={`px-6 py-5 ${i < 3 ? 'border-b border-white/10' : ''}`}>
               <div className="text-2xl font-black text-white">{stat.value}</div>
               <div className="text-xs text-white/50 mt-0.5 font-medium">{stat.label}</div>
             </div>
