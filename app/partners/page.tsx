@@ -393,13 +393,13 @@ export default function PartnersPage() {
                 <AnimatedSection key={card.variant} delay={i * 0.08}>
                   <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden h-full flex flex-col">
                     {/* Product image */}
-                    <div className="bg-ink-50 border-b border-ink-200/60 p-6 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
+                    <div className="bg-gradient-to-b from-ink-50 to-white border-b border-ink-200/60 p-8 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
                       <Image
                         src={card.image}
                         alt={`BEAMSCAN® ${card.variant}`}
                         width={320}
                         height={240}
-                        className="object-contain max-h-full w-auto drop-shadow-sm"
+                        className="object-contain max-h-full w-auto"
                       />
                     </div>
                     <p className="text-[10px] text-ink-400 text-center pt-3 px-4">
