@@ -53,7 +53,7 @@ export default function Navbar() {
             }`}
           >
             <Phone size={11} />
-            +2 02 24115184
+            +20 2 24115184
           </a>
           <a
             href="mailto:osama@onmedical.net"
@@ -176,7 +176,7 @@ export default function Navbar() {
             </Link>
             <div className="flex flex-col gap-2 mt-3">
               <a href="tel:+20225241184" className="text-xs text-medical-muted text-center">
-                Tel: +2 02 24115184
+                Tel: +20 2 24115184
               </a>
               <a href="mailto:osama@onmedical.net" className="text-xs text-teal-600 text-center">
                 osama@onmedical.net

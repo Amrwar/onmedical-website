@@ -106,7 +106,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Phone size={15} className="text-teal-400 flex-shrink-0" />
                 <a href="tel:+20224115184" className="text-sm text-white/65 hover:text-white transition-colors">
-                  +2 02 24115184
+                  +20 2 24115184
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -117,7 +117,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Printer size={15} className="text-teal-400 flex-shrink-0" />
-                <span className="text-sm text-white/65">+2 02 24115184</span>
+                <span className="text-sm text-white/65">+20 2 24115184</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={15} className="text-teal-400 flex-shrink-0" />

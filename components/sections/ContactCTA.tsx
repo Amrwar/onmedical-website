@@ -40,7 +40,7 @@ export default function ContactCTA() {
                 <div className="flex flex-wrap gap-6 mt-7">
                   <a href="tel:+20224115184" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm group">
                     <Phone size={15} className="text-teal-400" />
-                    +2 02 24115184
+                    +20 2 24115184
                   </a>
                   <a href="mailto:osama@onmedical.net" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
                     <Mail size={15} className="text-teal-400" />

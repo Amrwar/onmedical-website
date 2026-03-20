@@ -21,7 +21,7 @@ const contactDetails = [
   {
     icon: Phone,
     label: 'Telephone',
-    lines: ['+2 02 24115184'],
+    lines: ['+20 2 24115184'],
     href: 'tel:+20224115184',
   },
   {
@@ -33,7 +33,7 @@ const contactDetails = [
   {
     icon: Printer,
     label: 'Fax',
-    lines: ['+2 02 24115184'],
+    lines: ['+20 2 24115184'],
     href: null,
   },
   {
