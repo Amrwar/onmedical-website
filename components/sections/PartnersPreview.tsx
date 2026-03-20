@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
 
@@ -12,6 +12,7 @@ const partners = [
     country: 'Germany',
     flag: '🇩🇪',
     logo: '/logo-ptw.png',
+    website: 'https://www.ptwdosimetry.com',
     short: 'High-precision dosimetry systems and radiation measurement devices for radiotherapy quality assurance.',
   },
   {
@@ -19,6 +20,7 @@ const partners = [
     country: 'United States',
     flag: '🇺🇸',
     logo: '/logo-ashland.png',
+    website: 'https://www.ashland.com',
     short: 'Specialized accessories and complementary measuring devices for teletherapy and brachytherapy applications.',
   },
   {
@@ -26,6 +28,7 @@ const partners = [
     country: 'China',
     flag: '🇨🇳',
     logo: '/logo-klarity.png',
+    website: 'https://www.klarity-medical.com',
     short: 'Computer-controlled motorized patient translation couches for Total Body Irradiation procedures.',
   },
 ]
@@ -82,8 +85,16 @@ export default function PartnersPreview() {
                 {/* Description */}
                 <p className="text-sm text-white/55 leading-relaxed flex-1">{partner.short}</p>
 
-                <div className="pt-2 border-t border-white/10">
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between gap-3">
                   <span className="text-xs font-medium text-teal-400">Authorized Representative · Egypt</span>
+                  <a
+                    href={partner.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-white/60 hover:text-white transition-colors"
+                  >
+                    Visit <ExternalLink size={10} />
+                  </a>
                 </div>
               </div>
             </AnimatedSection>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Globe, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Globe, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -19,6 +19,7 @@ const partners = [
     country: 'Germany',
     flag: '🇩🇪',
     logo: '/logo-ptw.png',
+    website: 'https://www.ptwdosimetry.com',
     tagline: 'Global Leader in Radiation Dosimetry',
     description:
       'PTW Freiburg is a globally recognized manufacturer based in Freiburg, Germany, with decades of expertise in high-precision dosimetry systems and radiation measurement devices. Their equipment is trusted by medical physics departments and radiotherapy quality assurance programs in hospitals and research institutions worldwide.',
@@ -45,6 +46,7 @@ const partners = [
     country: 'United States',
     flag: '🇺🇸',
     logo: '/logo-ashland.png',
+    website: 'https://www.ashland.com',
     tagline: 'Specialized Accessories for Radiation Therapy',
     description:
       'Ashland Medical is a US-based producer of complementary measuring devices, accessories, and specialized equipment used in radiation therapy procedures. Their product range supports both teletherapy and brachytherapy workflows, providing the precision tools that clinical teams rely on for accurate treatment delivery.',
@@ -70,6 +72,7 @@ const partners = [
     country: 'China',
     flag: '🇨🇳',
     logo: '/logo-klarity.png',
+    website: 'https://www.klarity-medical.com',
     tagline: 'Advanced Patient Positioning Systems',
     description:
       'Klarity is a developer of computer-controlled motorized patient translation couches specifically designed for use during Total Body Irradiation (TBI) treatments associated with linear accelerators. Their systems bring precision positioning control to one of the most technically demanding procedures in radiation oncology.',
@@ -193,8 +196,19 @@ export default function PartnersPage() {
                           />
                         </div>
 
-                        <div className="text-xs text-white/35 font-medium uppercase tracking-wider">
-                          Authorized Representative · Egypt
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-xs text-white/35 font-medium uppercase tracking-wider">
+                            Authorized Representative · Egypt
+                          </span>
+                          <a
+                            href={partner.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 hover:border-white/30 text-white text-xs font-semibold transition-all duration-200 flex-shrink-0"
+                          >
+                            Visit Website
+                            <ExternalLink size={11} />
+                          </a>
                         </div>
                       </div>
                     </div>
