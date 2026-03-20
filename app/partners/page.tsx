@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Globe, CheckCircle2, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -17,6 +18,7 @@ const partners = [
     name: 'PTW Freiburg',
     country: 'Germany',
     flag: '🇩🇪',
+    logo: '/logo-ptw.png',
     tagline: 'Global Leader in Radiation Dosimetry',
     description:
       'PTW Freiburg is a globally recognized manufacturer based in Freiburg, Germany, with decades of expertise in high-precision dosimetry systems and radiation measurement devices. Their equipment is trusted by medical physics departments and radiotherapy quality assurance programs in hospitals and research institutions worldwide.',
@@ -42,6 +44,7 @@ const partners = [
     name: 'Ashland Medical',
     country: 'United States',
     flag: '🇺🇸',
+    logo: '/logo-ashland.png',
     tagline: 'Specialized Accessories for Radiation Therapy',
     description:
       'Ashland Medical is a US-based producer of complementary measuring devices, accessories, and specialized equipment used in radiation therapy procedures. Their product range supports both teletherapy and brachytherapy workflows, providing the precision tools that clinical teams rely on for accurate treatment delivery.',
@@ -66,6 +69,7 @@ const partners = [
     name: 'Klarity',
     country: 'China',
     flag: '🇨🇳',
+    logo: '/logo-klarity.png',
     tagline: 'Advanced Patient Positioning Systems',
     description:
       'Klarity is a developer of computer-controlled motorized patient translation couches specifically designed for use during Total Body Irradiation (TBI) treatments associated with linear accelerators. Their systems bring precision positioning control to one of the most technically demanding procedures in radiation oncology.',
@@ -177,9 +181,15 @@ export default function PartnersPage() {
                           <p className="text-sm text-teal-300 font-medium">{partner.tagline}</p>
                         </div>
 
-                        {/* Logo placeholder */}
-                        <div className="mt-auto w-full h-16 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center">
-                          <span className="text-sm text-white/25 font-medium">{partner.name} Logo</span>
+                        {/* Logo */}
+                        <div className="mt-auto w-full h-16 rounded-xl bg-white flex items-center justify-center px-5 py-2">
+                          <Image
+                            src={partner.logo}
+                            alt={`${partner.name} logo`}
+                            width={180}
+                            height={56}
+                            className="object-contain max-h-10 w-auto"
+                          />
                         </div>
 
                         <div className="text-xs text-white/35 font-medium uppercase tracking-wider">

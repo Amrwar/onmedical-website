@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -10,18 +11,21 @@ const partners = [
     name: 'PTW Freiburg',
     country: 'Germany',
     flag: '🇩🇪',
+    logo: '/logo-ptw.png',
     short: 'High-precision dosimetry systems and radiation measurement devices for radiotherapy quality assurance.',
   },
   {
     name: 'Ashland Medical',
     country: 'United States',
     flag: '🇺🇸',
+    logo: '/logo-ashland.png',
     short: 'Specialized accessories and complementary measuring devices for teletherapy and brachytherapy applications.',
   },
   {
     name: 'Klarity',
     country: 'China',
     flag: '🇨🇳',
+    logo: '/logo-klarity.png',
     short: 'Computer-controlled motorized patient translation couches for Total Body Irradiation procedures.',
   },
 ]
@@ -57,18 +61,22 @@ export default function PartnersPreview() {
             <AnimatedSection key={partner.name} delay={i * 0.1}>
               <div className="bg-white/5 border border-white/10 rounded-xl p-7 hover:bg-white/8 hover:border-white/20 transition-all duration-300 group h-full flex flex-col gap-5">
                 {/* Header */}
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-[11px] uppercase tracking-widest text-white/35 font-semibold block mb-1">
-                      {partner.flag} {partner.country}
-                    </span>
-                    <h3 className="text-lg font-bold text-white">{partner.name}</h3>
-                  </div>
+                <div>
+                  <span className="text-[11px] uppercase tracking-widest text-white/35 font-semibold block mb-1">
+                    {partner.flag} {partner.country}
+                  </span>
+                  <h3 className="text-lg font-bold text-white">{partner.name}</h3>
                 </div>
 
-                {/* Logo placeholder */}
-                <div className="w-full h-14 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                  <span className="text-sm text-white/30 font-medium">{partner.name}</span>
+                {/* Logo */}
+                <div className="w-full h-16 rounded-lg bg-white flex items-center justify-center px-5 py-3">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    width={160}
+                    height={56}
+                    className="object-contain max-h-10 w-auto"
+                  />
                 </div>
 
                 {/* Description */}
