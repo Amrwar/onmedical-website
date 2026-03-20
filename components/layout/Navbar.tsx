@@ -70,7 +70,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center">
             <Image
-              src="/logo-onmedical.jpeg"
+              src="/logo-onmedical.png"
               alt="ON Medical Company"
               width={152}
               height={44}

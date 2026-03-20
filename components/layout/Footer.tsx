@@ -29,13 +29,13 @@ export default function Footer() {
 
           {/* Brand col — 4 cols */}
           <div className="lg:col-span-4 space-y-5 lg:pr-6">
-            <Link href="/">
+            <Link href="/" className="inline-block bg-white/95 rounded-lg px-4 py-2">
               <Image
-                src="/logo-onmedical.jpeg"
+                src="/logo-onmedical.png"
                 alt="ON Medical Company"
                 width={156}
                 height={46}
-                className="h-10 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-8 w-auto object-contain"
               />
             </Link>
             <p className="text-[13px] text-white/50 leading-relaxed max-w-[240px]">
