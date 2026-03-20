@@ -74,9 +74,7 @@ export default function Navbar() {
               alt="ON Medical Company"
               width={152}
               height={44}
-              className={`h-9 w-auto object-contain transition-all duration-300 ${
-                onDark ? 'brightness-0 invert' : ''
-              }`}
+              className="h-9 w-auto object-contain"
               priority
             />
           </Link>
