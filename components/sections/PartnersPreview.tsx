@@ -61,8 +61,8 @@ export default function PartnersPreview() {
             <AnimatedSection key={partner.name} delay={i * 0.1}>
               <div className="bg-white/5 border border-white/10 rounded-xl p-7 hover:bg-white/8 hover:border-white/20 transition-all duration-300 group h-full flex flex-col gap-5">
                 {/* Header */}
-                <div>
-                  <span className="text-[11px] uppercase tracking-widest text-white/35 font-semibold block mb-1">
+                <div className="flex flex-col gap-2">
+                  <span className="inline-flex items-center w-fit px-2.5 py-1 rounded-md bg-white/15 border border-white/20 text-white text-[11px] font-bold tracking-widest uppercase">
                     {partner.flag} {partner.country}
                   </span>
                   <h3 className="text-lg font-bold text-white">{partner.name}</h3>

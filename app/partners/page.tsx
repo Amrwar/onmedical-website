@@ -172,9 +172,10 @@ export default function PartnersPage() {
                     <div className={`lg:col-span-2 bg-gradient-to-br ${partner.accentClass} border-r ${partner.borderClass} p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden`}>
                       <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/5 blur-2xl pointer-events-none" />
                       <div className="relative z-10 flex flex-col gap-4 h-full">
-                        <div className="flex items-center gap-3">
-                          <span className="text-3xl">{partner.flag}</span>
-                          <span className="text-xs font-semibold uppercase tracking-widest text-white/40">{partner.country}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-white/15 border border-white/20 text-white text-xs font-bold tracking-widest uppercase">
+                            {partner.flag} {partner.country}
+                          </span>
                         </div>
                         <div>
                           <h2 className="text-2xl font-black text-white mb-1">{partner.name}</h2>
