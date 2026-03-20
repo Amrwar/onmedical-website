@@ -74,7 +74,7 @@ export default function Navbar() {
               alt="ON Medical Company"
               width={152}
               height={44}
-              className="h-9 w-auto object-contain"
+              className="h-9 w-auto object-contain mix-blend-multiply"
               priority
             />
           </Link>
