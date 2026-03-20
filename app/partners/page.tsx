@@ -357,6 +357,7 @@ export default function PartnersPage() {
                   'Ideal for multi-linac departments',
                 ],
                 icon: Zap,
+                image: '/beamscan-speedo.png',
               },
               {
                 variant: 'Ringo',
@@ -370,6 +371,7 @@ export default function PartnersPage() {
                   'Expandable with optional lift',
                 ],
                 icon: Settings,
+                image: '/beamscan-ringo.png',
               },
               {
                 variant: 'Mobilo',
@@ -383,21 +385,22 @@ export default function PartnersPage() {
                   'Flexible for varied linac types',
                 ],
                 icon: Globe,
+                image: '/beamscan-mobilo.png',
               },
             ].map((card, i) => {
               const Icon = card.icon
               return (
                 <AnimatedSection key={card.variant} delay={i * 0.08}>
                   <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden h-full flex flex-col">
-                    {/* Image container */}
-                    <div className="bg-ink-50 border-b border-ink-200/60 p-8 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: '4/3' }}>
-                      <div className="w-12 h-12 rounded-xl bg-white border border-ink-200/60 shadow-card flex items-center justify-center">
-                        <Icon size={20} className="text-brand-600" strokeWidth={1.5} />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-[12px] font-semibold text-ink-500">BEAMSCAN® {card.variant}</p>
-                        <p className="text-[10px] text-ink-300 mt-0.5">Image placeholder</p>
-                      </div>
+                    {/* Product image */}
+                    <div className="bg-ink-50 border-b border-ink-200/60 p-6 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
+                      <Image
+                        src={card.image}
+                        alt={`BEAMSCAN® ${card.variant}`}
+                        width={320}
+                        height={240}
+                        className="object-contain max-h-full w-auto drop-shadow-sm"
+                      />
                     </div>
                     <p className="text-[10px] text-ink-400 text-center pt-3 px-4">
                       BEAMSCAN® {card.variant} · {card.label}
