@@ -2,142 +2,184 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown, ShieldCheck, Globe, Award } from 'lucide-react'
+import { ArrowRight, ChevronDown, ShieldCheck, Globe2, Award, Stethoscope } from 'lucide-react'
 
-const badges = [
-  { icon: ShieldCheck, text: 'Regulatory Compliant' },
-  { icon: Globe,        text: 'International Partnerships' },
-  { icon: Award,        text: 'Since 2014' },
+const stats = [
+  { value: '10+',  label: 'Years of Expertise',   sub: 'Radiotherapy & medical physics' },
+  { value: '3',    label: 'Global Manufacturers',  sub: 'Germany · USA · China' },
+  { value: '50+',  label: 'Institutions Served',   sub: 'Hospitals, centres & universities' },
+  { value: '2014', label: 'Year Established',      sub: 'Cairo, Egypt' },
 ]
+
+const trust = [
+  { icon: ShieldCheck, label: 'Fully Compliant'        },
+  { icon: Globe2,      label: 'International Partners' },
+  { icon: Award,       label: 'Since 2014'             },
+  { icon: Stethoscope, label: 'Oncology Focused'       },
+]
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+}
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.4, 0.25, 1] } },
+}
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-hero hero-pattern">
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-950/95 via-dark-900/85 to-dark-800/60 pointer-events-none" />
-      <div className="absolute inset-0 bg-hero-pattern opacity-100 pointer-events-none" />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-hero">
 
-      {/* Decorative blobs */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-600/8 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-dark-600/20 blur-3xl pointer-events-none" />
-
-      {/* Grid lines */}
+      {/* Background texture */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+        style={{ backgroundSize: '28px 28px' }}
+      />
+
+      {/* Radial red glow — top right */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px',
+          background:
+            'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.12) 0%, transparent 65%)',
+        }}
+      />
+      {/* Radial subtle — bottom left */}
+      <div
+        className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse at bottom left, rgb(255 255 255 / 0.02) 0%, transparent 70%)',
         }}
       />
 
-      <div className="relative container-tight pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="max-w-3xl">
-          {/* Eyebrow */}
+      <div className="container-site relative z-10 pt-32 pb-24 lg:pt-40 lg:pb-32">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-16 items-center">
+
+          {/* ── Left: content ──────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="xl:col-span-7 flex flex-col gap-7"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-500/15 border border-brand-400/25 text-brand-300 text-xs font-semibold rounded-full uppercase tracking-widest mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
-              Oncology &amp; Radiotherapy Specialists
-            </span>
+            {/* Eyebrow */}
+            <motion.div variants={item}>
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
+                Oncology &amp; Radiotherapy Specialists — Egypt
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              variants={item}
+              className="text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-black text-white leading-[1.07] tracking-tight"
+            >
+              Advancing{' '}
+              <span className="text-gradient-brand">Oncology Technology</span>{' '}
+              <br className="hidden lg:block" />
+              Across Egypt
+            </motion.h1>
+
+            {/* Subtext */}
+            <motion.p
+              variants={item}
+              className="text-[15px] lg:text-base text-white/55 leading-[1.75] max-w-xl"
+            >
+              ON Medical Company is Egypt&apos;s specialized distributor of radiotherapy, radiation
+              measurement, and medical physics systems — bridging leading international manufacturers
+              with hospitals, oncology centres, and medical institutions.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div variants={item} className="flex flex-wrap gap-3.5">
+              <Link href="/services" className="btn-primary">
+                Explore Our Services <ArrowRight size={15} strokeWidth={2} />
+              </Link>
+              <Link href="/partners" className="btn-outline-white">
+                Our Global Partners
+              </Link>
+            </motion.div>
+
+            {/* Trust badges */}
+            <motion.div
+              variants={item}
+              className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1 border-t border-white/[0.08]"
+            >
+              {trust.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2">
+                  <Icon size={13} className="text-brand-500" strokeWidth={1.75} />
+                  <span className="text-[11px] font-medium text-white/40">{label}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6"
-          >
-            Advancing{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-300">
-              Oncology Technology
-            </span>{' '}
-            Across Egypt
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-lg text-white/65 leading-relaxed max-w-2xl mb-10"
-          >
-            ON Medical Company is Egypt&apos;s specialized distributor of radiotherapy, radiation measurement, and medical physics systems — connecting leading international manufacturers with hospitals, oncology centres, and medical institutions across the country.
-          </motion.p>
-
-          {/* CTA buttons */}
+          {/* ── Right: stats panel ─────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-14"
+            initial={{ opacity: 0, x: 32 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, delay: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
+            className="xl:col-span-5"
           >
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-brand-500/25 group"
+            <div
+              className="relative rounded-2xl border border-white/10 overflow-hidden
+                          bg-white/[0.03] backdrop-blur-sm
+                          shadow-[0_0_0_1px_rgb(255_255_255_/_0.06),0_24px_64px_rgb(0_0_0_/_0.4)]"
             >
-              Explore Our Services
-              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="/partners"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/25 hover:border-white/50 text-white font-semibold rounded-lg hover:bg-white/8 transition-all duration-200"
-            >
-              Our Global Partners
-            </Link>
-          </motion.div>
-
-          {/* Trust badges */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap items-center gap-5"
-          >
-            {badges.map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2 text-white/50">
-                <Icon size={14} className="text-brand-400" />
-                <span className="text-xs font-medium">{text}</span>
+              {/* Panel header */}
+              <div className="px-7 py-5 border-b border-white/[0.08] flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse-dot" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/35">
+                  Company at a Glance
+                </span>
               </div>
-            ))}
+
+              {/* Stats */}
+              <div className="divide-y divide-white/[0.08]">
+                {stats.map((stat, i) => (
+                  <div
+                    key={stat.label}
+                    className="flex items-center gap-6 px-7 py-5 hover:bg-white/[0.03] transition-colors group"
+                  >
+                    <span className="text-[13px] font-semibold text-white/20 w-5 text-right flex-shrink-0 group-hover:text-brand-600/60 transition-colors">
+                      0{i + 1}
+                    </span>
+                    <div className="flex-1">
+                      <div className="text-2xl font-black text-white tracking-tight">
+                        {stat.value}
+                      </div>
+                      <div className="text-[13px] font-medium text-white/60 mt-0.5">
+                        {stat.label}
+                      </div>
+                      <div className="text-[11px] text-white/30 mt-0.5">{stat.sub}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Panel footer */}
+              <div className="px-7 py-4 border-t border-white/[0.08] bg-white/[0.02]">
+                <span className="text-[11px] text-white/25">
+                  Authorized representative · Egypt &amp; MENA region
+                </span>
+              </div>
+            </div>
           </motion.div>
         </div>
-
-        {/* Stats panel */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="hidden xl:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-0 bg-white/5 backdrop-blur border border-white/10 rounded-2xl overflow-hidden w-52 shadow-xl"
-        >
-          {[
-            { value: '10+',  label: 'Years Experience' },
-            { value: '3',    label: 'Global Partners' },
-            { value: '50+',  label: 'Clients Served' },
-            { value: '2014', label: 'Year Founded' },
-          ].map((stat, i) => (
-            <div key={stat.label} className={`px-6 py-5 ${i < 3 ? 'border-b border-white/10' : ''}`}>
-              <div className="text-2xl font-black text-white">{stat.value}</div>
-              <div className="text-xs text-white/50 mt-0.5 font-medium">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
+        transition={{ delay: 1.4 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/25"
       >
-        <span className="text-[10px] uppercase tracking-widest font-medium">Scroll</span>
-        <ChevronDown size={16} className="animate-bounce" />
+        <span className="text-[9px] uppercase tracking-[0.2em] font-medium">Scroll</span>
+        <ChevronDown size={14} className="animate-bounce" />
       </motion.div>
     </section>
   )

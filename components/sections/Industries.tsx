@@ -1,6 +1,13 @@
 'use client'
 
-import { Building2, GraduationCap, FlaskConical, Stethoscope, Heart, Landmark } from 'lucide-react'
+import {
+  Building2,
+  GraduationCap,
+  FlaskConical,
+  Stethoscope,
+  Heart,
+  Landmark,
+} from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
 
@@ -8,7 +15,8 @@ const industries = [
   {
     icon: Heart,
     title: 'Oncology Hospitals',
-    description: 'Specialized cancer treatment hospitals requiring radiotherapy and dosimetry systems.',
+    description:
+      'Specialized cancer treatment hospitals requiring precision radiotherapy and dosimetry systems.',
   },
   {
     icon: Building2,
@@ -33,34 +41,40 @@ const industries = [
   {
     icon: FlaskConical,
     title: 'Research Institutes',
-    description: 'Scientific research bodies studying radiotherapy quality assurance and treatment planning.',
+    description:
+      'Scientific research bodies studying radiotherapy QA and treatment planning.',
   },
 ]
 
 export default function Industries() {
   return (
-    <section className="section-padding bg-section-alt">
-      <div className="container-tight">
+    <section className="section-padding section-alt border-b border-ink-200/60">
+      <div className="container-site">
+
         <AnimatedSection>
           <SectionHeader
-            tag="Who We Serve"
+            label="Who We Serve"
             title="Built for Healthcare Institutions"
-            subtitle="ON Medical partners with a wide range of Egyptian and regional healthcare organizations that rely on precision medical technology and professional support."
+            subtitle="ON Medical partners with a wide range of Egyptian and regional healthcare organizations that depend on precision medical technology and professional support."
           />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-14">
           {industries.map((item, i) => {
             const Icon = item.icon
             return (
               <AnimatedSection key={item.title} delay={i * 0.07}>
-                <div className="flex items-start gap-4 p-6 bg-white rounded-xl border border-medical-border shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon size={18} className="text-teal-600" />
+                <div className="card p-6 flex items-start gap-4">
+                  <div className="icon-box flex-shrink-0 mt-0.5">
+                    <Icon size={17} className="text-brand-600" strokeWidth={1.75} />
                   </div>
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-sm font-semibold text-navy-900">{item.title}</h3>
-                    <p className="text-xs text-slate-500 leading-snug">{item.description}</p>
+                  <div>
+                    <h3 className="text-[14px] font-semibold text-ink-900 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-[12px] text-ink-500 leading-snug mt-1.5">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               </AnimatedSection>

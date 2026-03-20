@@ -1,7 +1,17 @@
 import type { Metadata } from 'next'
 import {
-  Package, Wrench, HeartPulse, Microscope, PhoneCall, Globe,
-  Settings, ShieldCheck, FlaskConical, Cpu, CheckCircle2, ArrowRight,
+  Package,
+  Wrench,
+  HeartPulse,
+  Microscope,
+  PhoneCall,
+  Globe,
+  Settings,
+  ShieldCheck,
+  FlaskConical,
+  Cpu,
+  CheckCircle2,
+  ArrowRight,
 } from 'lucide-react'
 import Link from 'next/link'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -125,61 +135,99 @@ const specializations = [
 ]
 
 const process = [
-  { step: '01', title: 'Initial Consultation', desc: 'We begin with a thorough discussion of your institution\'s clinical requirements, budget parameters, and timeline.' },
-  { step: '02', title: 'Needs Assessment', desc: 'Our technical team evaluates your existing setup and recommends appropriate equipment and solutions.' },
-  { step: '03', title: 'Proposal & Agreement', desc: 'We present a detailed commercial proposal including equipment specifications, pricing, and service terms.' },
-  { step: '04', title: 'Import & Delivery', desc: 'Equipment is imported through proper regulatory channels, with all documentation handled by our team.' },
-  { step: '05', title: 'Installation & Commissioning', desc: 'Professional installation, testing, and commissioning ensure the system is clinically ready.' },
-  { step: '06', title: 'Training & Handover', desc: 'Comprehensive user training is conducted before formal system handover to your team.' },
-  { step: '07', title: 'Ongoing Support', desc: 'Long-term after-sales support, maintenance, and technical consultation maintain peak performance.' },
+  {
+    step: '01',
+    title: 'Initial Consultation',
+    desc: "We begin with a thorough discussion of your institution's clinical requirements, budget parameters, and timeline.",
+  },
+  {
+    step: '02',
+    title: 'Needs Assessment',
+    desc: 'Our technical team evaluates your existing setup and recommends appropriate equipment and solutions.',
+  },
+  {
+    step: '03',
+    title: 'Proposal & Agreement',
+    desc: 'We present a detailed commercial proposal including equipment specifications, pricing, and service terms.',
+  },
+  {
+    step: '04',
+    title: 'Import & Delivery',
+    desc: 'Equipment is imported through proper regulatory channels, with all documentation handled by our team.',
+  },
+  {
+    step: '05',
+    title: 'Installation & Commissioning',
+    desc: 'Professional installation, testing, and commissioning ensure the system is clinically ready.',
+  },
+  {
+    step: '06',
+    title: 'Training & Handover',
+    desc: 'Comprehensive user training is conducted before formal system handover to your team.',
+  },
+  {
+    step: '07',
+    title: 'Ongoing Support',
+    desc: 'Long-term after-sales support, maintenance, and technical consultation maintain peak performance.',
+  },
 ]
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ──────────────────────────────────────────── */}
       <section className="bg-hero relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-900/90 to-teal-900/30 pointer-events-none" />
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          style={{ backgroundSize: '28px 28px' }}
+        />
+        <div
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: '80px 80px',
+            background:
+              'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.10) 0%, transparent 60%)',
           }}
         />
-        <div className="container-tight relative z-10">
+        <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <span className="tag text-teal-300 bg-teal-500/15 border-teal-400/25 mb-4 inline-flex">
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
                 Our Services
               </span>
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight mb-5">
-                Complete Support for Oncology &amp; Radiotherapy Technology
+              <h1 className="text-4xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight mb-5">
+                Complete Support for{' '}
+                <span className="text-gradient-brand">Oncology &amp; Radiotherapy</span>{' '}
+                Technology
               </h1>
-              <p className="text-white/60 text-lg leading-relaxed max-w-2xl">
-                From the first consultation to long-term after-sales support, ON Medical provides the full spectrum of services that Egyptian healthcare institutions require when working with specialized medical technology.
+              <p className="text-white/55 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
+                From the first consultation to long-term after-sales support, ON Medical provides
+                the full spectrum of services that Egyptian healthcare institutions require when
+                working with specialized medical technology.
               </p>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Specialization banner */}
-      <section className="py-10 bg-white border-b border-medical-border">
-        <div className="container-tight">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* ── Specialization strip ──────────────────────────── */}
+      <section className="py-10 bg-white border-b border-ink-200/60">
+        <div className="container-site">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 lg:divide-x divide-ink-200/60">
             {specializations.map((spec, i) => {
               const Icon = spec.icon
               return (
-                <AnimatedSection key={spec.title} delay={i * 0.07}>
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center flex-shrink-0">
-                      <Icon size={16} className="text-teal-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-navy-900">{spec.title}</p>
-                      <p className="text-xs text-slate-400 leading-snug mt-0.5">{spec.desc}</p>
-                    </div>
+                <AnimatedSection
+                  key={spec.title}
+                  delay={i * 0.07}
+                  className="flex items-start gap-3.5 lg:px-8 first:pl-0 last:pr-0"
+                >
+                  <div className="icon-box flex-shrink-0">
+                    <Icon size={17} className="text-brand-600" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-semibold text-ink-900">{spec.title}</p>
+                    <p className="text-[11px] text-ink-400 leading-snug mt-0.5">{spec.desc}</p>
                   </div>
                 </AnimatedSection>
               )
@@ -188,54 +236,84 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Core services */}
-      <section className="section-padding bg-section-alt">
-        <div className="container-tight">
+      {/* ── Core Services ─────────────────────────────────── */}
+      <section className="section-padding section-alt border-b border-ink-200/60">
+        <div className="container-site">
           <AnimatedSection>
             <SectionHeader
-              tag="Core Services"
+              label="Core Services"
               title="Specialized Services for Medical Professionals"
               subtitle="Every service we provide is designed specifically for the demands of oncology, radiotherapy, and medical physics — not adapted from a generic medical distribution model."
             />
           </AnimatedSection>
 
-          <div className="space-y-7 mt-14">
+          <div className="space-y-6 mt-14">
             {coreServices.map((service, i) => {
               const Icon = service.icon
               return (
                 <AnimatedSection key={service.title} delay={i % 2 === 0 ? 0 : 0.08}>
-                  <div className="bg-white rounded-2xl border border-medical-border shadow-card overflow-hidden">
+                  <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300">
                     <div className="grid grid-cols-1 lg:grid-cols-5">
-                      {/* Left panel */}
-                      <div className="lg:col-span-2 bg-gradient-to-br from-navy-900 to-navy-950 p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden">
-                        <div className="absolute -bottom-6 -right-6 w-28 h-28 rounded-full bg-teal-500/10 blur-2xl" />
-                        <div className="relative z-10">
-                          <div className="w-12 h-12 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center mb-5">
-                            <Icon size={22} className="text-teal-400" />
+
+                      {/* Left dark panel */}
+                      <div className="lg:col-span-2 bg-ink-950 p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden">
+                        <div
+                          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+                          style={{ backgroundSize: '20px 20px' }}
+                        />
+                        <div
+                          className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+                          style={{
+                            background:
+                              'radial-gradient(circle, rgb(204 18 18 / 0.12) 0%, transparent 70%)',
+                          }}
+                        />
+                        <div className="relative z-10 flex flex-col gap-4">
+                          <div className="w-12 h-12 rounded-xl bg-brand-600/15 border border-brand-500/20 flex items-center justify-center">
+                            <Icon size={22} className="text-brand-400" strokeWidth={1.75} />
                           </div>
-                          <h2 className="text-xl font-bold text-white mb-3">{service.title}</h2>
-                          <p className="text-white/55 text-sm leading-relaxed">{service.description}</p>
+                          <h2 className="text-xl font-bold text-white leading-snug">
+                            {service.title}
+                          </h2>
+                          <p className="text-[13px] text-white/50 leading-relaxed">
+                            {service.description}
+                          </p>
                         </div>
                       </div>
 
-                      {/* Right panel */}
-                      <div className="lg:col-span-3 p-8 lg:p-10">
-                        <h4 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
-                          What&apos;s Included
-                        </h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          {service.points.map((point) => (
-                            <li key={point} className="flex items-start gap-2.5 text-sm text-slate-600">
-                              <CheckCircle2 size={15} className="text-teal-500 mt-0.5 flex-shrink-0" />
-                              {point}
-                            </li>
-                          ))}
-                        </ul>
+                      {/* Right content panel */}
+                      <div className="lg:col-span-3 p-8 lg:p-10 flex flex-col justify-between gap-6">
+                        <div>
+                          <h4 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400 mb-4">
+                            What&apos;s Included
+                          </h4>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {service.points.map(point => (
+                              <li
+                                key={point}
+                                className="flex items-start gap-2.5 text-[13px] text-ink-600"
+                              >
+                                <CheckCircle2
+                                  size={14}
+                                  className="text-brand-600 mt-0.5 flex-shrink-0"
+                                  strokeWidth={2}
+                                />
+                                {point}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                        <div className="pt-5 mt-5 border-t border-medical-border">
-                          <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 hover:text-teal-700 group">
+                        <div className="pt-5 border-t border-ink-200/60">
+                          <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand-600 hover:text-brand-700 group"
+                          >
                             Request this service
-                            <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                            <ArrowRight
+                              size={14}
+                              className="group-hover:translate-x-0.5 transition-transform"
+                            />
                           </Link>
                         </div>
                       </div>
@@ -248,26 +326,30 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process */}
+      {/* ── Process ───────────────────────────────────────── */}
       <section className="section-padding bg-white">
-        <div className="container-tight">
+        <div className="container-site">
           <AnimatedSection>
             <SectionHeader
-              tag="Our Process"
+              label="Our Process"
               title="A Structured Approach from Enquiry to Support"
               subtitle="We follow a consistent, transparent process to ensure every client engagement is professionally managed from first contact through ongoing operations."
             />
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-14">
             {process.map((step, i) => (
               <AnimatedSection key={step.step} delay={i * 0.06}>
-                <div className="relative p-6 rounded-xl border border-medical-border bg-medical-light hover:bg-white hover:border-teal-200 hover:shadow-card transition-all duration-300 group h-full flex flex-col gap-3">
-                  <span className="text-3xl font-black text-teal-500/20 group-hover:text-teal-500/40 transition-colors leading-none">
+                <div
+                  className="relative p-6 rounded-xl border border-ink-200/60 bg-ink-50/70
+                              hover:bg-white hover:border-brand-200 hover:shadow-card
+                              transition-all duration-300 group h-full flex flex-col gap-3"
+                >
+                  <span className="text-3xl font-black text-ink-200 group-hover:text-brand-100 transition-colors leading-none select-none">
                     {step.step}
                   </span>
-                  <h3 className="text-sm font-bold text-navy-900">{step.title}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{step.desc}</p>
+                  <h3 className="text-[13px] font-bold text-ink-900">{step.title}</h3>
+                  <p className="text-[12px] text-ink-500 leading-relaxed">{step.desc}</p>
                 </div>
               </AnimatedSection>
             ))}

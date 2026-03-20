@@ -1,94 +1,113 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, FlaskConical } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
-const highlights = [
+const points = [
   'Oncology & radiotherapy equipment distribution',
-  'Market representation for global manufacturers',
-  'Technical installation & after-sales support',
-  'Compliant with Egyptian medical device regulations',
+  'Authorized market representation for global manufacturers',
+  'Technical installation & commissioning support',
+  'Long-term after-sales service & compliance',
 ]
 
 export default function CompanyIntro() {
   return (
     <section className="section-padding bg-white">
-      <div className="container-tight">
+      <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* Left: Visual */}
-          <AnimatedSection direction="left" className="order-2 lg:order-1">
-            <div className="relative">
-              {/* Main image placeholder */}
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-navy-900 to-navy-950 aspect-[4/3] w-full shadow-card-hover">
-                {/* Grid overlay */}
-                <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
-                    `,
-                    backgroundSize: '30px 30px',
-                  }}
-                />
-                {/* Content in placeholder */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                  <div className="w-20 h-20 rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center mb-5">
-                    <span className="text-4xl font-black text-white tracking-tighter">ON</span>
-                  </div>
-                  <p className="text-white/50 text-sm font-medium leading-relaxed max-w-[220px]">
-                    Oncology &amp; Radiotherapy Technology — Egypt &amp; MENA
+          {/* ── Left: Visual block ─────────────────────────── */}
+          <AnimatedSection direction="left" className="relative order-2 lg:order-1">
+
+            {/* Main bordered panel */}
+            <div className="relative rounded-2xl border border-ink-200/70 overflow-hidden bg-ink-50 shadow-panel aspect-[4/3]">
+              <div
+                className="absolute inset-0 bg-dot-grid"
+                style={{ backgroundSize: '20px 20px' }}
+              />
+
+              {/* Centre content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-10 gap-5">
+                <div className="w-16 h-16 rounded-2xl bg-white border border-ink-200/80 shadow-card flex items-center justify-center">
+                  <FlaskConical size={28} className="text-brand-600" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="text-[13px] font-semibold text-ink-400 uppercase tracking-widest-plus">
+                    Oncology Solutions
+                  </p>
+                  <p className="text-base font-medium text-ink-600 mt-1 max-w-[200px] leading-snug">
+                    Advanced technologies for Egyptian healthcare
                   </p>
                 </div>
-                {/* Accent corners */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-teal-400/60 rounded-tl-lg" />
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-teal-400/60 rounded-br-lg" />
               </div>
 
-              {/* Floating badge */}
-              <div className="absolute -bottom-5 -right-5 bg-white rounded-xl shadow-card-hover border border-medical-border px-5 py-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-teal-600 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 size={18} className="text-white" />
-                </div>
-                <div className="flex flex-col leading-snug">
-                  <span className="text-xs font-bold text-navy-900">Regulatory Compliant</span>
-                  <span className="text-[11px] text-slate-400">Egyptian Medical Standards</span>
-                </div>
+              {/* Corner accents */}
+              <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-brand-500/40 rounded-tl" />
+              <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-brand-500/40 rounded-br" />
+            </div>
+
+            {/* Floating credential badge */}
+            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl border border-ink-200/80 shadow-panel px-5 py-4 flex items-center gap-3.5 z-10">
+              <div className="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center flex-shrink-0">
+                <CheckCircle2 size={17} className="text-white" strokeWidth={2} />
+              </div>
+              <div>
+                <p className="text-[13px] font-bold text-ink-900 leading-tight">
+                  Regulatory Compliant
+                </p>
+                <p className="text-[11px] text-ink-400 mt-0.5">Egyptian Medical Standards</p>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Right: Text */}
-          <AnimatedSection direction="right" className="order-1 lg:order-2 flex flex-col gap-6">
-            <span className="tag w-fit">About ON Medical</span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 leading-tight">
-              Egypt&apos;s Trusted Partner in{' '}
-              <span className="text-teal-600">Oncology Technology</span>
-            </h2>
-            <div className="w-10 h-0.5 rounded-full bg-gradient-to-r from-teal-500 to-teal-400" />
-            <p className="text-slate-500 text-base leading-relaxed">
-              ON Medical Company is a specialized Egyptian organization focused on the distribution, technical support, and market representation of advanced oncology and radiotherapy equipment. The name &ldquo;ON Medical&rdquo; reflects our core commitment — <strong className="text-navy-800 font-semibold">Oncology</strong> — and our dedication to advancing cancer treatment technology throughout Egypt.
-            </p>
-            <p className="text-slate-500 text-base leading-relaxed">
-              Since 2014, we have worked closely with hospitals, oncology centres, medical universities, and specialized institutes to supply precision equipment used in radiation therapy, radiation measurement, and treatment planning. We serve as the trusted Egyptian bridge between world-class international manufacturers and the healthcare institutions that depend on their technologies.
-            </p>
+          {/* ── Right: Text ────────────────────────────────── */}
+          <AnimatedSection
+            direction="right"
+            className="order-1 lg:order-2 flex flex-col gap-7"
+          >
+            <div className="flex flex-col gap-4">
+              <span className="section-label">About ON Medical</span>
+              <h2 className="section-title">
+                Egypt&apos;s Trusted Specialist in{' '}
+                <span className="text-brand-600">Oncology Technology</span>
+              </h2>
+            </div>
 
-            {/* Highlights */}
-            <ul className="grid grid-cols-1 gap-2.5 pt-2">
-              {highlights.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600">
-                  <CheckCircle2 size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
-                  {item}
+            <div className="space-y-4 text-[14px] leading-[1.8] text-ink-500">
+              <p>
+                ON Medical Company is a specialized Egyptian organization focused on the
+                distribution, technical support, and market representation of advanced oncology and
+                radiotherapy equipment. The name{' '}
+                <strong className="text-ink-800 font-semibold">ON Medical</strong> reflects our
+                defining focus —{' '}
+                <strong className="text-brand-600 font-semibold">Oncology</strong> — and our
+                commitment to advancing cancer treatment technology throughout Egypt.
+              </p>
+              <p>
+                Since 2014, we have worked closely with hospitals, oncology centres, medical
+                universities, and specialized institutes to supply high-precision equipment used in
+                radiation therapy, radiation measurement, and treatment planning.
+              </p>
+            </div>
+
+            {/* Feature checklist */}
+            <ul className="space-y-2.5">
+              {points.map(point => (
+                <li key={point} className="flex items-start gap-3 text-[13px] text-ink-600">
+                  <CheckCircle2
+                    size={15}
+                    className="text-brand-600 mt-0.5 flex-shrink-0"
+                    strokeWidth={2}
+                  />
+                  {point}
                 </li>
               ))}
             </ul>
 
-            <div className="flex items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3.5 pt-1">
               <Link href="/about" className="btn-primary">
-                Our Full Story
-                <ArrowRight size={15} />
+                Our Full Story <ArrowRight size={14} />
               </Link>
               <Link href="/contact" className="btn-secondary">
                 Contact Us

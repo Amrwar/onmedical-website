@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPin, Phone, Mail, Printer, ExternalLink } from 'lucide-react'
+import { MapPin, Phone, Mail, Printer, ArrowUpRight } from 'lucide-react'
 
-const navLinks = [
-  { label: 'Home',     href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Partners', href: '/partners' },
-  { label: 'Contact',  href: '/contact' },
+const pages = [
+  { label: 'Home',      href: '/' },
+  { label: 'About Us',  href: '/about' },
+  { label: 'Services',  href: '/services' },
+  { label: 'Partners',  href: '/partners' },
+  { label: 'Contact',   href: '/contact' },
 ]
 
 const services = [
@@ -19,136 +19,121 @@ const services = [
   'Market Representation',
 ]
 
-const partners = [
-  { name: 'PTW Freiburg',    country: 'Germany' },
-  { name: 'Ashland Medical', country: 'USA' },
-  { name: 'Klarity',         country: 'China' },
-]
-
 export default function Footer() {
   return (
-    <footer className="bg-dark-950 text-white">
-      <div className="container-tight py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+    <footer className="bg-ink-950 text-white">
 
-          {/* Brand column */}
-          <div className="lg:col-span-1 space-y-5">
-            <Link href="/" className="inline-block">
-              {/* Logo on dark background — invert to white */}
+      {/* ── Main content ───────────────────────────────────── */}
+      <div className="container-site pt-16 pb-12 lg:pt-20 lg:pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-6">
+
+          {/* Brand col — 4 cols */}
+          <div className="lg:col-span-4 space-y-5 lg:pr-6">
+            <Link href="/">
               <Image
                 src="/logo-onmedical.jpeg"
                 alt="ON Medical Company"
-                width={160}
-                height={48}
-                className="h-10 w-auto object-contain brightness-0 invert"
+                width={156}
+                height={46}
+                className="h-10 w-auto object-contain brightness-0 invert opacity-90"
               />
             </Link>
-            <p className="text-sm text-white/60 leading-relaxed max-w-[260px]">
-              A specialized Egyptian company advancing oncology and radiotherapy technology across the healthcare sector.
+            <p className="text-[13px] text-white/50 leading-relaxed max-w-[240px]">
+              A specialized Egyptian company advancing oncology and radiotherapy technology throughout the healthcare sector since 2014.
             </p>
-            <div className="pt-1">
-              <span className="inline-block text-[10px] font-semibold uppercase tracking-widest text-brand-400 border border-brand-400/30 rounded-full px-3 py-1">
-                Established 2014
+            <div className="flex items-center gap-2.5 pt-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/35">
+                Established Cairo, Egypt · 2014
               </span>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="space-y-5">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40">Navigation</h4>
+          {/* Navigation — 2 cols */}
+          <div className="lg:col-span-2 lg:border-l lg:border-white/[0.08] lg:pl-6 space-y-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">
+              Navigation
+            </p>
             <ul className="space-y-2.5">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+              {pages.map(p => (
+                <li key={p.href}>
                   <Link
-                    href={link.href}
-                    className="text-sm text-white/65 hover:text-white transition-colors flex items-center gap-1.5 group"
+                    href={p.href}
+                    className="flex items-center gap-2 text-[13px] text-white/55 hover:text-white transition-colors group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-brand-500/0 group-hover:bg-brand-500 transition-colors" />
-                    {link.label}
+                    <span className="w-1 h-1 rounded-full bg-brand-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {p.label}
                   </Link>
-                </li>
-              ))}
-            </ul>
-
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40 pt-2">Partners</h4>
-            <ul className="space-y-2">
-              {partners.map((p) => (
-                <li key={p.name} className="text-sm text-white/65">
-                  {p.name}
-                  <span className="text-white/30 ml-1.5 text-xs">· {p.country}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="space-y-5">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40">Services</h4>
+          {/* Services — 3 cols */}
+          <div className="lg:col-span-3 lg:border-l lg:border-white/[0.08] lg:pl-6 space-y-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">
+              Services
+            </p>
             <ul className="space-y-2.5">
-              {services.map((s) => (
-                <li key={s} className="flex items-start gap-2 text-sm text-white/65">
-                  <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-brand-500" />
+              {services.map(s => (
+                <li key={s} className="flex items-start gap-2 text-[13px] text-white/55">
+                  <span className="mt-[7px] w-1 h-1 rounded-full bg-brand-600 flex-shrink-0" />
                   {s}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div className="space-y-5">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40">Contact</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin size={15} className="text-brand-400 mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-white/65 leading-snug">
-                  548 Zahraa Nasr City,<br />Cairo, Egypt
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone size={15} className="text-brand-400 flex-shrink-0" />
-                <a href="tel:+20224115184" className="text-sm text-white/65 hover:text-white transition-colors">
-                  +20 2 24115184
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone size={15} className="text-brand-400 flex-shrink-0" />
-                <a href="tel:+201552176156" className="text-sm text-white/65 hover:text-white transition-colors">
-                  +20 155 217 6156
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Printer size={15} className="text-brand-400 flex-shrink-0" />
-                <span className="text-sm text-white/65">+20 2 24115184</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail size={15} className="text-brand-400 flex-shrink-0" />
-                <a href="mailto:osama@onmedical.net" className="text-sm text-brand-400 hover:text-brand-300 transition-colors">
-                  osama@onmedical.net
-                </a>
-              </li>
+          {/* Contact — 3 cols */}
+          <div className="lg:col-span-3 lg:border-l lg:border-white/[0.08] lg:pl-6 space-y-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">
+              Contact
+            </p>
+            <ul className="space-y-3.5">
+              {([
+                { icon: MapPin,  text: '548 Zahraa Nasr City\nCairo, Egypt',     href: null },
+                { icon: Phone,   text: '+20 2 24115184',                          href: 'tel:+20224115184' },
+                { icon: Phone,   text: '+20 155 217 6156',                        href: 'tel:+201552176156' },
+                { icon: Printer, text: '+20 2 24115184 (Fax)',                    href: null },
+                { icon: Mail,    text: 'osama@onmedical.net',                     href: 'mailto:osama@onmedical.net' },
+              ] as { icon: typeof MapPin; text: string; href: string | null }[]).map(({ icon: Icon, text, href }, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <Icon size={13} className="text-brand-500 mt-0.5 flex-shrink-0" strokeWidth={1.75} />
+                  {href ? (
+                    <a
+                      href={href}
+                      className="text-[13px] text-white/55 hover:text-white transition-colors leading-snug whitespace-pre-line"
+                    >
+                      {text}
+                    </a>
+                  ) : (
+                    <span className="text-[13px] text-white/55 leading-snug whitespace-pre-line">
+                      {text}
+                    </span>
+                  )}
+                </li>
+              ))}
             </ul>
-
-            <div className="pt-2">
+            <div className="pt-1">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-lg transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-[12px] font-semibold rounded-lg transition-colors shadow-btn-red"
               >
-                Send Enquiry
-                <ExternalLink size={13} />
+                Send Enquiry <ArrowUpRight size={13} />
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/8">
-        <div className="container-tight py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/35">
+      {/* ── Bottom bar ─────────────────────────────────────── */}
+      <div className="border-t border-white/[0.08]">
+        <div className="container-site py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-[11px] text-white/25">
             © {new Date().getFullYear()} ON Medical Company. All rights reserved.
           </p>
-          <p className="text-xs text-white/25">
-            Nasr City, Cairo, Egypt · Medical &amp; Oncology Equipment Distribution
+          <p className="text-[11px] text-white/[0.18]">
+            Oncology &amp; Radiotherapy Equipment · Cairo, Egypt
           </p>
         </div>
       </div>

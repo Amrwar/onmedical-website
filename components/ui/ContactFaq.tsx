@@ -7,23 +7,23 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 const faqs = [
   {
     q: 'What types of institutions do you supply?',
-    a: 'We supply oncology hospitals, radiation therapy centres, medical universities, government health institutions, research institutes, and private medical facilities throughout Egypt.',
+    a: 'We supply oncology hospitals, radiation therapy centres, medical universities, government health institutions, research institutes, and private medical facilities throughout Egypt. Every engagement is tailored to the specific technical and operational requirements of the institution.',
   },
   {
     q: 'Do you provide after-sales support for all equipment you supply?',
-    a: 'Yes. We provide long-term after-sales service, preventive maintenance guidance, calibration support, and ongoing technical consultation for all equipment distributed through ON Medical.',
+    a: 'Yes. We provide long-term after-sales service, preventive maintenance guidance, calibration support, and ongoing technical consultation for all equipment distributed through ON Medical. Our commitment extends well beyond the point of delivery.',
   },
   {
     q: 'Are you the authorized representative for your partner manufacturers?',
-    a: 'Yes. ON Medical is the authorized Egyptian market representative for PTW Freiburg (Germany), Ashland Medical (USA), and Klarity (China).',
+    a: 'Yes. ON Medical is the authorized Egyptian market representative for PTW Freiburg (Germany), Ashland Medical (USA), and Klarity (China). All equipment is sourced directly from these manufacturers and imported in full compliance with Egyptian medical device regulations.',
   },
   {
     q: 'Are you compliant with Egyptian medical device import regulations?',
-    a: 'Absolutely. All imports are conducted in strict accordance with Egyptian medical device regulations, customs procedures, and healthcare standards. All equipment is intended exclusively for legitimate medical and scientific use.',
+    a: 'Absolutely. All imports are conducted in strict accordance with Egyptian medical device regulations, customs procedures, and applicable healthcare standards. All equipment imported and distributed by ON Medical is intended exclusively for legitimate medical and scientific use.',
   },
   {
     q: 'Can international manufacturers contact you about representation in Egypt?',
-    a: 'Yes. We welcome discussions with specialized international manufacturers seeking professional representation in the Egyptian market. Please use the enquiry form or contact us directly at osama@onmedical.net.',
+    a: 'Yes. We welcome discussions with specialized international manufacturers seeking professional representation in the Egyptian market. ON Medical has the institutional network, regulatory knowledge, and technical credibility to represent focused medical technology brands. Please use the enquiry form or contact us directly at osama@onmedical.net.',
   },
 ]
 
@@ -32,29 +32,50 @@ export default function ContactFaq() {
 
   return (
     <div className="space-y-3">
-      {faqs.map((faq, i) => (
-        <AnimatedSection key={i} delay={i * 0.06}>
-          <div className="border border-medical-border rounded-xl overflow-hidden">
-            <button
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left bg-white hover:bg-medical-light transition-colors"
+      {faqs.map((faq, i) => {
+        const isOpen = openIndex === i
+        return (
+          <AnimatedSection key={i} delay={i * 0.06}>
+            <div
+              className={`rounded-xl border overflow-hidden transition-all duration-200 ${
+                isOpen
+                  ? 'border-brand-200 shadow-card-focus'
+                  : 'border-ink-200/70 hover:border-ink-300'
+              }`}
             >
-              <span className="text-sm font-semibold text-navy-900">{faq.q}</span>
-              <ChevronDown
-                size={16}
-                className={`text-teal-500 flex-shrink-0 transition-transform duration-200 ${
-                  openIndex === i ? 'rotate-180' : ''
+              <button
+                onClick={() => setOpenIndex(isOpen ? null : i)}
+                className={`w-full flex items-center justify-between gap-5 px-6 py-4 text-left transition-colors ${
+                  isOpen
+                    ? 'bg-brand-50/50'
+                    : 'bg-white hover:bg-ink-50/70'
                 }`}
-              />
-            </button>
-            {openIndex === i && (
-              <div className="px-6 pb-5 bg-medical-light border-t border-medical-border">
-                <p className="text-sm text-slate-500 leading-relaxed pt-4">{faq.a}</p>
+              >
+                <span className="text-[13px] font-semibold text-ink-900 leading-snug">
+                  {faq.q}
+                </span>
+                <ChevronDown
+                  size={15}
+                  strokeWidth={1.75}
+                  className={`text-brand-600 flex-shrink-0 transition-transform duration-200 ${
+                    isOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isOpen ? 'max-h-64' : 'max-h-0'
+                }`}
+              >
+                <div className="px-6 pb-5 pt-4 bg-ink-50/60 border-t border-ink-200/60">
+                  <p className="text-[13px] text-ink-500 leading-[1.8]">{faq.a}</p>
+                </div>
               </div>
-            )}
-          </div>
-        </AnimatedSection>
-      ))}
+            </div>
+          </AnimatedSection>
+        )
+      })}
     </div>
   )
 }

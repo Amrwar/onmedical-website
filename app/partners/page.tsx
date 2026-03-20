@@ -37,8 +37,6 @@ const partners = [
       'Radiation protection',
       'Research dosimetry',
     ],
-    accentClass: 'from-blue-900 to-navy-900',
-    borderClass: 'border-blue-800/50',
   },
   {
     id: 'ashland',
@@ -63,8 +61,6 @@ const partners = [
       'Clinical dosimetry support',
       'Radiation oncology workflows',
     ],
-    accentClass: 'from-navy-900 to-teal-900',
-    borderClass: 'border-teal-800/50',
   },
   {
     id: 'klarity',
@@ -88,8 +84,6 @@ const partners = [
       'Precision patient positioning',
       'Bone marrow transplant conditioning radiotherapy',
     ],
-    accentClass: 'from-teal-900 to-navy-950',
-    borderClass: 'border-navy-700/50',
   },
 ]
 
@@ -102,52 +96,66 @@ const benefits = [
   'Direct liaison with international manufacturers',
 ]
 
+const overviewStats = [
+  { label: 'Authorized Representation', desc: 'Direct authorization from each manufacturer' },
+  { label: 'Countries Represented',     desc: 'Germany · United States · China' },
+  { label: 'Market Coverage',           desc: 'Egypt — with MENA ambitions' },
+]
+
 export default function PartnersPage() {
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ──────────────────────────────────────────── */}
       <section className="bg-hero relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-900/90 to-teal-900/30 pointer-events-none" />
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          style={{ backgroundSize: '28px 28px' }}
+        />
+        <div
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: '80px 80px',
+            background:
+              'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.10) 0%, transparent 60%)',
           }}
         />
-        <div className="container-tight relative z-10">
+        <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <span className="tag text-teal-300 bg-teal-500/15 border-teal-400/25 mb-4 inline-flex">
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
                 Global Partners
               </span>
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight mb-5">
-                World-Class Manufacturers, <br className="hidden lg:block" />Local Expertise
+              <h1 className="text-4xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight mb-5">
+                World-Class Manufacturers,{' '}
+                <br className="hidden lg:block" />
+                <span className="text-gradient-brand">Local Expertise</span>
               </h1>
-              <p className="text-white/60 text-lg leading-relaxed max-w-2xl">
-                ON Medical serves as the authorized Egyptian representative for internationally recognized manufacturers whose technologies set the standard in oncology, radiotherapy, and medical physics.
+              <p className="text-white/55 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
+                ON Medical serves as the authorized Egyptian representative for internationally
+                recognized manufacturers whose technologies set the standard in oncology,
+                radiotherapy, and medical physics.
               </p>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Partnership approach */}
-      <section className="py-12 bg-white border-b border-medical-border">
-        <div className="container-tight">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-0 lg:divide-x divide-medical-border">
-            {[
-              { label: 'Authorized Representation', desc: 'Direct authorization from each manufacturer' },
-              { label: 'Countries Represented', desc: 'Germany · United States · China' },
-              { label: 'Market Coverage', desc: 'Egypt — with MENA ambitions' },
-            ].map((item, i) => (
-              <AnimatedSection key={item.label} delay={i * 0.08} className="lg:px-8 first:pl-0 last:pr-0">
-                <div className="flex items-center gap-3">
-                  <Globe size={16} className="text-teal-500 flex-shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-navy-900">{item.label}</p>
-                    <p className="text-xs text-slate-400">{item.desc}</p>
-                  </div>
+      {/* ── Partnership overview strip ────────────────────── */}
+      <section className="py-10 bg-white border-b border-ink-200/60">
+        <div className="container-site">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-0 sm:divide-x divide-ink-200/60">
+            {overviewStats.map((item, i) => (
+              <AnimatedSection
+                key={item.label}
+                delay={i * 0.08}
+                className="flex items-center gap-3.5 sm:px-8 first:pl-0 last:pr-0"
+              >
+                <div className="icon-box flex-shrink-0">
+                  <Globe size={17} className="text-brand-600" strokeWidth={1.75} />
+                </div>
+                <div>
+                  <p className="text-[13px] font-semibold text-ink-900">{item.label}</p>
+                  <p className="text-[11px] text-ink-400 mt-0.5">{item.desc}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -155,38 +163,54 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* Partner cards */}
-      <section className="section-padding bg-section-alt">
-        <div className="container-tight">
+      {/* ── Partner detail cards ──────────────────────────── */}
+      <section className="section-padding section-alt border-b border-ink-200/60">
+        <div className="container-site">
           <AnimatedSection>
             <SectionHeader
-              tag="Our Partners"
+              label="Our Partners"
               title="Three Global Partnerships. One Dedicated Team."
               subtitle="Each partnership represents a carefully selected relationship with a manufacturer whose products address a critical need in Egypt's oncology and radiotherapy infrastructure."
             />
           </AnimatedSection>
 
-          <div className="space-y-8 mt-14">
+          <div className="space-y-7 mt-14">
             {partners.map((partner, i) => (
               <AnimatedSection key={partner.id} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl border border-medical-border shadow-card overflow-hidden">
+                <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300">
                   <div className="grid grid-cols-1 lg:grid-cols-5">
-                    {/* Dark panel */}
-                    <div className={`lg:col-span-2 bg-gradient-to-br ${partner.accentClass} border-r ${partner.borderClass} p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden`}>
-                      <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/5 blur-2xl pointer-events-none" />
-                      <div className="relative z-10 flex flex-col gap-4 h-full">
-                        <div className="flex items-center gap-2">
-                          <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-white/15 border border-white/20 text-white text-xs font-bold tracking-widest uppercase">
-                            {partner.flag} {partner.country}
-                          </span>
-                        </div>
+
+                    {/* Dark left panel */}
+                    <div className="lg:col-span-2 bg-ink-950 p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden">
+                      <div
+                        className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+                        style={{ backgroundSize: '20px 20px' }}
+                      />
+                      <div
+                        className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
+                        style={{
+                          background:
+                            'radial-gradient(circle, rgb(204 18 18 / 0.10) 0%, transparent 65%)',
+                        }}
+                      />
+
+                      <div className="relative z-10 flex flex-col gap-5 h-full">
+                        {/* Country badge */}
+                        <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/[0.08] border border-white/[0.15] text-white text-[11px] font-bold tracking-widest uppercase w-fit">
+                          {partner.flag} {partner.country}
+                        </span>
+
                         <div>
-                          <h2 className="text-2xl font-black text-white mb-1">{partner.name}</h2>
-                          <p className="text-sm text-teal-300 font-medium">{partner.tagline}</p>
+                          <h2 className="text-2xl font-black text-white mb-1.5 leading-tight">
+                            {partner.name}
+                          </h2>
+                          <p className="text-[13px] text-brand-400 font-medium">
+                            {partner.tagline}
+                          </p>
                         </div>
 
-                        {/* Logo */}
-                        <div className="mt-auto w-full h-16 rounded-xl bg-white flex items-center justify-center px-5 py-2">
+                        {/* Logo on white background */}
+                        <div className="w-full h-16 rounded-xl bg-white border border-white/10 flex items-center justify-center px-5 py-2 mt-auto">
                           <Image
                             src={partner.logo}
                             alt={`${partner.name} logo`}
@@ -196,37 +220,41 @@ export default function PartnersPage() {
                           />
                         </div>
 
-                        <div className="flex items-center justify-between gap-3">
-                          <span className="text-xs text-white/35 font-medium uppercase tracking-wider">
-                            Authorized Representative · Egypt
+                        <div className="flex items-center justify-between gap-3 pt-2 border-t border-white/[0.08]">
+                          <span className="text-[11px] text-white/30 font-medium uppercase tracking-wider">
+                            Authorized Rep · Egypt
                           </span>
                           <a
                             href={partner.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 hover:border-white/30 text-white text-xs font-semibold transition-all duration-200 flex-shrink-0"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.08] hover:bg-white/[0.16] border border-white/[0.12] hover:border-white/25 text-white text-[11px] font-semibold transition-all duration-200 flex-shrink-0"
                           >
-                            Visit Website
-                            <ExternalLink size={11} />
+                            Website <ExternalLink size={10} />
                           </a>
                         </div>
                       </div>
                     </div>
 
-                    {/* Content panel */}
+                    {/* Right content panel */}
                     <div className="lg:col-span-3 p-8 lg:p-10 flex flex-col gap-6">
-                      <p className="text-slate-500 leading-relaxed text-base">{partner.description}</p>
+                      <p className="text-[14px] text-ink-500 leading-[1.8]">
+                        {partner.description}
+                      </p>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {/* Products */}
                         <div>
-                          <h4 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
+                          <h4 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400 mb-3">
                             Products &amp; Systems
                           </h4>
                           <ul className="space-y-2">
-                            {partner.products.map((p) => (
-                              <li key={p} className="flex items-start gap-2 text-sm text-slate-600">
-                                <span className="mt-1.5 w-1 h-1 rounded-full bg-teal-500 flex-shrink-0" />
+                            {partner.products.map(p => (
+                              <li
+                                key={p}
+                                className="flex items-start gap-2 text-[13px] text-ink-600"
+                              >
+                                <span className="mt-[7px] w-1 h-1 rounded-full bg-brand-600 flex-shrink-0" />
                                 {p}
                               </li>
                             ))}
@@ -235,13 +263,20 @@ export default function PartnersPage() {
 
                         {/* Applications */}
                         <div>
-                          <h4 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
+                          <h4 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400 mb-3">
                             Clinical Applications
                           </h4>
                           <ul className="space-y-2">
-                            {partner.applications.map((a) => (
-                              <li key={a} className="flex items-start gap-2 text-sm text-slate-600">
-                                <CheckCircle2 size={13} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                            {partner.applications.map(a => (
+                              <li
+                                key={a}
+                                className="flex items-start gap-2 text-[13px] text-ink-600"
+                              >
+                                <CheckCircle2
+                                  size={13}
+                                  className="text-brand-600 mt-0.5 flex-shrink-0"
+                                  strokeWidth={2}
+                                />
                                 {a}
                               </li>
                             ))}
@@ -249,13 +284,16 @@ export default function PartnersPage() {
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-medical-border">
+                      <div className="pt-4 border-t border-ink-200/60">
                         <Link
                           href="/contact"
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 hover:text-teal-700 group"
+                          className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand-600 hover:text-brand-700 group"
                         >
                           Enquire about {partner.name} products
-                          <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                          <ArrowRight
+                            size={14}
+                            className="group-hover:translate-x-0.5 transition-transform"
+                          />
                         </Link>
                       </div>
                     </div>
@@ -267,27 +305,45 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* Benefits of partnership */}
+      {/* ── Benefits of partnership ───────────────────────── */}
       <section className="section-padding bg-white">
-        <div className="container-tight">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <AnimatedSection direction="left">
-              <span className="tag mb-4 inline-flex">Working With Us</span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 leading-tight mb-4">
-                What Our Partnership Means for Your Institution
-              </h2>
-              <div className="w-10 h-0.5 rounded-full bg-gradient-to-r from-teal-500 to-teal-400 mb-6" />
-              <p className="text-slate-500 leading-relaxed text-base">
-                When you source equipment through ON Medical, you are not simply purchasing hardware — you are engaging a complete representation and support structure that bridges the gap between international manufacturers and Egyptian healthcare.
+        <div className="container-site">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            <AnimatedSection direction="left" className="flex flex-col gap-7">
+              <div className="flex flex-col gap-4">
+                <span className="section-label">Working With Us</span>
+                <h2 className="section-title !text-left">
+                  What Our Partnership Means for Your Institution
+                </h2>
+              </div>
+              <p className="text-[14px] text-ink-500 leading-[1.8]">
+                When you source equipment through ON Medical, you are not simply purchasing
+                hardware — you are engaging a complete representation and support structure that
+                bridges the gap between international manufacturers and Egyptian healthcare.
+              </p>
+              <p className="text-[14px] text-ink-500 leading-[1.8]">
+                Our deep regulatory knowledge, institutional relationships, and technical expertise
+                ensure every engagement is managed with professionalism and accountability —
+                from import paperwork to installation and beyond.
               </p>
             </AnimatedSection>
 
             <AnimatedSection direction="right">
               <div className="grid grid-cols-1 gap-3">
                 {benefits.map((benefit, i) => (
-                  <div key={benefit} className="flex items-center gap-3 p-4 rounded-lg bg-medical-light border border-medical-border">
-                    <CheckCircle2 size={16} className="text-teal-500 flex-shrink-0" />
-                    <span className="text-sm font-medium text-navy-800">{benefit}</span>
+                  <div
+                    key={benefit}
+                    className="flex items-center gap-3.5 p-4 rounded-lg bg-ink-50 border border-ink-200/60 hover:border-brand-200 hover:bg-brand-50/30 transition-all duration-200 group"
+                  >
+                    <div className="w-7 h-7 rounded-md bg-brand-50 border border-brand-100/80 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-600 group-hover:border-brand-600 transition-colors">
+                      <CheckCircle2
+                        size={14}
+                        className="text-brand-600 group-hover:text-white transition-colors"
+                        strokeWidth={2}
+                      />
+                    </div>
+                    <span className="text-[13px] font-medium text-ink-800">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -296,28 +352,34 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* Manufacturers CTA */}
-      <section className="section-padding bg-navy-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+      {/* ── Manufacturers CTA ─────────────────────────────── */}
+      <section className="section-padding bg-ink-950 relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          style={{ backgroundSize: '28px 28px' }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
+            background:
+              'radial-gradient(ellipse, rgb(204 18 18 / 0.08) 0%, transparent 65%)',
           }}
         />
-        <div className="container-tight relative z-10 text-center">
+        <div className="container-site relative z-10 text-center">
           <AnimatedSection>
-            <span className="tag text-teal-300 bg-teal-500/15 border-teal-400/25 mx-auto mb-5 inline-flex">
+            <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-6">
               For Manufacturers
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 max-w-2xl mx-auto">
+            <h2 className="text-3xl lg:text-[2.5rem] font-bold text-white mb-4 max-w-2xl mx-auto leading-[1.15] tracking-tight">
               Are You an International Manufacturer Seeking an Egyptian Representative?
             </h2>
-            <p className="text-white/55 text-base leading-relaxed max-w-xl mx-auto mb-8">
-              ON Medical has deep institutional connections, regulatory expertise, and the technical credibility to represent specialized medical technology companies in the Egyptian market.
+            <p className="text-white/50 text-[14px] leading-[1.8] max-w-xl mx-auto mb-8">
+              ON Medical has deep institutional connections, regulatory expertise, and the technical
+              credibility to represent specialized medical technology companies in the Egyptian
+              market.
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-semibold rounded-lg transition-colors shadow-lg">
-              Discuss Representation
-              <ArrowRight size={15} />
+            <Link href="/contact" className="btn-primary mx-auto">
+              Discuss Representation <ArrowRight size={14} />
             </Link>
           </AnimatedSection>
         </div>

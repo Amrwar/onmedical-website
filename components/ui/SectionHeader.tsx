@@ -1,4 +1,6 @@
 interface SectionHeaderProps {
+  label?: string
+  /** legacy prop alias */
   tag?: string
   title: string
   subtitle?: string
@@ -7,34 +9,41 @@ interface SectionHeaderProps {
 }
 
 export default function SectionHeader({
+  label,
   tag,
   title,
   subtitle,
   align = 'center',
   light = false,
 }: SectionHeaderProps) {
-  const alignClass = align === 'center' ? 'text-center items-center' : 'text-left items-start'
+  const eyebrow = label ?? tag
+  const center  = align === 'center'
 
   return (
-    <div className={`flex flex-col gap-4 ${alignClass}`}>
-      {tag && (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-50 text-teal-700 text-xs font-semibold rounded-full uppercase tracking-wider border border-teal-100 w-fit">
-          {tag}
+    <div className={`flex flex-col gap-4 ${center ? 'items-center text-center' : 'items-start'}`}>
+      {eyebrow && (
+        <span
+          className={`section-label ${
+            light
+              ? '!text-brand-400 before:!bg-brand-400/50 after:!bg-brand-400/50'
+              : ''
+          }`}
+        >
+          {eyebrow}
         </span>
       )}
       <h2
-        className={`text-3xl lg:text-4xl font-bold leading-tight max-w-2xl ${
-          light ? 'text-white' : 'text-navy-900'
-        } ${align === 'center' ? 'mx-auto' : ''}`}
+        className={`section-title ${light ? '!text-white' : ''} ${
+          center ? 'max-w-2xl' : 'max-w-xl'
+        }`}
       >
         {title}
       </h2>
-      <div className={`w-10 h-0.5 rounded-full bg-gradient-to-r from-teal-500 to-teal-400 ${align === 'center' ? 'mx-auto' : ''}`} />
       {subtitle && (
         <p
-          className={`text-base leading-relaxed max-w-2xl ${
-            light ? 'text-white/70' : 'text-slate-500'
-          } ${align === 'center' ? 'mx-auto' : ''}`}
+          className={`section-subtitle ${light ? '!text-white/55' : ''} ${
+            center ? 'mx-auto' : ''
+          }`}
         >
           {subtitle}
         </p>
