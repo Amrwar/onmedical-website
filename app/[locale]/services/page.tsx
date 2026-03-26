@@ -194,7 +194,7 @@ export default async function ServicesPage() {
               const Icon = service.icon
               return (
                 <AnimatedSection key={service.title} delay={i % 2 === 0 ? 0 : 0.08}>
-                  <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300">
+                  <div className="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300" style={{ borderTop: '2px solid #e5e7eb', borderBottom: '2px solid #e5e7eb', borderLeft: '2px solid #CC1212', borderRight: '2px solid #CC1212' }}>
                     <div className="grid grid-cols-1 lg:grid-cols-5">
 
                       {/* Left red panel */}
