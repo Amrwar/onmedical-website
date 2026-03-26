@@ -288,7 +288,7 @@ export default async function CertificationsPage() {
                 ].map(tag => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-ink-100 text-ink-600 border border-ink-200"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-brand-50 text-brand-700 border border-brand-200"
                   >
                     {tag}
                   </span>
