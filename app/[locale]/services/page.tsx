@@ -277,8 +277,8 @@ export default async function ServicesPage() {
                 {/* Node 2 — red */}
                 <circle cx="37" cy="24" r="10" fill="#CC1212"/>
                 <text x="37" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">2</text>
-                {/* Node 3 — black */}
-                <circle cx="60" cy="24" r="10" fill="#1a1a1a"/>
+                {/* Node 3 — red */}
+                <circle cx="60" cy="24" r="10" fill="#CC1212"/>
                 <text x="60" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">3</text>
                 {/* Node 4 — black */}
                 <circle cx="83" cy="24" r="10" fill="#1a1a1a"/>
