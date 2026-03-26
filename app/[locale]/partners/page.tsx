@@ -311,14 +311,13 @@ export default async function PartnersPage() {
                 {/* Right panel — product image + key features */}
                 <div className="lg:col-span-3 p-8 lg:p-10 flex flex-col gap-8 bg-ink-900">
                   {/* Main product image */}
-                  <div className="bg-ink-950/60 border border-white/[0.07] rounded-xl p-10 flex flex-col items-center justify-center gap-4" style={{ aspectRatio: '16/9' }}>
-                    <div className="w-16 h-16 rounded-2xl bg-brand-600/20 border border-brand-500/30 flex items-center justify-center">
-                      <Cpu size={28} className="text-brand-400" strokeWidth={1.5} />
-                    </div>
-                    <div className="text-center">
-                      <p className="text-white/60 text-[13px] font-semibold">BEAMSCAN® Water Phantom System</p>
-                      <p className="text-white/25 text-[10px] mt-1">Product image · Replace with official PTW imagery</p>
-                    </div>
+                  <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                    <Image
+                      src="/ptw beamscan image.jpeg"
+                      alt="BEAMSCAN® Water Phantom System — PTW Freiburg"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <p className="text-[11px] text-white/30 text-center">
                     BEAMSCAN® — Automated 3D Water Scanning Platform · PTW Freiburg, Germany
@@ -882,14 +881,13 @@ export default async function PartnersPage() {
 
                 {/* Left — main product image (flagship) */}
                 <div className="border-r border-ink-200/60">
-                  <div className="bg-ink-50 p-10 lg:p-14 flex flex-col items-center justify-center gap-5" style={{ minHeight: '400px' }}>
-                    <div className="w-20 h-20 rounded-2xl bg-white border border-ink-200/60 shadow-card flex items-center justify-center">
-                      <Cpu size={34} className="text-brand-600" strokeWidth={1.5} />
-                    </div>
-                    <div className="text-center">
-                      <p className="text-[14px] font-bold text-ink-600">Klarity UNO™ All-In-One System</p>
-                      <p className="text-[11px] text-ink-300 mt-1.5">Main product image · Replace with official Klarity imagery</p>
-                    </div>
+                  <div className="relative" style={{ minHeight: '400px' }}>
+                    <Image
+                      src="/klarity uno.jpeg"
+                      alt="Klarity UNO™ All-In-One System"
+                      fill
+                      className="object-contain p-6"
+                    />
                   </div>
                   <div className="bg-white border-t border-ink-200/60 px-8 py-3 text-center">
                     <p className="text-[11px] text-ink-400">
