@@ -258,7 +258,6 @@ export default async function ContactPage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────── */}
-      <SectionDivider />
       <section id="faq" className="relative section-padding bg-white">
         {/* Top zigzag strip */}
         <div className="absolute top-0 left-0 right-0 h-4 pointer-events-none overflow-hidden">

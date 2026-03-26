@@ -31,9 +31,6 @@ export default function Footer() {
   return (
     <footer className="bg-ink-50 border-t border-ink-200">
 
-      {/* Red top accent */}
-      <div className="h-1 w-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400" />
-
       {/* ── Main content ───────────────────────────────────── */}
       <div className="container-site pt-16 pb-12 lg:pt-20 lg:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-6">
