@@ -572,7 +572,7 @@ export default async function AboutPage() {
         <div className="container-site">
           <AnimatedSection>
             <div className="flex justify-center mb-5">
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="64" height="56" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Chip body */}
                 <rect x="16" y="16" width="32" height="32" rx="3" fill="#1a1a1a"/>
                 {/* Inner processor die */}

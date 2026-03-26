@@ -98,7 +98,7 @@ export default async function ContactPage() {
         <div className="container-site">
           <AnimatedSection>
             <div className="flex justify-center mb-5">
-              <svg width="52" height="48" viewBox="0 0 52 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Phone handset body */}
                 <path d="M10,6 L15,6 C16.1,6 17,6.9 17,8 L17,14 C17,15.1 16.1,16 15,16 L12,16 C12,16 12,26 22,30 L22,27 L28,27 C29.1,27 30,27.9 30,29 L30,35 C30,36.1 29.1,37 28,37 L23,37 C14,37 5,28 5,19 L5,9 C5,7.3 7,6 10,6 Z" fill="#CC1212"/>
                 {/* Signal wave 1 — small */}
