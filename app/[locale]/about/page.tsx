@@ -575,7 +575,6 @@ export default async function AboutPage() {
             <AnimatedSection direction="left" className="flex flex-col gap-6">
               <div className="flex flex-col gap-4">
                 {/* Technical / CPU chip icon */}
-                <div className="flex justify-center">
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Chip body */}
                   <rect x="16" y="16" width="32" height="32" rx="3" fill="#1a1a1a"/>
@@ -609,7 +608,6 @@ export default async function AboutPage() {
                   <line x1="48" y1="35" x2="54" y2="35" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
                   <line x1="48" y1="41" x2="54" y2="41" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-                </div>
                 <span className="section-label">{t('expertiseLabel')}</span>
                 <h2 className="section-title !text-left">{t('expertiseTitle')}</h2>
               </div>
