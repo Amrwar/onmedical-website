@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: 'ON Medical Website <onboarding@resend.dev>',
+      from: 'ON Medical Website <noreply@onmedical.net>',
       to: process.env.CONTACT_TO_EMAIL ?? 'osama@onmedical.net',
       replyTo: email,
       subject: `New Enquiry${enquiryType ? ` — ${enquiryType}` : ''} from ${name}`,
