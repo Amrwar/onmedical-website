@@ -218,9 +218,13 @@ export default async function CertificationsPage() {
       </section>
 
       {/* ── Founder profile ───────────────────────────────── */}
-      <SectionDivider bg="muted" />
-      <section className="section-padding section-alt">
+      <SectionDivider />
+      <section className="section-padding bg-white">
         <div className="container-site">
+          <div className="rounded-2xl border border-brand-200 shadow-card overflow-hidden">
+            {/* Red top accent bar */}
+            <div className="h-1 w-full bg-gradient-to-r from-brand-700 via-brand-500 to-brand-300" />
+            <div className="p-8 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-center">
 
             {/* Photo */}
@@ -292,6 +296,8 @@ export default async function CertificationsPage() {
               </div>
             </AnimatedSection>
           </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -300,6 +306,28 @@ export default async function CertificationsPage() {
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>
+            {/* Certification badge / medal icon */}
+            <div className="flex justify-center mb-5">
+              <svg width="64" height="72" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Ribbon left */}
+                <path d="M20,28 L12,52 L22,46 L26,56 L32,32" fill="#CC1212" opacity="0.85"/>
+                {/* Ribbon right */}
+                <path d="M44,28 L52,52 L42,46 L38,56 L32,32" fill="#CC1212" opacity="0.85"/>
+                {/* Medal outer ring */}
+                <circle cx="32" cy="26" r="22" fill="#1a1a1a"/>
+                {/* Medal ring border */}
+                <circle cx="32" cy="26" r="22" fill="none" stroke="#CC1212" strokeWidth="2.5"/>
+                {/* Medal inner ring */}
+                <circle cx="32" cy="26" r="16" fill="#CC1212"/>
+                {/* Inner shine ring */}
+                <circle cx="32" cy="26" r="13" fill="none" stroke="rgba(255,255,255,0.20)" strokeWidth="1.5"/>
+                {/* Star */}
+                <path d="M32,14 L34.4,21.2 L42,21.2 L35.8,25.6 L38.2,32.8 L32,28.4 L25.8,32.8 L28.2,25.6 L22,21.2 L29.6,21.2 Z" fill="white" opacity="0.9"/>
+                {/* Top bail (ring to hang medal) */}
+                <rect x="28" y="2" width="8" height="6" rx="2" fill="#1a1a1a" stroke="#CC1212" strokeWidth="1.5"/>
+                <line x1="32" y1="4" x2="32" y2="8" stroke="#CC1212" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            </div>
             <SectionHeader
               label={t('certsLabel')}
               title={t('certsTitle')}
