@@ -48,11 +48,11 @@ export default function WhyChooseUs() {
         <AnimatedSection>
           {/* Question mark icon above "WHY ON MEDICAL" */}
           <div className="flex justify-center mb-5">
-            <svg width="40" height="56" viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Question mark curve */}
-              <path d="M6,14 C6,5 11,1 20,1 C29,1 34,6 34,14 C34,20 30,24 25,27 C22,29 20,31 20,36" stroke="#CC1212" strokeWidth="5" strokeLinecap="round" fill="none"/>
+              <path d="M6,16 C6,7 11,3 20,3 C29,3 34,8 34,16 C34,22 30,26 25,29 C22,31 20,33 20,38" stroke="#CC1212" strokeWidth="5" strokeLinecap="round" fill="none"/>
               {/* Dot */}
-              <circle cx="20" cy="48" r="4.5" fill="#CC1212"/>
+              <circle cx="20" cy="52" r="4.5" fill="#CC1212"/>
             </svg>
           </div>
           <SectionHeader
