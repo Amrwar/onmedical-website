@@ -311,14 +311,11 @@ export default async function ServicesPage() {
               ]
               return (
               <AnimatedSection key={step.step} delay={i * 0.13}>
-                <div className="relative bg-white rounded-2xl shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col gap-4 h-full group overflow-hidden"
-                  style={{ borderTop: '2px solid #CC1212', borderBottom: '2px solid #CC1212', borderLeft: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}>
+                <div className="relative bg-white rounded-2xl shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col gap-4 h-full group overflow-hidden border-l border-r border-l-[#e5e7eb] border-r-[#e5e7eb] border-t-[3px] border-b-[3px] border-t-brand-600 border-b-brand-600 hover:border-t-[4px] hover:border-b-[4px]">
                   {/* Step number watermark */}
                   <span className="absolute top-4 right-5 text-[11px] font-bold text-ink-200 tabular-nums select-none">
                     {step.step}
                   </span>
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-600 to-brand-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   {/* Icon */}
                   <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center flex-shrink-0 text-brand-600 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition-all duration-300">
                     {stepIcons[i]}
