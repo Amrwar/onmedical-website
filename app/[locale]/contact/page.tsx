@@ -194,27 +194,45 @@ export default async function ContactPage() {
           <AnimatedSection className="mb-12">
             {/* Handshake icon above WHO WE HELP */}
             <div className="flex justify-center mb-5">
-              <svg width="80" height="56" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Left arm */}
-                <path d="M2,28 L18,20 L28,24 L36,20" stroke="#1a1a1a" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                {/* Left hand fingers */}
-                <path d="M36,20 L40,16 L44,18" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <path d="M36,20 L38,14 L42,15" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <path d="M36,20 L37,12 L41,13" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                {/* Right arm */}
-                <path d="M78,28 L62,20 L52,24 L44,20" stroke="#CC1212" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                {/* Right hand fingers */}
-                <path d="M44,20 L40,16 L36,18" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <path d="M44,20 L42,14 L38,15" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <path d="M44,20 L43,12 L39,13" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                {/* Clasped hands centre */}
-                <ellipse cx="40" cy="22" rx="6" ry="5" fill="#CC1212" opacity="0.15"/>
-                <circle cx="40" cy="22" r="4" fill="#CC1212" opacity="0.9"/>
-                <circle cx="40" cy="22" r="2" fill="white" opacity="0.6"/>
-                {/* Cuff left */}
-                <path d="M18,20 L14,32 L24,36 L28,24" fill="#1a1a1a" opacity="0.12"/>
-                {/* Cuff right */}
-                <path d="M62,20 L66,32 L56,36 L52,24" fill="#CC1212" opacity="0.12"/>
+              <svg width="88" height="60" viewBox="0 0 88 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* ── Left hand (black) coming from left ── */}
+                {/* Sleeve / wrist */}
+                <path d="M2,42 L2,36 L18,30 L24,32" fill="#1a1a1a"/>
+                {/* Palm */}
+                <path d="M18,30 L24,32 L30,28 L34,26 L34,34 L28,38 L18,40 Z" fill="#1a1a1a"/>
+                {/* Index finger */}
+                <path d="M30,28 L32,20 L36,20 L34,28" fill="#1a1a1a"/>
+                {/* Middle finger */}
+                <path d="M33,27 L35,18 L39,19 L37,27" fill="#1a1a1a"/>
+                {/* Ring finger */}
+                <path d="M36,27 L37,20 L41,21 L40,28" fill="#1a1a1a"/>
+                {/* Pinky */}
+                <path d="M39,28 L40,22 L43,23 L42,29" fill="#1a1a1a"/>
+                {/* Thumb */}
+                <path d="M18,30 L14,26 L17,22 L22,28" fill="#1a1a1a"/>
+
+                {/* ── Right hand (red) coming from right ── */}
+                {/* Sleeve / wrist */}
+                <path d="M86,42 L86,36 L70,30 L64,32" fill="#CC1212"/>
+                {/* Palm */}
+                <path d="M70,30 L64,32 L58,28 L54,26 L54,34 L60,38 L70,40 Z" fill="#CC1212"/>
+                {/* Index finger */}
+                <path d="M58,28 L56,20 L52,20 L54,28" fill="#CC1212"/>
+                {/* Middle finger */}
+                <path d="M55,27 L53,18 L49,19 L51,27" fill="#CC1212"/>
+                {/* Ring finger */}
+                <path d="M52,27 L51,20 L47,21 L48,28" fill="#CC1212"/>
+                {/* Pinky */}
+                <path d="M49,28 L48,22 L45,23 L46,29" fill="#CC1212"/>
+                {/* Thumb */}
+                <path d="M70,30 L74,26 L71,22 L66,28" fill="#CC1212"/>
+
+                {/* ── Clasped grip in centre ── */}
+                <path d="M34,26 Q44,22 54,26 L54,38 Q44,42 34,38 Z" fill="#2a2a2a"/>
+                {/* Finger overlap highlights */}
+                <line x1="38" y1="26" x2="38" y2="38" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+                <line x1="44" y1="24" x2="44" y2="38" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+                <line x1="50" y1="26" x2="50" y2="38" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
               </svg>
             </div>
             <SectionHeader
