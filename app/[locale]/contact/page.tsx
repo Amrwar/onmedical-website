@@ -102,6 +102,7 @@ export default async function ContactPage() {
             <AnimatedSection direction="left" className="lg:col-span-2 flex flex-col gap-6">
               <div className="flex flex-col gap-4">
                 {/* Communication / GET IN TOUCH icon */}
+                <div className="flex justify-center">
                 <svg width="52" height="48" viewBox="0 0 52 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Phone handset body */}
                   <path d="M10,6 L15,6 C16.1,6 17,6.9 17,8 L17,14 C17,15.1 16.1,16 15,16 L12,16 C12,16 12,26 22,30 L22,27 L28,27 C29.1,27 30,27.9 30,29 L30,35 C30,36.1 29.1,37 28,37 L23,37 C14,37 5,28 5,19 L5,9 C5,7.3 7,6 10,6 Z" fill="#CC1212"/>
@@ -112,6 +113,7 @@ export default async function ContactPage() {
                   {/* Signal wave 3 — large */}
                   <path d="M32,4 Q47,4 47,19" stroke="#CC1212" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.35"/>
                 </svg>
+                </div>
                 <span className="section-label">{t('getInTouch')}</span>
                 <h2 className="section-title !text-left text-2xl lg:text-[1.75rem]">
                   {t('contactInfoTitle')}
