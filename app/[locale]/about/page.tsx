@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { CheckCircle2, Target, Eye, Cpu, BookOpen, Mail, Phone, Award, Users } from 'lucide-react'
+import { CheckCircle2, Cpu, BookOpen, Mail, Phone, Award, Users } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -330,9 +330,30 @@ export default async function AboutPage() {
               <AnimatedSection direction="left">
                 <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-card-hover">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-600 to-brand-400 rounded-t-2xl" />
-                  <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
-                    <Target size={22} className="text-brand-600" strokeWidth={1.75} />
-                  </div>
+                  {/* Pinboard with red pin */}
+                  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Board */}
+                    <rect x="4" y="6" width="44" height="34" rx="3" fill="#1a1a1a"/>
+                    <rect x="4" y="6" width="44" height="34" rx="3" stroke="#333" strokeWidth="1"/>
+                    {/* Board frame highlight */}
+                    <rect x="6" y="8" width="40" height="30" rx="2" fill="none" stroke="#3a3a3a" strokeWidth="0.8"/>
+                    {/* Paper on board */}
+                    <rect x="10" y="12" width="32" height="22" rx="1.5" fill="#f5f0e8"/>
+                    {/* Paper lines */}
+                    <line x1="14" y1="18" x2="38" y2="18" stroke="#d4c9b0" strokeWidth="1"/>
+                    <line x1="14" y1="22" x2="38" y2="22" stroke="#d4c9b0" strokeWidth="1"/>
+                    <line x1="14" y1="26" x2="32" y2="26" stroke="#d4c9b0" strokeWidth="1"/>
+                    {/* Pin shadow */}
+                    <ellipse cx="27" cy="16" rx="4" ry="1.5" fill="rgba(0,0,0,0.25)"/>
+                    {/* Pin head */}
+                    <circle cx="26" cy="13" r="5" fill="#CC1212"/>
+                    <circle cx="24.5" cy="11.5" r="1.5" fill="rgba(255,255,255,0.35)"/>
+                    {/* Pin needle */}
+                    <line x1="26" y1="17" x2="26" y2="24" stroke="#991111" strokeWidth="1.5" strokeLinecap="round"/>
+                    {/* Board leg / stand bottom */}
+                    <rect x="20" y="40" width="12" height="3" rx="1.5" fill="#1a1a1a"/>
+                    <rect x="23" y="39" width="6" height="3" rx="1" fill="#222"/>
+                  </svg>
                   <div>
                     <h3 className="text-xl font-bold text-ink-900 mb-1">{t('missionTitle')}</h3>
                     <div className="w-8 h-0.5 rounded-full bg-brand-600 mb-5" />
@@ -346,9 +367,27 @@ export default async function AboutPage() {
               <AnimatedSection direction="right">
                 <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-card-hover">
                   <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-brand-600 to-brand-400 rounded-l-2xl" />
-                  <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
-                    <Eye size={22} className="text-brand-600" strokeWidth={1.75} />
-                  </div>
+                  {/* Red glasses with black handles */}
+                  <svg width="72" height="36" viewBox="0 0 72 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Left arm */}
+                    <path d="M2,14 L13,16" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round"/>
+                    {/* Right arm */}
+                    <path d="M70,14 L59,16" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round"/>
+                    {/* Left lens frame */}
+                    <circle cx="20" cy="20" r="11" fill="#CC1212" stroke="#991111" strokeWidth="1.5"/>
+                    {/* Left lens glass */}
+                    <circle cx="20" cy="20" r="8.5" fill="rgba(204,18,18,0.18)"/>
+                    {/* Left lens highlight */}
+                    <path d="M14,15 Q17,12 21,14" stroke="rgba(255,255,255,0.55)" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+                    {/* Bridge */}
+                    <path d="M31,20 Q36,16 41,20" stroke="#1a1a1a" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+                    {/* Right lens frame */}
+                    <circle cx="52" cy="20" r="11" fill="#CC1212" stroke="#991111" strokeWidth="1.5"/>
+                    {/* Right lens glass */}
+                    <circle cx="52" cy="20" r="8.5" fill="rgba(204,18,18,0.18)"/>
+                    {/* Right lens highlight */}
+                    <path d="M46,15 Q49,12 53,14" stroke="rgba(255,255,255,0.55)" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+                  </svg>
                   <div>
                     <h3 className="text-xl font-bold text-ink-900 mb-1">{t('visionTitle')}</h3>
                     <div className="w-8 h-0.5 rounded-full bg-brand-600 mb-5" />
