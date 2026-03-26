@@ -303,31 +303,54 @@ export default async function CertificationsPage() {
 
       {/* ── Certificates list ──────────────────────────────── */}
       <SectionDivider />
-      <section className="section-padding bg-white">
-        <div className="container-site">
+      <section className="relative section-padding bg-white">
+
+        {/* Hanging medal — left */}
+        <div className="absolute top-0 left-[18%] pointer-events-none select-none animate-bulb-swing hidden md:block">
+          <svg width="52" height="150" viewBox="0 0 52 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* String */}
+            <line x1="26" y1="0" x2="26" y2="52" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round"/>
+            {/* Bail ring */}
+            <rect x="20" y="50" width="12" height="7" rx="2" fill="#1a1a1a" stroke="#CC1212" strokeWidth="1.2"/>
+            {/* Ribbon left */}
+            <path d="M16,72 L8,100 L18,94 L22,104 L26,80" fill="#CC1212" opacity="0.85"/>
+            {/* Ribbon right */}
+            <path d="M36,72 L44,100 L34,94 L30,104 L26,80" fill="#CC1212" opacity="0.85"/>
+            {/* Medal outer */}
+            <circle cx="26" cy="70" r="18" fill="#1a1a1a"/>
+            <circle cx="26" cy="70" r="18" fill="none" stroke="#CC1212" strokeWidth="2"/>
+            {/* Medal inner */}
+            <circle cx="26" cy="70" r="12" fill="#CC1212"/>
+            <circle cx="26" cy="70" r="9.5" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1.2"/>
+            {/* Star */}
+            <path d="M26,61 L27.9,67.2 L34.4,67.2 L29.2,71 L31.1,77.2 L26,73.4 L20.9,77.2 L22.8,71 L17.6,67.2 L24.1,67.2 Z" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+
+        {/* Hanging medal — right */}
+        <div className="absolute top-0 right-[18%] pointer-events-none select-none animate-bulb-swing-delay hidden md:block">
+          <svg width="52" height="150" viewBox="0 0 52 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* String */}
+            <line x1="26" y1="0" x2="26" y2="52" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round"/>
+            {/* Bail ring */}
+            <rect x="20" y="50" width="12" height="7" rx="2" fill="#1a1a1a" stroke="#CC1212" strokeWidth="1.2"/>
+            {/* Ribbon left */}
+            <path d="M16,72 L8,100 L18,94 L22,104 L26,80" fill="#CC1212" opacity="0.85"/>
+            {/* Ribbon right */}
+            <path d="M36,72 L44,100 L34,94 L30,104 L26,80" fill="#CC1212" opacity="0.85"/>
+            {/* Medal outer */}
+            <circle cx="26" cy="70" r="18" fill="#1a1a1a"/>
+            <circle cx="26" cy="70" r="18" fill="none" stroke="#CC1212" strokeWidth="2"/>
+            {/* Medal inner */}
+            <circle cx="26" cy="70" r="12" fill="#CC1212"/>
+            <circle cx="26" cy="70" r="9.5" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1.2"/>
+            {/* Star */}
+            <path d="M26,61 L27.9,67.2 L34.4,67.2 L29.2,71 L31.1,77.2 L26,73.4 L20.9,77.2 L22.8,71 L17.6,67.2 L24.1,67.2 Z" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+
+        <div className="container-site relative z-10">
           <AnimatedSection>
-            {/* Certification badge / medal icon */}
-            <div className="flex justify-center mb-5">
-              <svg width="64" height="72" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Ribbon left */}
-                <path d="M20,28 L12,52 L22,46 L26,56 L32,32" fill="#CC1212" opacity="0.85"/>
-                {/* Ribbon right */}
-                <path d="M44,28 L52,52 L42,46 L38,56 L32,32" fill="#CC1212" opacity="0.85"/>
-                {/* Medal outer ring */}
-                <circle cx="32" cy="26" r="22" fill="#1a1a1a"/>
-                {/* Medal ring border */}
-                <circle cx="32" cy="26" r="22" fill="none" stroke="#CC1212" strokeWidth="2.5"/>
-                {/* Medal inner ring */}
-                <circle cx="32" cy="26" r="16" fill="#CC1212"/>
-                {/* Inner shine ring */}
-                <circle cx="32" cy="26" r="13" fill="none" stroke="rgba(255,255,255,0.20)" strokeWidth="1.5"/>
-                {/* Star */}
-                <path d="M32,14 L34.4,21.2 L42,21.2 L35.8,25.6 L38.2,32.8 L32,28.4 L25.8,32.8 L28.2,25.6 L22,21.2 L29.6,21.2 Z" fill="white" opacity="0.9"/>
-                {/* Top bail (ring to hang medal) */}
-                <rect x="28" y="2" width="8" height="6" rx="2" fill="#1a1a1a" stroke="#CC1212" strokeWidth="1.5"/>
-                <line x1="32" y1="4" x2="32" y2="8" stroke="#CC1212" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            </div>
             <SectionHeader
               label={t('certsLabel')}
               title={t('certsTitle')}
