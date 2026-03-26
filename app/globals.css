@@ -235,6 +235,20 @@
   }
 }
 
+/* ─── Light bulb swing animation ───────────────────────────────── */
+@keyframes bulb-swing {
+  0%, 100% { transform: rotate(-4deg); }
+  50%       { transform: rotate(4deg); }
+}
+.animate-bulb-swing {
+  animation: bulb-swing 5s ease-in-out infinite;
+  transform-origin: top center;
+}
+.animate-bulb-swing-delay {
+  animation: bulb-swing 5s ease-in-out infinite 2.5s;
+  transform-origin: top center;
+}
+
 /* ─── Red arrow pulse animation ────────────────────────────────── */
 @keyframes arrow-color-pulse {
   0%, 100% { opacity: 1;   filter: drop-shadow(0 0 6px rgb(204 18 18 / 0.7)); }
