@@ -630,7 +630,8 @@ export default async function AboutPage() {
                   {expertiseAreas.map((area, i) => (
                     <div
                       key={area}
-                      className="flex items-center gap-4 p-4 rounded-lg bg-ink-50 border border-ink-200/60 hover:border-brand-200 hover:bg-brand-50/30 transition-all duration-200 group"
+                      className="flex items-center gap-4 p-4 rounded-lg bg-ink-50 hover:bg-brand-50/30 transition-all duration-200 group"
+                      style={{ borderTop: '2px solid #CC1212', borderBottom: '2px solid #e5e7eb', borderLeft: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}
                     >
                       <span className="text-[11px] font-black text-brand-600 w-6 text-center flex-shrink-0 group-hover:text-brand-700">
                         {String(i + 1).padStart(2, '0')}
