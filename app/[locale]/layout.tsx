@@ -13,7 +13,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const locales = ['en', 'ar', 'nl', 'zh']
+const locales = ['en', 'nl', 'zh']
 
 export const metadata: Metadata = {
   title: {
@@ -67,7 +67,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages()
-  const dir = locale === 'ar' ? 'rtl' : 'ltr'
+  const dir = 'ltr'
 
   return (
     <html lang={locale} dir={dir} className={`scroll-smooth ${inter.variable}`}>

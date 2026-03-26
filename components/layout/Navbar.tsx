@@ -9,7 +9,6 @@ import { useTranslations, useLocale } from 'next-intl'
 
 const localeConfig = [
   { code: 'en', label: 'EN', flag: '🇬🇧' },
-  { code: 'ar', label: 'AR', flag: '🇪🇬' },
   { code: 'nl', label: 'NL', flag: '🇳🇱' },
   { code: 'zh', label: 'ZH', flag: '🇨🇳' },
 ]
@@ -24,11 +23,12 @@ export default function Navbar() {
   const locale = useLocale()
 
   const navLinks = [
-    { label: t('home'),     href: '/' },
-    { label: t('about'),    href: '/about' },
-    { label: t('services'), href: '/services' },
-    { label: t('partners'), href: '/partners' },
-    { label: t('contact'),  href: '/contact' },
+    { label: t('home'),             href: '/' },
+    { label: t('about'),           href: '/about' },
+    { label: t('services'),        href: '/services' },
+    { label: t('partners'),        href: '/partners' },
+    { label: t('certifications'),  href: '/certifications' },
+    { label: t('contact'),         href: '/contact' },
   ]
 
   useEffect(() => setMobileOpen(false), [pathname])
@@ -41,7 +41,7 @@ export default function Navbar() {
   function switchLocale(newLocale: string) {
     // Strip current locale prefix from pathname, then add new locale prefix
     const segments = pathname.split('/').filter(Boolean)
-    const supported = ['en', 'ar', 'nl', 'zh']
+    const supported = ['en', 'nl', 'zh']
     const rest = supported.includes(segments[0]) ? segments.slice(1) : segments
     const newPath = newLocale === 'en'
       ? '/' + rest.join('/')
