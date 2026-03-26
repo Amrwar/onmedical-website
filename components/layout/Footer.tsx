@@ -21,6 +21,7 @@ export default function Footer() {
     { label: t('p4'), href: '/partners' },
     { label: t('p6'), href: '/certifications' },
     { label: t('p5'), href: '/contact' },
+    { label: t('p7'), href: '/contact#faq' },
   ]
 
   const services = [

@@ -224,7 +224,19 @@ export default async function ContactPage() {
 
       {/* ── FAQ ───────────────────────────────────────────── */}
       <SectionDivider bg="muted" />
-      <section className="section-padding section-alt">
+      <section id="faq" className="relative section-padding section-alt">
+        {/* Top zigzag strip */}
+        <div className="absolute top-0 left-0 right-0 h-4 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1200 16" preserveAspectRatio="none" className="w-full h-full">
+            <path d="M0,0 H1200 L1175,16 L1150,0 L1125,16 L1100,0 L1075,16 L1050,0 L1025,16 L1000,0 L975,16 L950,0 L925,16 L900,0 L875,16 L850,0 L825,16 L800,0 L775,16 L750,0 L725,16 L700,0 L675,16 L650,0 L625,16 L600,0 L575,16 L550,0 L525,16 L500,0 L475,16 L450,0 L425,16 L400,0 L375,16 L350,0 L325,16 L300,0 L275,16 L250,0 L225,16 L200,0 L175,16 L150,0 L125,16 L100,0 L75,16 L50,0 L25,16 L0,0 Z" fill="#CC1212"/>
+          </svg>
+        </div>
+        {/* Bottom zigzag strip */}
+        <div className="absolute bottom-0 left-0 right-0 h-4 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1200 16" preserveAspectRatio="none" className="w-full h-full">
+            <path d="M0,16 H1200 L1175,0 L1150,16 L1125,0 L1100,16 L1075,0 L1050,16 L1025,0 L1000,16 L975,0 L950,16 L925,0 L900,16 L875,0 L850,16 L825,0 L800,16 L775,0 L750,16 L725,0 L700,16 L675,0 L650,16 L625,0 L600,16 L575,0 L550,16 L525,0 L500,16 L475,0 L450,16 L425,0 L400,16 L375,0 L350,16 L325,0 L300,16 L275,0 L250,16 L225,0 L200,16 L175,0 L150,16 L125,0 L100,16 L75,0 L50,16 L25,0 L0,16 Z" fill="#CC1212"/>
+          </svg>
+        </div>
         <div className="container-site max-w-3xl">
           <AnimatedSection>
             <SectionHeader
