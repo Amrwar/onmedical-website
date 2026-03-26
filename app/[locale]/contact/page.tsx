@@ -23,7 +23,7 @@ export default async function ContactPage() {
       icon: MapPin,
       label: t('address'),
       lines: ['Al Shahid Ahmed Abd Al Naby Bayoumi St. 548', 'Nasr City, Cairo, Egypt'],
-      href: 'https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt',
+      href: 'https://maps.google.com/?q=30.050789,31.398390',
     },
     {
       icon: Phone,
@@ -166,7 +166,7 @@ export default async function ContactPage() {
                 </div>
                 <div className="px-5 py-3.5 border-t border-ink-200">
                   <a
-                    href="https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt"
+                    href="https://maps.google.com/?q=30.050789,31.398390"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[11px] text-brand-600 hover:text-brand-700 transition-colors text-center block"

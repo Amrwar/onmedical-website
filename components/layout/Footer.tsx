@@ -100,7 +100,7 @@ export default function Footer() {
             </p>
             <ul className="space-y-3.5">
               {([
-                { icon: MapPin, text: 'Al Shahid Ahmed Abd Al Naby Bayoumi St. 548\nNasr City, Cairo, Egypt', href: 'https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt' },
+                { icon: MapPin, text: 'Al Shahid Ahmed Abd Al Naby Bayoumi St. 548\nNasr City, Cairo, Egypt', href: 'https://maps.google.com/?q=30.050789,31.398390' },
                 { icon: Phone,  text: '+20 2 24115184 (Tel / Fax)',               href: 'tel:+20224115184' },
                 { icon: Phone,  text: '+20 155 217 6156 (Mobile)',               href: 'tel:+201552176156' },
                 { icon: Mail,   text: 'osama@onmedical.net',                     href: 'mailto:osama@onmedical.net' },
