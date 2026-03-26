@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Award, Calendar, Building2, MapPin, CheckCircle2 } from 'lucide-react'
+import { Award } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionDivider from '@/components/ui/SectionDivider'
 import ContactCTA from '@/components/sections/ContactCTA'
+import CertificateViewer from '@/components/ui/CertificateViewer'
 import { getTranslations } from 'next-intl/server'
 
 export const metadata: Metadata = {
@@ -306,84 +307,10 @@ export default async function CertificationsPage() {
             />
           </AnimatedSection>
 
-          <div className="space-y-6 mt-14">
-            {certs.map((cert, i) => (
-              <AnimatedSection key={cert.title} delay={i % 3 === 0 ? 0 : 0.06}>
-                <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
-                  <div className="grid grid-cols-1 lg:grid-cols-5">
-
-                    {/* Certificate image */}
-                    <div className="lg:col-span-2 relative bg-ink-50 border-b lg:border-b-0 lg:border-r border-ink-200/60 flex items-center justify-center p-6 min-h-[260px]">
-                      <div className="relative w-full max-w-[300px] h-[220px] lg:h-[260px]">
-                        <Image
-                          src={cert.image}
-                          alt={cert.title}
-                          fill
-                          className="object-contain rounded-lg"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Certificate details */}
-                    <div className="lg:col-span-3 p-7 lg:p-9 flex flex-col gap-5">
-
-                      {/* Header */}
-                      <div className="flex flex-wrap items-start justify-between gap-3">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-brand-50 border border-brand-100 text-brand-700">
-                          {cert.category}
-                        </span>
-                        <div className="flex items-center gap-1.5 text-[12px] text-ink-500">
-                          <Calendar size={12} strokeWidth={1.75} className="text-brand-600" />
-                          <span className="font-semibold text-ink-800">{cert.date}</span>
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <div>
-                        <h3 className="text-[16px] font-bold text-ink-900 leading-snug">
-                          {cert.title}
-                        </h3>
-                        <div className="flex flex-wrap items-center gap-4 mt-2">
-                          <div className="flex items-center gap-1.5">
-                            <Building2 size={12} className="text-brand-600" strokeWidth={1.75} />
-                            <span className="text-[12px] font-semibold text-ink-600">{cert.issuer}</span>
-                          </div>
-                          <div className="flex items-center gap-1.5">
-                            <MapPin size={12} className="text-brand-600" strokeWidth={1.75} />
-                            <span className="text-[12px] text-ink-400">{cert.country}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-[13px] text-ink-500 leading-relaxed">
-                        {cert.description}
-                      </p>
-
-                      {/* Topics */}
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400 mb-3">
-                          {t('topicsCovered')}
-                        </p>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {cert.topics.map(topic => (
-                            <li key={topic} className="flex items-start gap-2 text-[12px] text-ink-600">
-                              <CheckCircle2
-                                size={13}
-                                className="text-brand-600 mt-0.5 flex-shrink-0"
-                                strokeWidth={2}
-                              />
-                              {topic}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+          <CertificateViewer
+            certs={certs}
+            labels={{ topicsCovered: t('topicsCovered') }}
+          />
         </div>
       </section>
 
