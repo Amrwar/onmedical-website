@@ -151,10 +151,37 @@ export default async function ServicesPage() {
       </section>
 
       {/* ── Core Services ─────────────────────────────────── */}
-      <SectionDivider bg="muted" />
-      <section className="section-padding section-alt">
+      <SectionDivider />
+      <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>
+            {/* Core services — interlocking gears icon */}
+            <div className="flex justify-center mb-5">
+              <svg width="72" height="64" viewBox="0 0 72 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Large gear — left, red */}
+                <circle cx="26" cy="34" r="14" fill="#CC1212"/>
+                <circle cx="26" cy="34" r="9"  fill="#1a1a1a"/>
+                <circle cx="26" cy="34" r="3"  fill="#CC1212"/>
+                {/* Large gear teeth */}
+                <rect x="23" y="16" width="6" height="6" rx="1.5" fill="#CC1212"/>
+                <rect x="23" y="46" width="6" height="6" rx="1.5" fill="#CC1212"/>
+                <rect x="8"  y="31" width="6" height="6" rx="1.5" fill="#CC1212"/>
+                <rect x="38" y="31" width="6" height="6" rx="1.5" fill="#CC1212"/>
+                <rect x="12" y="20" width="6" height="6" rx="1.5" transform="rotate(45 15 23)" fill="#CC1212"/>
+                <rect x="32" y="20" width="6" height="6" rx="1.5" transform="rotate(-45 35 23)" fill="#CC1212"/>
+                <rect x="12" y="40" width="6" height="6" rx="1.5" transform="rotate(-45 15 43)" fill="#CC1212"/>
+                <rect x="32" y="40" width="6" height="6" rx="1.5" transform="rotate(45 35 43)" fill="#CC1212"/>
+                {/* Small gear — right, dark */}
+                <circle cx="52" cy="22" r="10" fill="#1a1a1a"/>
+                <circle cx="52" cy="22" r="6"  fill="#333"/>
+                <circle cx="52" cy="22" r="2.2" fill="#CC1212"/>
+                {/* Small gear teeth */}
+                <rect x="49" y="8"  width="5" height="5" rx="1" fill="#1a1a1a"/>
+                <rect x="49" y="31" width="5" height="5" rx="1" fill="#1a1a1a"/>
+                <rect x="38" y="19" width="5" height="5" rx="1" fill="#1a1a1a"/>
+                <rect x="60" y="19" width="5" height="5" rx="1" fill="#1a1a1a"/>
+              </svg>
+            </div>
             <SectionHeader
               label={t('coreLabel')}
               title={t('coreTitle')}
@@ -239,6 +266,37 @@ export default async function ServicesPage() {
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>
+            {/* Process flow icon — pipeline with nodes */}
+            <div className="flex justify-center mb-5">
+              <svg width="120" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Connecting line */}
+                <line x1="14" y1="24" x2="106" y2="24" stroke="#e5e7eb" strokeWidth="2"/>
+                {/* Node 1 — filled red */}
+                <circle cx="14" cy="24" r="10" fill="#CC1212"/>
+                <circle cx="14" cy="24" r="5"  fill="white" opacity="0.3"/>
+                <text x="14" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">1</text>
+                {/* Node 2 */}
+                <circle cx="37" cy="24" r="10" fill="#CC1212" opacity="0.85"/>
+                <text x="37" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">2</text>
+                {/* Node 3 */}
+                <circle cx="60" cy="24" r="10" fill="#1a1a1a"/>
+                <circle cx="60" cy="24" r="6" fill="none" stroke="#CC1212" strokeWidth="1.5"/>
+                <text x="60" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">3</text>
+                {/* Node 4 */}
+                <circle cx="83" cy="24" r="10" fill="#1a1a1a"/>
+                <circle cx="83" cy="24" r="6" fill="none" stroke="#CC1212" strokeWidth="1.5"/>
+                <text x="83" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">4</text>
+                {/* Node 5 — end */}
+                <circle cx="106" cy="24" r="10" fill="#1a1a1a"/>
+                <circle cx="106" cy="24" r="6" fill="none" stroke="#CC1212" strokeWidth="1.5"/>
+                <text x="106" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">5</text>
+                {/* Arrow head */}
+                <path d="M101,19 L110,24 L101,29" stroke="#CC1212" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                {/* Top labels */}
+                <text x="14" y="10" textAnchor="middle" fill="#CC1212" fontSize="6" fontWeight="600" fontFamily="sans-serif">START</text>
+                <text x="106" y="10" textAnchor="middle" fill="#CC1212" fontSize="6" fontWeight="600" fontFamily="sans-serif">SUPPORT</text>
+              </svg>
+            </div>
             <SectionHeader
               label={t('processLabel')}
               title={t('processTitle')}
