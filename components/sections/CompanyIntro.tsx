@@ -71,6 +71,55 @@ export default function CompanyIntro() {
             className="order-1 lg:order-2 flex flex-col gap-7"
           >
             <div className="flex flex-col gap-4">
+              {/* Two small syringes */}
+              <div className="flex items-center gap-3">
+                {/* Syringe 1 — tilted left */}
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(-35deg)' }}>
+                  {/* Needle */}
+                  <line x1="22" y1="2" x2="22" y2="10" stroke="#999" strokeWidth="1.2" strokeLinecap="round"/>
+                  {/* Needle hub */}
+                  <rect x="19" y="10" width="6" height="3" rx="1" fill="#bbb"/>
+                  {/* Barrel */}
+                  <rect x="17" y="13" width="10" height="20" rx="2" fill="#1a1a1a"/>
+                  {/* Barrel window */}
+                  <rect x="19.5" y="15" width="5" height="16" rx="1" fill="rgba(255,255,255,0.10)"/>
+                  {/* Graduation marks */}
+                  <line x1="19" y1="18" x2="24.5" y2="18" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
+                  <line x1="19" y1="22" x2="24.5" y2="22" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
+                  <line x1="19" y1="26" x2="24.5" y2="26" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
+                  {/* Plunger rod */}
+                  <line x1="22" y1="33" x2="22" y2="40" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round"/>
+                  {/* Plunger thumb rest */}
+                  <line x1="18" y1="40" x2="26" y2="40" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round"/>
+                  {/* Fluid fill */}
+                  <rect x="19.5" y="24" width="5" height="7" rx="0.8" fill="#CC1212" opacity="0.7"/>
+                  {/* Barrel flange */}
+                  <line x1="14" y1="33" x2="30" y2="33" stroke="#333" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+                {/* Syringe 2 — tilted right */}
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(35deg)' }}>
+                  {/* Needle */}
+                  <line x1="22" y1="2" x2="22" y2="10" stroke="#999" strokeWidth="1.2" strokeLinecap="round"/>
+                  {/* Needle hub */}
+                  <rect x="19" y="10" width="6" height="3" rx="1" fill="#bbb"/>
+                  {/* Barrel */}
+                  <rect x="17" y="13" width="10" height="20" rx="2" fill="#1a1a1a"/>
+                  {/* Barrel window */}
+                  <rect x="19.5" y="15" width="5" height="16" rx="1" fill="rgba(255,255,255,0.10)"/>
+                  {/* Graduation marks */}
+                  <line x1="19" y1="18" x2="24.5" y2="18" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
+                  <line x1="19" y1="22" x2="24.5" y2="22" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
+                  <line x1="19" y1="26" x2="24.5" y2="26" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
+                  {/* Plunger rod */}
+                  <line x1="22" y1="33" x2="22" y2="40" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round"/>
+                  {/* Plunger thumb rest */}
+                  <line x1="18" y1="40" x2="26" y2="40" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round"/>
+                  {/* Fluid fill */}
+                  <rect x="19.5" y="24" width="5" height="7" rx="0.8" fill="#CC1212" opacity="0.7"/>
+                  {/* Barrel flange */}
+                  <line x1="14" y1="33" x2="30" y2="33" stroke="#333" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              </div>
               <span className="section-label">{t('label')}</span>
               <h2 className="section-title">
                 {t('title')}
