@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
   ]
 
   return (
-    <section className="section-padding bg-white border-b border-ink-200/60">
+    <section className="section-padding bg-white">
       <div className="container-site">
 
         <AnimatedSection>

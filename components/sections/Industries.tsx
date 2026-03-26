@@ -49,7 +49,7 @@ export default function Industries() {
   ]
 
   return (
-    <section className="relative section-padding bg-white border-b border-ink-200/60">
+    <section className="relative section-padding bg-white">
 
       {/* ── Hanging light bulb — left ──────────────────────── */}
       <div className="absolute top-0 left-[18%] pointer-events-none select-none animate-bulb-swing hidden md:block">

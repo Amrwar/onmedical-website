@@ -64,7 +64,7 @@ export default function ServicesPreview() {
   ]
 
   return (
-    <section className="section-padding bg-white border-y border-ink-200/60">
+    <section className="section-padding bg-white">
       <div className="container-site">
 
         <AnimatedSection>
