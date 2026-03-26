@@ -1018,7 +1018,7 @@ export default function PartnersPage() {
       </section>
 
       {/* ── Bottom CTA ─────────────────────────────────────────── */}
-      <section className="section-padding bg-brand-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden relative">
+      <section className="section-padding bg-ink-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden relative">
         <div
           className="absolute inset-0 bg-dot-grid pointer-events-none opacity-40"
           style={{ backgroundSize: '28px 28px' }}

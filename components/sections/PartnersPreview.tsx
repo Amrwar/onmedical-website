@@ -38,17 +38,10 @@ const partners = [
 
 export default function PartnersPreview() {
   return (
-    <section className="section-padding bg-brand-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden relative">
+    <section className="section-padding bg-ink-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden relative">
       <div
-        className="absolute inset-0 bg-dot-grid pointer-events-none opacity-40"
+        className="absolute inset-0 bg-dot-grid pointer-events-none opacity-30"
         style={{ backgroundSize: '28px 28px' }}
-      />
-      <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.08) 0%, transparent 60%)',
-        }}
       />
 
       <div className="container-site relative z-10">
@@ -64,8 +57,8 @@ export default function PartnersPreview() {
           {partners.map((p, i) => (
             <AnimatedSection key={p.name} delay={i * 0.1}>
               <div
-                className="rounded-xl border border-brand-100 bg-white p-7
-                            hover:border-brand-300 hover:shadow-card transition-all duration-300
+                className="rounded-xl border border-ink-200 bg-white p-7
+                            hover:border-ink-300 hover:shadow-card transition-all duration-300
                             flex flex-col gap-5 h-full"
               >
                 {/* Country badge */}
