@@ -204,9 +204,9 @@
     background-size: 24px 24px;
   }
 
-  /* Hero light background — warm white with subtle red gradient */
+  /* Hero light background — pure white, visual depth from glow + dot grid */
   .bg-hero-light {
-    background: linear-gradient(145deg, #ffffff 0%, #fff5f5 45%, #fff0f0 70%, #ffffff 100%);
+    background: #ffffff;
   }
 
   /* Text gradient */

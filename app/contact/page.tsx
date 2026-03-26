@@ -85,6 +85,7 @@ export default function ContactPage() {
               'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.14) 0%, transparent 60%)',
           }}
         />
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
         <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-2xl">

@@ -54,6 +54,9 @@ export default function Hero() {
         }}
       />
 
+      {/* Bottom fade — blends hero into page */}
+      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+
       <div className="container-site relative z-10 pt-32 pb-24 lg:pt-40 lg:pb-32">
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-16 items-center">
 
