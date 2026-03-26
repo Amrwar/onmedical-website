@@ -16,8 +16,8 @@ const contactDetails = [
   {
     icon: MapPin,
     label: 'Address',
-    lines: ['548 Zahraa Nasr City', 'Cairo, Egypt'],
-    href: null,
+    lines: ['Al Shahid Ahmed Abd Al Naby Bayoumi St. 548', 'Nasr City, Cairo, Egypt'],
+    href: 'https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt',
   },
   {
     icon: Phone,
@@ -178,13 +178,18 @@ export default function ContactPage() {
                     Nasr City, Cairo, Egypt
                   </p>
                   <p className="text-ink-400 text-[11px] relative z-10">
-                    548 Zahraa Nasr City
+                    Al Shahid Ahmed Abd Al Naby Bayoumi St. 548
                   </p>
                 </div>
                 <div className="px-5 py-3.5 border-t border-ink-200">
-                  <p className="text-[11px] text-ink-400 text-center">
-                    Located in Nasr City, Cairo — accessible from across the Greater Cairo area.
-                  </p>
+                  <a
+                    href="https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-brand-600 hover:text-brand-700 transition-colors text-center block"
+                  >
+                    Open in Google Maps →
+                  </a>
                 </div>
               </div>
             </AnimatedSection>
