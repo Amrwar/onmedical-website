@@ -7,7 +7,7 @@ import { ArrowRight, ChevronDown, ShieldCheck, Globe2, Award, Stethoscope } from
 const stats = [
   { value: '10+',  label: 'Years of Expertise',   sub: 'Radiotherapy & medical physics' },
   { value: '3',    label: 'Global Manufacturers',  sub: 'Germany · USA · China' },
-  { value: '50+',  label: 'Institutions Served',   sub: 'Hospitals, centres & universities' },
+  { value: '100+', label: 'Institutions Served',   sub: 'Hospitals, centres & universities' },
   { value: '2014', label: 'Year Established',      sub: 'Cairo, Egypt' },
 ]
 

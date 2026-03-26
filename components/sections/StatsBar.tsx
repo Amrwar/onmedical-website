@@ -5,7 +5,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 const stats = [
   { value: '10+',  label: 'Years of Expertise',    sub: 'Radiotherapy & oncology technology' },
   { value: '3',    label: 'International Partners', sub: 'Europe · USA · Asia' },
-  { value: '50+',  label: 'Institutions Served',    sub: 'Hospitals, centres & universities' },
+  { value: '100+', label: 'Institutions Served',    sub: 'Hospitals, centres & universities' },
   { value: '2014', label: 'Year Established',       sub: 'Cairo, Egypt' },
 ]
 
