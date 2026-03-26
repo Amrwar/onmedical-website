@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function SectionDivider({ bg = 'white' }: Props) {
-  const bgClass = bg === 'muted' ? 'bg-ink-50' : 'bg-white'
+  const bgClass = 'bg-white'
 
   return (
     <div className={`relative flex items-center justify-center py-5 ${bgClass}`}>
