@@ -271,30 +271,24 @@ export default async function ServicesPage() {
               <svg width="120" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Connecting line */}
                 <line x1="14" y1="24" x2="106" y2="24" stroke="#e5e7eb" strokeWidth="2"/>
-                {/* Node 1 — filled red */}
+                {/* Node 1 — red */}
                 <circle cx="14" cy="24" r="10" fill="#CC1212"/>
-                <circle cx="14" cy="24" r="5"  fill="white" opacity="0.3"/>
                 <text x="14" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">1</text>
-                {/* Node 2 */}
-                <circle cx="37" cy="24" r="10" fill="#CC1212" opacity="0.85"/>
+                {/* Node 2 — red */}
+                <circle cx="37" cy="24" r="10" fill="#CC1212"/>
                 <text x="37" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">2</text>
-                {/* Node 3 */}
+                {/* Node 3 — black */}
                 <circle cx="60" cy="24" r="10" fill="#1a1a1a"/>
-                <circle cx="60" cy="24" r="6" fill="none" stroke="#CC1212" strokeWidth="1.5"/>
                 <text x="60" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">3</text>
-                {/* Node 4 */}
+                {/* Node 4 — black */}
                 <circle cx="83" cy="24" r="10" fill="#1a1a1a"/>
-                <circle cx="83" cy="24" r="6" fill="none" stroke="#CC1212" strokeWidth="1.5"/>
                 <text x="83" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">4</text>
-                {/* Node 5 — end */}
+                {/* Node 5 — black */}
                 <circle cx="106" cy="24" r="10" fill="#1a1a1a"/>
-                <circle cx="106" cy="24" r="6" fill="none" stroke="#CC1212" strokeWidth="1.5"/>
                 <text x="106" y="28" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif">5</text>
-                {/* Arrow head */}
-                <path d="M101,19 L110,24 L101,29" stroke="#CC1212" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                 {/* Top labels */}
                 <text x="14" y="10" textAnchor="middle" fill="#CC1212" fontSize="6" fontWeight="600" fontFamily="sans-serif">START</text>
-                <text x="106" y="10" textAnchor="middle" fill="#CC1212" fontSize="6" fontWeight="600" fontFamily="sans-serif">SUPPORT</text>
+                <text x="106" y="10" textAnchor="middle" fill="#CC1212" fontSize="6" fontWeight="600" fontFamily="sans-serif">END</text>
               </svg>
             </div>
             <SectionHeader
