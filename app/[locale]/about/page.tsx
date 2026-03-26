@@ -180,6 +180,29 @@ export default async function AboutPage() {
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>
+            {/* Leadership icon — silhouette of person at podium */}
+            <div className="flex justify-center mb-5">
+              <svg width="64" height="60" viewBox="0 0 64 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Person head */}
+                <circle cx="32" cy="10" r="8" fill="#1a1a1a"/>
+                {/* Person body */}
+                <path d="M18,38 C18,28 24,22 32,22 C40,22 46,28 46,38 Z" fill="#1a1a1a"/>
+                {/* Podium top */}
+                <rect x="14" y="38" width="36" height="4" rx="1.5" fill="#CC1212"/>
+                {/* Podium body */}
+                <path d="M20,42 L18,58 L46,58 L44,42 Z" fill="#CC1212" opacity="0.85"/>
+                {/* Podium front panel */}
+                <rect x="24" y="46" width="16" height="8" rx="1" fill="rgba(255,255,255,0.20)"/>
+                {/* Star / badge on podium */}
+                <circle cx="32" cy="50" r="3" fill="rgba(255,255,255,0.55)"/>
+                {/* Left arm raised */}
+                <path d="M18,38 Q10,30 12,22" stroke="#1a1a1a" strokeWidth="4" strokeLinecap="round" fill="none"/>
+                {/* Right arm raised */}
+                <path d="M46,38 Q54,30 52,22" stroke="#1a1a1a" strokeWidth="4" strokeLinecap="round" fill="none"/>
+                {/* Tie */}
+                <path d="M30,22 L32,34 L34,22" fill="#CC1212" opacity="0.9"/>
+              </svg>
+            </div>
             <SectionHeader
               label={t('leadershipLabel')}
               title={t('leadershipTitle')}
@@ -303,6 +326,34 @@ export default async function AboutPage() {
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>
+            {/* Red compass above OUR DIRECTION */}
+            <div className="flex justify-center mb-5">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Outer ring */}
+                <circle cx="32" cy="32" r="28" fill="#1a1a1a" stroke="#CC1212" strokeWidth="2"/>
+                {/* Inner ring */}
+                <circle cx="32" cy="32" r="22" fill="none" stroke="#CC1212" strokeWidth="0.8" strokeOpacity="0.4"/>
+                {/* Cardinal tick marks */}
+                <line x1="32" y1="6"  x2="32" y2="11" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="32" y1="53" x2="32" y2="58" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="6"  y1="32" x2="11" y2="32" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="53" y1="32" x2="58" y2="32" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                {/* Diagonal ticks */}
+                <line x1="13" y1="13" x2="16.5" y2="16.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
+                <line x1="51" y1="13" x2="47.5" y2="16.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
+                <line x1="13" y1="51" x2="16.5" y2="47.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
+                <line x1="51" y1="51" x2="47.5" y2="47.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
+                {/* N label */}
+                <text x="32" y="20" textAnchor="middle" fill="#CC1212" fontSize="6" fontWeight="bold" fontFamily="sans-serif">N</text>
+                {/* North needle — red */}
+                <path d="M32,32 L27,44 L32,40 L37,44 Z" fill="#CC1212"/>
+                {/* South needle — white/grey */}
+                <path d="M32,32 L27,20 L32,24 L37,20 Z" fill="rgba(255,255,255,0.35)"/>
+                {/* Centre pivot */}
+                <circle cx="32" cy="32" r="3.5" fill="#CC1212"/>
+                <circle cx="32" cy="32" r="1.5" fill="#1a1a1a"/>
+              </svg>
+            </div>
             <SectionHeader label={t('missionVisionLabel')} title={t('missionVisionTitle')} />
           </AnimatedSection>
 
