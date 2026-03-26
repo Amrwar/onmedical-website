@@ -52,6 +52,28 @@ export default function PartnersPreview() {
 
       <div className="container-site relative z-10">
         <AnimatedSection>
+          {/* Globe icon above "GLOBAL PARTNERSHIPS" */}
+          <div className="flex justify-center mb-5">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Globe circle */}
+              <circle cx="28" cy="28" r="24" fill="#1a1a1a" stroke="#CC1212" strokeWidth="2"/>
+              {/* Latitude lines */}
+              <ellipse cx="28" cy="28" rx="24" ry="10" fill="none" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.5"/>
+              <line x1="4" y1="28" x2="52" y2="28" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.5"/>
+              <line x1="7"  y1="18" x2="49" y2="18" stroke="#CC1212" strokeWidth="1" strokeOpacity="0.35"/>
+              <line x1="7"  y1="38" x2="49" y2="38" stroke="#CC1212" strokeWidth="1" strokeOpacity="0.35"/>
+              {/* Longitude lines */}
+              <ellipse cx="28" cy="28" rx="10" ry="24" fill="none" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.5"/>
+              <ellipse cx="28" cy="28" rx="18" ry="24" fill="none" stroke="#CC1212" strokeWidth="1" strokeOpacity="0.3"/>
+              {/* Vertical axis */}
+              <line x1="28" y1="4" x2="28" y2="52" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.4"/>
+              {/* Top and bottom poles */}
+              <circle cx="28" cy="4"  r="2" fill="#CC1212"/>
+              <circle cx="28" cy="52" r="2" fill="#CC1212"/>
+              {/* Outer border */}
+              <circle cx="28" cy="28" r="24" fill="none" stroke="#CC1212" strokeWidth="2"/>
+            </svg>
+          </div>
           <SectionHeader
             label={t('label')}
             title={t('title')}

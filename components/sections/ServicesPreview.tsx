@@ -68,6 +68,31 @@ export default function ServicesPreview() {
       <div className="container-site">
 
         <AnimatedSection>
+          {/* Open book icon above "WHAT WE DO" */}
+          <div className="flex justify-center mb-5">
+            <svg width="64" height="52" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Left page — red */}
+              <path d="M32,8 C32,8 20,4 6,6 C4,6 3,7 3,9 L3,44 C3,46 4,47 6,47 C20,45 32,49 32,49 Z" fill="#CC1212"/>
+              {/* Left page inner lines */}
+              <line x1="10" y1="16" x2="28" y2="14" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="10" y1="21" x2="28" y2="19" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="10" y1="26" x2="28" y2="24" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="10" y1="31" x2="28" y2="29" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="10" y1="36" x2="28" y2="34" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" strokeLinecap="round"/>
+              {/* Right page — dark/black */}
+              <path d="M32,8 C32,8 44,4 58,6 C60,6 61,7 61,9 L61,44 C61,46 60,47 58,47 C44,45 32,49 32,49 Z" fill="#1a1a1a"/>
+              {/* Right page inner lines */}
+              <line x1="54" y1="16" x2="36" y2="14" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="54" y1="21" x2="36" y2="19" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="54" y1="26" x2="36" y2="24" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="54" y1="31" x2="36" y2="29" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line x1="54" y1="36" x2="36" y2="34" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round"/>
+              {/* Spine */}
+              <line x1="32" y1="8" x2="32" y2="49" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round"/>
+              {/* Bottom curve */}
+              <path d="M3,44 Q32,52 61,44" stroke="#111" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            </svg>
+          </div>
           <SectionHeader
             label={t('label')}
             title={t('title')}
