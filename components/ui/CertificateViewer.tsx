@@ -55,32 +55,26 @@ export default function CertificateViewer({ certs, labels }: { certs: CertData[]
     <>
       {/* ── Thumbnail strip ─────────────────────────────── */}
       <div className="mt-10 mb-2">
-        <div className="relative rounded-2xl border border-ink-200 bg-ink-50 px-4 py-4 shadow-sm overflow-hidden">
-          {/* Fade edges */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-ink-50 to-transparent z-10" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-ink-50 to-transparent z-10" />
-
-          <div className="flex gap-3 overflow-x-auto no-scrollbar px-2">
-            {certs.map((cert, i) => (
-              <button
-                key={i}
-                onClick={() => openLightbox(i)}
-                className="flex-shrink-0 group relative w-[72px] h-[88px] rounded-xl overflow-hidden border-2 border-ink-200 hover:border-brand-500 transition-all duration-200 hover:scale-105 hover:shadow-card focus:outline-none focus:border-brand-600"
-                title={cert.title}
-              >
-                <Image
-                  src={cert.image}
-                  alt={cert.title}
-                  fill
-                  className="object-cover"
-                  sizes="72px"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <ZoomIn size={16} className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow" />
-                </div>
-              </button>
-            ))}
-          </div>
+        <div className="flex flex-wrap justify-center gap-3 px-2">
+          {certs.map((cert, i) => (
+            <button
+              key={i}
+              onClick={() => openLightbox(i)}
+              className="flex-shrink-0 group relative w-[72px] h-[88px] rounded-xl overflow-hidden border-2 border-ink-200 hover:border-brand-500 transition-all duration-200 hover:scale-105 hover:shadow-card focus:outline-none focus:border-brand-600"
+              title={cert.title}
+            >
+              <Image
+                src={cert.image}
+                alt={cert.title}
+                fill
+                className="object-cover"
+                sizes="72px"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                <ZoomIn size={16} className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow" />
+              </div>
+            </button>
+          ))}
         </div>
       </div>
 

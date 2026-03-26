@@ -19,10 +19,55 @@ export default async function AboutPage() {
   const t = await getTranslations('about')
 
   const timelineEvents = [
-    { year: t('timeline_e1Year'), title: t('timeline_e1Title'), description: t('timeline_e1Desc') },
-    { year: t('timeline_e2Year'), title: t('timeline_e2Title'), description: t('timeline_e2Desc') },
-    { year: t('timeline_e3Year'), title: t('timeline_e3Title'), description: t('timeline_e3Desc') },
-    { year: t('timeline_e4Year'), title: t('timeline_e4Title'), description: t('timeline_e4Desc') },
+    {
+      year: t('timeline_e1Year'), title: t('timeline_e1Title'), description: t('timeline_e1Desc'),
+      icon: (
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.15"/>
+          <path d="M8 26L20 14l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M14 26V20a2 2 0 012-2h8a2 2 0 012 2v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M10 28h20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="20" cy="11" r="3" stroke="currentColor" strokeWidth="2"/>
+          <path d="M16 11h-3M24 11h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      ),
+    },
+    {
+      year: t('timeline_e2Year'), title: t('timeline_e2Title'), description: t('timeline_e2Desc'),
+      icon: (
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.15"/>
+          <rect x="9" y="17" width="22" height="14" rx="1.5" stroke="currentColor" strokeWidth="2"/>
+          <path d="M13 17v-3a7 7 0 0114 0v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M16 24h8M20 21v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+        </svg>
+      ),
+    },
+    {
+      year: t('timeline_e3Year'), title: t('timeline_e3Title'), description: t('timeline_e3Desc'),
+      icon: (
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.15"/>
+          <circle cx="13" cy="16" r="4" stroke="currentColor" strokeWidth="2"/>
+          <circle cx="27" cy="16" r="4" stroke="currentColor" strokeWidth="2"/>
+          <path d="M9 29c0-3.314 1.79-6 4-6s4 2.686 4 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M23 29c0-3.314 1.79-6 4-6s4 2.686 4 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M17 22c0-1.657.895-3 2-3s2 1.343 2 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
+    },
+    {
+      year: t('timeline_e4Year'), title: t('timeline_e4Title'), description: t('timeline_e4Desc'),
+      icon: (
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.15"/>
+          <path d="M9 28l7-8 5 5 4-6 6 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M28 13h3v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M31 13l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
+    },
   ]
 
   const expertiseAreas = [
@@ -352,15 +397,22 @@ export default async function AboutPage() {
                   >
                     <div className="ml-10 lg:ml-0 lg:w-[46%] lg:px-8">
                       <div className="card p-6 lg:p-8">
-                        <span className="text-[11px] font-bold text-brand-600 uppercase tracking-[0.15em] mb-2 block">
-                          {event.year}
-                        </span>
-                        <h3 className="text-[16px] font-bold text-ink-900 mb-2.5 leading-snug">
-                          {event.title}
-                        </h3>
-                        <p className="text-[13px] text-ink-500 leading-relaxed">
-                          {event.description}
-                        </p>
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 flex-shrink-0 text-brand-600">
+                            {event.icon}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <span className="text-[11px] font-bold text-brand-600 uppercase tracking-[0.15em] mb-2 block">
+                              {event.year}
+                            </span>
+                            <h3 className="text-[16px] font-bold text-ink-900 mb-2.5 leading-snug">
+                              {event.title}
+                            </h3>
+                            <p className="text-[13px] text-ink-500 leading-relaxed">
+                              {event.description}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
