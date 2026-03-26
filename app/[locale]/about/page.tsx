@@ -130,14 +130,16 @@ export default async function AboutPage() {
 
             <AnimatedSection direction="left" className="flex flex-col gap-7">
               <div className="flex flex-col gap-4">
-                <Image
-                  src="/logo-onmedical.png"
-                  alt="ON Medical Company"
-                  width={180}
-                  height={52}
-                  className="h-12 w-auto object-contain mix-blend-multiply mx-auto"
-                />
-                <span className="section-label">{t('overviewLabel')}</span>
+                <div className="flex flex-col items-center w-fit gap-2">
+                  <Image
+                    src="/logo-onmedical.png"
+                    alt="ON Medical Company"
+                    width={160}
+                    height={46}
+                    className="h-10 w-auto object-contain mix-blend-multiply"
+                  />
+                  <span className="section-label">{t('overviewLabel')}</span>
+                </div>
                 <h2 className="section-title !text-left">{t('overviewTitle')}</h2>
               </div>
               <div className="space-y-4 text-[14px] leading-[1.8] text-ink-500">
