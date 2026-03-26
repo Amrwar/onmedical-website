@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { MapPin, Phone, Mail, Printer, Clock, ArrowRight } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import ContactForm from '@/components/ui/ContactForm'
@@ -21,7 +21,7 @@ const contactDetails = [
   },
   {
     icon: Phone,
-    label: 'Telephone',
+    label: 'Telephone / Fax',
     lines: ['+20 2 24115184'],
     href: 'tel:+20224115184',
   },
@@ -30,12 +30,6 @@ const contactDetails = [
     label: 'Mobile',
     lines: ['+20 155 217 6156'],
     href: 'tel:+201552176156',
-  },
-  {
-    icon: Printer,
-    label: 'Fax',
-    lines: ['+20 2 24115184'],
-    href: null,
   },
   {
     icon: Mail,

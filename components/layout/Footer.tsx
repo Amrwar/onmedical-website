@@ -95,9 +95,8 @@ export default function Footer() {
             <ul className="space-y-3.5">
               {([
                 { icon: MapPin,  text: '548 Zahraa Nasr City\nCairo, Egypt',     href: null },
-                { icon: Phone,   text: '+20 2 24115184',                          href: 'tel:+20224115184' },
-                { icon: Phone,   text: '+20 155 217 6156',                        href: 'tel:+201552176156' },
-                { icon: Printer, text: '+20 2 24115184 (Fax)',                    href: null },
+                { icon: Phone,   text: '+20 2 24115184 (Tel / Fax)',               href: 'tel:+20224115184' },
+                { icon: Phone,   text: '+20 155 217 6156 (Mobile)',               href: 'tel:+201552176156' },
                 { icon: Mail,    text: 'osama@onmedical.net',                     href: 'mailto:osama@onmedical.net' },
               ] as { icon: typeof MapPin; text: string; href: string | null }[]).map(({ icon: Icon, text, href }, i) => (
                 <li key={i} className="flex items-start gap-3">
