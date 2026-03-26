@@ -188,7 +188,7 @@ export default function AboutPage() {
                 {/* Primary large photo */}
                 <div className="col-span-2 sm:col-span-1 relative rounded-2xl overflow-hidden aspect-[3/4] shadow-[0_4px_24px_rgb(0_0_0_/_0.10)] border border-ink-200">
                   <Image
-                    src="/owner-1.jpg"
+                    src="/owner-1.jpeg"
                     alt="Osama — Founder & Managing Director, ON Medical Company"
                     fill
                     className="object-cover object-top"
@@ -199,7 +199,7 @@ export default function AboutPage() {
                 <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
                   <div className="relative rounded-2xl overflow-hidden aspect-square shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200">
                     <Image
-                      src="/owner-2.jpg"
+                      src="/owner-2.jpeg"
                       alt="Osama — ON Medical Company"
                       fill
                       className="object-cover object-top"
@@ -208,7 +208,7 @@ export default function AboutPage() {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden aspect-square shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200">
                     <Image
-                      src="/owner-3.jpg"
+                      src="/owner-3.jpeg"
                       alt="Osama — ON Medical Company"
                       fill
                       className="object-cover object-center"
