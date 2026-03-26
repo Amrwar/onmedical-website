@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useEffect, useTransition } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { Menu, X, Phone, ChevronRight, ChevronDown } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
+import { useIntlRouter, useIntlPathname } from '@/navigation'
 
 const localeConfig = [
   { code: 'en', label: 'EN', flag: '🇬🇧' },
@@ -17,8 +18,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [langOpen,   setLangOpen]   = useState(false)
   const pathname    = usePathname()
-  const router      = useRouter()
-  const [isPending, startTransition] = useTransition()
+  const intlPathname = useIntlPathname()
+  const intlRouter  = useIntlRouter()
   const t      = useTranslations('nav')
   const locale = useLocale()
 
@@ -39,17 +40,7 @@ export default function Navbar() {
   }, [langOpen])
 
   function switchLocale(newLocale: string) {
-    // Strip current locale prefix from pathname, then add new locale prefix
-    const segments = pathname.split('/').filter(Boolean)
-    const supported = ['en', 'nl', 'zh']
-    const rest = supported.includes(segments[0]) ? segments.slice(1) : segments
-    const newPath = newLocale === 'en'
-      ? '/' + rest.join('/')
-      : '/' + newLocale + (rest.length ? '/' + rest.join('/') : '')
-
-    startTransition(() => {
-      router.push(newPath)
-    })
+    intlRouter.replace(intlPathname, { locale: newLocale })
     setLangOpen(false)
   }
 
