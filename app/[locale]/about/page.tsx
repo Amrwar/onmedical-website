@@ -530,7 +530,7 @@ export default async function AboutPage() {
                     }`}
                   >
                     <div className="ml-10 lg:ml-0 lg:w-[46%] lg:px-8">
-                      <div className="card p-6 lg:p-8">
+                      <div className="bg-white rounded-2xl shadow-card p-6 lg:p-8" style={{ borderTop: '2px solid #CC1212', borderBottom: '2px solid #CC1212', borderLeft: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}>
                         <div className="flex items-start gap-4">
                           <div className="w-10 h-10 flex-shrink-0 text-brand-600">
                             {event.icon}
