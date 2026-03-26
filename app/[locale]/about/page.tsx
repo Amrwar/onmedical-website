@@ -329,29 +329,40 @@ export default async function AboutPage() {
             {/* Red compass above OUR DIRECTION */}
             <div className="flex justify-center mb-5">
               <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Outer ring */}
-                <circle cx="32" cy="32" r="28" fill="#1a1a1a" stroke="#CC1212" strokeWidth="2"/>
+                <defs>
+                  <radialGradient id="compassRed" cx="38%" cy="32%" r="65%">
+                    <stop offset="0%" stopColor="#e53e3e"/>
+                    <stop offset="55%" stopColor="#CC1212"/>
+                    <stop offset="100%" stopColor="#991111"/>
+                  </radialGradient>
+                </defs>
+                {/* Outer ring — red gradient fill */}
+                <circle cx="32" cy="32" r="28" fill="url(#compassRed)"/>
+                {/* Inner highlight */}
+                <ellipse cx="24" cy="22" rx="8" ry="6" fill="rgba(255,255,255,0.10)"/>
                 {/* Inner ring */}
-                <circle cx="32" cy="32" r="22" fill="none" stroke="#CC1212" strokeWidth="0.8" strokeOpacity="0.4"/>
-                {/* Cardinal tick marks */}
-                <line x1="32" y1="6"  x2="32" y2="11" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="32" y1="53" x2="32" y2="58" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="6"  y1="32" x2="11" y2="32" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="53" y1="32" x2="58" y2="32" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                {/* Diagonal ticks */}
-                <line x1="13" y1="13" x2="16.5" y2="16.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
-                <line x1="51" y1="13" x2="47.5" y2="16.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
-                <line x1="13" y1="51" x2="16.5" y2="47.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
-                <line x1="51" y1="51" x2="47.5" y2="47.5" stroke="#CC1212" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5"/>
-                {/* N label */}
-                <text x="32" y="20" textAnchor="middle" fill="#CC1212" fontSize="6" fontWeight="bold" fontFamily="sans-serif">N</text>
-                {/* North needle — red */}
-                <path d="M32,32 L27,44 L32,40 L37,44 Z" fill="#CC1212"/>
-                {/* South needle — white/grey */}
-                <path d="M32,32 L27,20 L32,24 L37,20 Z" fill="rgba(255,255,255,0.35)"/>
+                <circle cx="32" cy="32" r="22" fill="none" stroke="rgba(255,255,255,0.20)" strokeWidth="1"/>
+                {/* Cardinal tick marks — white */}
+                <line x1="32" y1="6"  x2="32" y2="12" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="32" y1="52" x2="32" y2="58" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="6"  y1="32" x2="12" y2="32" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="52" y1="32" x2="58" y2="32" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                {/* Diagonal ticks — white subtle */}
+                <line x1="14" y1="14" x2="17.5" y2="17.5" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2" strokeLinecap="round"/>
+                <line x1="50" y1="14" x2="46.5" y2="17.5" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2" strokeLinecap="round"/>
+                <line x1="14" y1="50" x2="17.5" y2="46.5" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2" strokeLinecap="round"/>
+                <line x1="50" y1="50" x2="46.5" y2="46.5" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2" strokeLinecap="round"/>
+                {/* N label — white */}
+                <text x="32" y="20" textAnchor="middle" fill="white" fontSize="6.5" fontWeight="bold" fontFamily="sans-serif">N</text>
+                {/* North needle — white/cream */}
+                <path d="M32,32 L27,44 L32,40 L37,44 Z" fill="white" opacity="0.9"/>
+                {/* South needle — dark */}
+                <path d="M32,32 L27,20 L32,24 L37,20 Z" fill="#1a1a1a" opacity="0.7"/>
                 {/* Centre pivot */}
-                <circle cx="32" cy="32" r="3.5" fill="#CC1212"/>
-                <circle cx="32" cy="32" r="1.5" fill="#1a1a1a"/>
+                <circle cx="32" cy="32" r="3.5" fill="white"/>
+                <circle cx="32" cy="32" r="1.5" fill="#CC1212"/>
+                {/* Outer border */}
+                <circle cx="32" cy="32" r="28" fill="none" stroke="#1a1a1a" strokeWidth="1.5"/>
               </svg>
             </div>
             <SectionHeader label={t('missionVisionLabel')} title={t('missionVisionTitle')} />
