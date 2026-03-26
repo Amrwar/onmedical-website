@@ -231,7 +231,7 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-black text-ink-900 tracking-tight">
-                  Osama Nafea
+                  Osama Hefny
                 </h2>
                 <p className="text-ink-500 text-sm mt-1">ON Medical Company · Cairo, Egypt</p>
               </div>
