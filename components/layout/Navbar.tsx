@@ -91,9 +91,9 @@ export default function Navbar() {
             <Image
               src="/logo-onmedical.png"
               alt="ON Medical Company"
-              width={152}
-              height={44}
-              className="h-9 w-auto object-contain mix-blend-multiply"
+              width={200}
+              height={58}
+              className="h-14 w-auto object-contain mix-blend-multiply"
               priority
             />
           </Link>
