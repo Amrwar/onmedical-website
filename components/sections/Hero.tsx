@@ -142,7 +142,7 @@ export default function Hero() {
               <div className="h-1 w-full bg-gradient-to-r from-brand-600 to-brand-400" />
 
               {/* Panel header */}
-              <div className="px-7 py-5 border-b border-ink-100 flex items-center gap-3">
+              <div className="px-7 py-5 border-b border-brand-100 flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse-dot" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink-400">
                   {t('panelHeader')}
@@ -150,7 +150,7 @@ export default function Hero() {
               </div>
 
               {/* Stats */}
-              <div className="divide-y divide-ink-100">
+              <div className="divide-y divide-brand-100">
                 {stats.map((stat, i) => (
                   <div
                     key={stat.label}
