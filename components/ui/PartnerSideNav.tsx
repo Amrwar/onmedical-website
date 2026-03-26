@@ -4,16 +4,18 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 const partners = [
-  { id: 'ptw',     logo: '/logo-ptw.png',     name: 'PTW Freiburg'   },
-  { id: 'ashland', logo: '/logo-ashland.png', name: 'Ashland Medical' },
-  { id: 'klarity', logo: '/logo-klarity.png', name: 'Klarity'         },
+  { id: 'ptw',     scrollTarget: 'ptw',         logo: '/logo-ptw.png',     name: 'PTW Freiburg'    },
+  { id: 'ashland', scrollTarget: 'sep-ashland',  logo: '/logo-ashland.png', name: 'Ashland Medical'  },
+  { id: 'klarity', scrollTarget: 'sep-klarity',  logo: '/logo-klarity.png', name: 'Klarity'          },
 ]
 
 export default function PartnerSideNav() {
-  const [active, setActive] = useState('ptw')
+  const [active, setActive]   = useState('ptw')
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    // Track which section is currently in view
+    const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) setActive(entry.target.id)
@@ -23,17 +25,39 @@ export default function PartnerSideNav() {
     )
     partners.forEach(p => {
       const el = document.getElementById(p.id)
-      if (el) observer.observe(el)
+      if (el) sectionObserver.observe(el)
     })
-    return () => observer.disconnect()
+
+    // Track whether we're inside the partners content zone
+    const checkVisibility = () => {
+      const startEl = document.getElementById('ptw')
+      const endEl   = document.getElementById('partners-end')
+      if (!startEl || !endEl) return
+      const startTop = startEl.getBoundingClientRect().top
+      const endTop   = endEl.getBoundingClientRect().top
+      // Sidebar visible once PTW has scrolled into view and before the end sentinel reaches top
+      setVisible(startTop < window.innerHeight * 0.8 && endTop > 80)
+    }
+
+    window.addEventListener('scroll', checkVisibility, { passive: true })
+    checkVisibility()
+
+    return () => {
+      sectionObserver.disconnect()
+      window.removeEventListener('scroll', checkVisibility)
+    }
   }, [])
 
   return (
-    <aside className="hidden xl:flex flex-col items-center fixed left-6 2xl:left-10 top-1/2 -translate-y-1/2 z-30 gap-2">
+    <aside
+      className={`hidden xl:flex flex-col items-center fixed left-6 2xl:left-10 top-1/2 -translate-y-1/2 z-30 gap-1 transition-all duration-300 ${
+        visible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}
+    >
       {partners.map((partner, i) => (
         <div key={partner.id} className="flex flex-col items-center">
           <a
-            href={`#${partner.id}`}
+            href={`#${partner.scrollTarget}`}
             title={partner.name}
             className={`flex items-center justify-center p-3 rounded-2xl border transition-all duration-200 w-[84px] h-[60px] ${
               active === partner.id
@@ -52,12 +76,10 @@ export default function PartnerSideNav() {
             />
           </a>
 
-          {/* Active indicator dot */}
           {active === partner.id && (
             <div className="w-1 h-1 rounded-full bg-brand-600 mt-1.5" />
           )}
 
-          {/* Connector line between logos */}
           {i < partners.length - 1 && (
             <div className="w-px h-8 bg-ink-200 mt-1.5" />
           )}

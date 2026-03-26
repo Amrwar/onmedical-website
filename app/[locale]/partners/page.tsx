@@ -87,9 +87,9 @@ function ProductImageBox({
 }
 
 /* ─── Section separator ────────────────────────────────────────── */
-function PartnerSeparator() {
+function PartnerSeparator({ id }: { id?: string }) {
   return (
-    <div className="container-site py-2">
+    <div id={id} style={{ scrollMarginTop: '80px' }} className="container-site py-2">
       <div className="flex items-center gap-4">
         <div className="flex-1 h-px bg-ink-300/70" />
         <div className="flex items-center gap-2.5">
@@ -489,7 +489,7 @@ export default async function PartnersPage() {
         </div>
       </section>
 
-      <PartnerSeparator />
+      <PartnerSeparator id="sep-ashland" />
 
       {/* ══════════════════════════════════════════════════════════
           PARTNER 2 — ASHLAND MEDICAL
@@ -777,7 +777,7 @@ export default async function PartnersPage() {
         </div>
       </section>
 
-      <PartnerSeparator />
+      <PartnerSeparator id="sep-klarity" />
 
       {/* ══════════════════════════════════════════════════════════
           PARTNER 3 — KLARITY
@@ -950,6 +950,9 @@ export default async function PartnersPage() {
 
         </div>
       </section>
+
+      {/* Sidebar end boundary */}
+      <div id="partners-end" />
 
       {/* ── Bottom CTA ─────────────────────────────────────────── */}
       <section className="section-padding bg-ink-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden relative">
