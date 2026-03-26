@@ -90,7 +90,7 @@ export default async function AboutPage() {
                   alt="ON Medical Company"
                   width={180}
                   height={52}
-                  className="h-12 w-auto object-contain mix-blend-multiply"
+                  className="h-12 w-auto object-contain mix-blend-multiply mx-auto"
                 />
                 <span className="section-label">{t('overviewLabel')}</span>
                 <h2 className="section-title !text-left">{t('overviewTitle')}</h2>
