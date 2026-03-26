@@ -44,9 +44,9 @@ export default function Footer() {
               <Image
                 src="/logo-onmedical.png"
                 alt="ON Medical Company"
-                width={156}
-                height={46}
-                className="h-8 w-auto object-contain"
+                width={200}
+                height={60}
+                className="h-12 w-auto object-contain"
               />
             </Link>
             <p className="text-[13px] text-ink-600 leading-relaxed max-w-[240px]">
