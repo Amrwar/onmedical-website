@@ -3,15 +3,19 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, FlaskConical } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
-
-const points = [
-  'Oncology & radiotherapy equipment distribution',
-  'Authorized market representation for global manufacturers',
-  'Technical installation & commissioning support',
-  'Long-term after-sales service & compliance',
-]
+import { useTranslations, useLocale } from 'next-intl'
 
 export default function CompanyIntro() {
+  const t      = useTranslations('companyIntro')
+  const locale = useLocale()
+
+  function localizeHref(href: string) {
+    if (locale === 'en') return href
+    return `/${locale}${href}`
+  }
+
+  const points = [t('point1'), t('point2'), t('point3'), t('point4')]
+
   return (
     <section className="section-padding bg-white">
       <div className="container-site">
@@ -34,10 +38,10 @@ export default function CompanyIntro() {
                 </div>
                 <div>
                   <p className="text-[13px] font-semibold text-ink-400 uppercase tracking-widest-plus">
-                    Oncology Solutions
+                    {t('oncologySolutions')}
                   </p>
                   <p className="text-base font-medium text-ink-600 mt-1 max-w-[200px] leading-snug">
-                    Advanced technologies for Egyptian healthcare
+                    {t('advancedTech')}
                   </p>
                 </div>
               </div>
@@ -54,9 +58,9 @@ export default function CompanyIntro() {
               </div>
               <div>
                 <p className="text-[13px] font-bold text-ink-900 leading-tight">
-                  Regulatory Compliant
+                  {t('regulatoryCompliant')}
                 </p>
-                <p className="text-[11px] text-ink-400 mt-0.5">Egyptian Medical Standards</p>
+                <p className="text-[11px] text-ink-400 mt-0.5">{t('egyptianStandards')}</p>
               </div>
             </div>
           </AnimatedSection>
@@ -67,28 +71,15 @@ export default function CompanyIntro() {
             className="order-1 lg:order-2 flex flex-col gap-7"
           >
             <div className="flex flex-col gap-4">
-              <span className="section-label">About ON Medical</span>
+              <span className="section-label">{t('label')}</span>
               <h2 className="section-title">
-                Egypt&apos;s Trusted Specialist in{' '}
-                <span className="text-brand-600">Oncology Technology</span>
+                {t('title')}
               </h2>
             </div>
 
             <div className="space-y-4 text-[14px] leading-[1.8] text-ink-500">
-              <p>
-                ON Medical Company is a specialized Egyptian organization focused on the
-                distribution, technical support, and market representation of advanced oncology and
-                radiotherapy equipment. The name{' '}
-                <strong className="text-ink-800 font-semibold">ON Medical</strong> reflects our
-                defining focus —{' '}
-                <strong className="text-brand-600 font-semibold">Oncology</strong> — and our
-                commitment to advancing cancer treatment technology throughout Egypt.
-              </p>
-              <p>
-                Since 2014, we have worked closely with hospitals, oncology centres, medical
-                universities, and specialized institutes to supply high-precision equipment used in
-                radiation therapy, radiation measurement, and treatment planning.
-              </p>
+              <p>{t('p1')}</p>
+              <p>{t('p2')}</p>
             </div>
 
             {/* Feature checklist */}
@@ -106,11 +97,11 @@ export default function CompanyIntro() {
             </ul>
 
             <div className="flex flex-wrap items-center gap-3.5 pt-1">
-              <Link href="/about" className="btn-primary">
-                Our Full Story <ArrowRight size={14} />
+              <Link href={localizeHref('/about')} className="btn-primary">
+                {t('cta1')} <ArrowRight size={14} />
               </Link>
-              <Link href="/contact" className="btn-secondary">
-                Contact Us
+              <Link href={localizeHref('/contact')} className="btn-secondary">
+                {t('cta2')}
               </Link>
             </div>
           </AnimatedSection>

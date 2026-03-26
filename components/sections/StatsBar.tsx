@@ -1,15 +1,18 @@
 'use client'
 
 import AnimatedSection from '@/components/ui/AnimatedSection'
-
-const stats = [
-  { value: '10+',  label: 'Years of Expertise',    sub: 'Radiotherapy & oncology technology' },
-  { value: '3',    label: 'International Partners', sub: 'Europe · USA · Asia' },
-  { value: '100+', label: 'Institutions Served',    sub: 'Hospitals, centres & universities' },
-  { value: '2014', label: 'Year Established',       sub: 'Cairo, Egypt' },
-]
+import { useTranslations } from 'next-intl'
 
 export default function StatsBar() {
+  const t = useTranslations('statsBar')
+
+  const stats = [
+    { value: '10+',  label: t('stat1Label'), sub: t('stat1Sub') },
+    { value: '3',    label: t('stat2Label'), sub: t('stat2Sub') },
+    { value: '100+', label: t('stat3Label'), sub: t('stat3Sub') },
+    { value: '2014', label: t('stat4Label'), sub: t('stat4Sub') },
+  ]
+
   return (
     <section className="bg-white border-b border-ink-200/60">
       <div className="container-site py-10 lg:py-12">

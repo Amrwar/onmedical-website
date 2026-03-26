@@ -3,56 +3,53 @@
 import { ShieldCheck, Award, Users, Cpu, BookOpen, Globe } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
-
-const reasons = [
-  {
-    icon: Cpu,
-    title: 'Deep Technical Specialization',
-    description:
-      'Our leadership brings decades of hands-on expertise in radiotherapy equipment, radiation dosimetry, and medical physics — expertise that generalist distributors cannot match.',
-  },
-  {
-    icon: Globe,
-    title: 'Trusted Global Partnerships',
-    description:
-      'Authorized partnerships with world-recognized manufacturers from Germany, the USA, and China, ensuring access to genuine, high-quality equipment.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Full Regulatory Compliance',
-    description:
-      'Every transaction is conducted in strict accordance with Egyptian medical device import regulations, customs procedures, and healthcare standards.',
-  },
-  {
-    icon: Users,
-    title: 'Institutional Focus',
-    description:
-      'We exclusively serve hospitals, oncology centres, medical universities, and government health institutions — organizations that demand precision and accountability.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Scientific Research Background',
-    description:
-      'Our leadership has contributed to peer-reviewed research in radiotherapy quality assurance and treatment planning, informing our consultative approach.',
-  },
-  {
-    icon: Award,
-    title: 'Long-Term Service Commitment',
-    description:
-      'Our relationship with clients extends well beyond delivery. We provide ongoing maintenance support, calibration guidance, and technical consultation.',
-  },
-]
+import { useTranslations } from 'next-intl'
 
 export default function WhyChooseUs() {
+  const t = useTranslations('whyChooseUs')
+
+  const reasons = [
+    {
+      icon: Cpu,
+      title: t('r1Title'),
+      description: t('r1Desc'),
+    },
+    {
+      icon: Globe,
+      title: t('r2Title'),
+      description: t('r2Desc'),
+    },
+    {
+      icon: ShieldCheck,
+      title: t('r3Title'),
+      description: t('r3Desc'),
+    },
+    {
+      icon: Users,
+      title: t('r4Title'),
+      description: t('r4Desc'),
+    },
+    {
+      icon: BookOpen,
+      title: t('r5Title'),
+      description: t('r5Desc'),
+    },
+    {
+      icon: Award,
+      title: t('r6Title'),
+      description: t('r6Desc'),
+    },
+  ]
+
   return (
     <section className="section-padding bg-white border-b border-ink-200/60">
       <div className="container-site">
 
         <AnimatedSection>
           <SectionHeader
-            label="Why ON Medical"
-            title="The Standard for Specialized Medical Distribution"
-            subtitle="We combine the reliability of international partnerships with on-the-ground technical expertise — delivering a level of service that Egyptian healthcare institutions depend on."
+            label={t('label')}
+            title={t('title')}
+            subtitle={t('subtitle')}
           />
         </AnimatedSection>
 

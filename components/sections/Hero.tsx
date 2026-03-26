@@ -3,20 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, ShieldCheck, Globe2, Award, Stethoscope } from 'lucide-react'
-
-const stats = [
-  { value: '10+',  label: 'Years of Expertise',   sub: 'Radiotherapy & medical physics' },
-  { value: '3',    label: 'Global Manufacturers',  sub: 'Germany · USA · China' },
-  { value: '100+', label: 'Institutions Served',   sub: 'Hospitals, centres & universities' },
-  { value: '2014', label: 'Year Established',      sub: 'Cairo, Egypt' },
-]
-
-const trust = [
-  { icon: ShieldCheck, label: 'Fully Compliant'        },
-  { icon: Globe2,      label: 'International Partners' },
-  { icon: Award,       label: 'Since 2014'             },
-  { icon: Stethoscope, label: 'Oncology Focused'       },
-]
+import { useTranslations, useLocale } from 'next-intl'
 
 const container = {
   hidden: {},
@@ -28,6 +15,28 @@ const item = {
 }
 
 export default function Hero() {
+  const t      = useTranslations('hero')
+  const locale = useLocale()
+
+  function localizeHref(href: string) {
+    if (locale === 'en') return href
+    return `/${locale}${href}`
+  }
+
+  const stats = [
+    { value: '10+',  label: t('stat1Label'), sub: t('stat1Sub') },
+    { value: '3',    label: t('stat2Label'), sub: t('stat2Sub') },
+    { value: '100+', label: t('stat3Label'), sub: t('stat3Sub') },
+    { value: '2014', label: t('stat4Label'), sub: t('stat4Sub') },
+  ]
+
+  const trust = [
+    { icon: ShieldCheck, label: t('trust1') },
+    { icon: Globe2,      label: t('trust2') },
+    { icon: Award,       label: t('trust3') },
+    { icon: Stethoscope, label: t('trust4') },
+  ]
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-hero-light">
 
@@ -71,7 +80,7 @@ export default function Hero() {
             <motion.div variants={item}>
               <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
-                Oncology &amp; Radiotherapy Specialists — Egypt
+                {t('eyebrow')}
               </span>
             </motion.div>
 
@@ -80,10 +89,10 @@ export default function Hero() {
               variants={item}
               className="text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-black text-ink-900 leading-[1.07] tracking-tight"
             >
-              Advancing{' '}
-              <span className="text-gradient-brand">Oncology Technology</span>{' '}
+              {t('headline1')}{' '}
+              <span className="text-gradient-brand">{t('headline2')}</span>{' '}
               <br className="hidden lg:block" />
-              Across Egypt
+              {t('headline3')}
             </motion.h1>
 
             {/* Subtext */}
@@ -91,18 +100,16 @@ export default function Hero() {
               variants={item}
               className="text-[15px] lg:text-base text-ink-600 leading-[1.75] max-w-xl"
             >
-              ON Medical Company is Egypt&apos;s specialized distributor of radiotherapy, radiation
-              measurement, and medical physics systems — bridging leading international manufacturers
-              with hospitals, oncology centres, and medical institutions.
+              {t('subtext')}
             </motion.p>
 
             {/* CTAs */}
             <motion.div variants={item} className="flex flex-wrap gap-3.5">
-              <Link href="/services" className="btn-primary">
-                Explore Our Services <ArrowRight size={15} strokeWidth={2} />
+              <Link href={localizeHref('/services')} className="btn-primary">
+                {t('cta1')} <ArrowRight size={15} strokeWidth={2} />
               </Link>
-              <Link href="/partners" className="btn-secondary">
-                Our Global Partners
+              <Link href={localizeHref('/partners')} className="btn-secondary">
+                {t('cta2')}
               </Link>
             </motion.div>
 
@@ -138,7 +145,7 @@ export default function Hero() {
               <div className="px-7 py-5 border-b border-ink-100 flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse-dot" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink-400">
-                  Company at a Glance
+                  {t('panelHeader')}
                 </span>
               </div>
 
@@ -168,7 +175,7 @@ export default function Hero() {
               {/* Panel footer */}
               <div className="px-7 py-4 border-t border-ink-100 bg-ink-50">
                 <span className="text-[11px] text-ink-400">
-                  Authorized representative · Egypt &amp; MENA region
+                  {t('panelFooter')}
                 </span>
               </div>
             </div>
@@ -183,7 +190,7 @@ export default function Hero() {
         transition={{ delay: 1.4 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-ink-400"
       >
-        <span className="text-[9px] uppercase tracking-[0.2em] font-medium">Scroll</span>
+        <span className="text-[9px] uppercase tracking-[0.2em] font-medium">{t('scroll')}</span>
         <ChevronDown size={14} className="animate-bounce" />
       </motion.div>
     </section>

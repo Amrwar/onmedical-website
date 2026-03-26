@@ -14,166 +14,79 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import ContactCTA from '@/components/sections/ContactCTA'
 import SectionDivider from '@/components/ui/SectionDivider'
 
-export const metadata: Metadata = {
-  title: 'Services',
-  description:
-    'ON Medical Company provides end-to-end services for oncology and radiotherapy equipment in Egypt: distribution, technical support, installation, after-sales service, and market representation.',
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Services',
+    description:
+      'ON Medical Company provides end-to-end services for oncology and radiotherapy equipment in Egypt: distribution, technical support, installation, after-sales service, and market representation.',
+  }
 }
 
-const coreServices = [
-  {
-    icon: Package,
-    title: 'Medical Equipment Distribution',
-    description:
-      'We supply specialized oncology, radiotherapy, radiation measurement, and medical physics equipment sourced exclusively from internationally recognized manufacturers. Every product is genuine, properly imported, and compliant with Egyptian medical device regulations.',
-    points: [
-      'Oncology and radiotherapy systems',
-      'Radiation measurement & dosimetry devices',
-      'Medical physics quality assurance tools',
-      'Treatment planning support equipment',
-      'Teletherapy and brachytherapy accessories',
-      'Patient positioning and treatment couches',
-    ],
-  },
-  {
-    icon: Globe,
-    title: 'Market Representation',
-    description:
-      'ON Medical acts as the authorized Egyptian representative for carefully selected international manufacturers. We manage the commercial, regulatory, and logistical aspects of bringing specialized medical technology to the Egyptian healthcare market.',
-    points: [
-      'Authorized local representation',
-      'Regulatory import compliance',
-      'Commercial and contractual liaison',
-      'Customs clearance coordination',
-      'Marketing and institutional outreach',
-      'Tender and procurement support',
-    ],
-  },
-  {
-    icon: Wrench,
-    title: 'Technical Support & Installation',
-    description:
-      'Our experienced team manages the full technical lifecycle of each delivered system. From site survey and installation planning through to commissioning and handover, we ensure every system is ready for clinical use.',
-    points: [
-      'Pre-installation site surveys',
-      'Professional equipment installation',
-      'System commissioning and testing',
-      'User training and handover',
-      'Compliance documentation',
-      'Integration with existing clinical workflows',
-    ],
-  },
-  {
-    icon: HeartPulse,
-    title: 'After-Sales Service',
-    description:
-      'We maintain a long-term commitment to every institution we serve. Our after-sales program ensures that equipment remains operational, calibrated, and performing to manufacturer specifications throughout its service life.',
-    points: [
-      'Scheduled preventive maintenance',
-      'Corrective repair support',
-      'Spare parts sourcing and supply',
-      'Calibration guidance and support',
-      'Performance verification assistance',
-      'Prompt response to service calls',
-    ],
-  },
-  {
-    icon: PhoneCall,
-    title: 'Technical Consultation',
-    description:
-      'Drawing on deep expertise in radiotherapy and medical physics, our team provides consultative guidance to help institutions select the right technologies, plan implementations, and optimize their existing systems.',
-    points: [
-      'Equipment specification and selection',
-      'Clinical workflow optimization',
-      'Quality assurance program design',
-      'Technology upgrade planning',
-      'Second opinion and peer review',
-      'Vendor-neutral technical advice',
-    ],
-  },
-  {
-    icon: Microscope,
-    title: 'Medical Physics Solutions',
-    description:
-      'We provide specialized support for medical physics programs, from dosimetry equipment supply and calibration tooling to ongoing consultation for radiotherapy QA programs at hospitals and academic institutions.',
-    points: [
-      'Dosimetry system supply and support',
-      'Radiation measurement equipment',
-      'QA phantom and detector systems',
-      'Medical physics department consultation',
-      'Academic and research institution support',
-      'Regulatory compliance for physics programs',
-    ],
-  },
-]
+export default async function ServicesPage() {
+  const t = await getTranslations('services')
 
-const specializations = [
-  {
-    icon: FlaskConical,
-    title: 'Radiotherapy Technologies',
-    desc: 'Linear accelerators, treatment planning, and beam delivery quality assurance.',
-  },
-  {
-    icon: Cpu,
-    title: 'Radiation Measurement',
-    desc: 'Precision dosimetry, ionization chambers, and detector array systems.',
-  },
-  {
-    icon: Settings,
-    title: 'Treatment Planning Support',
-    desc: 'Technical consultation and tool supply for radiotherapy planning workflows.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Regulatory Compliance',
-    desc: 'Full compliance with Egyptian medical device import regulations and standards.',
-  },
-]
+  const coreServices = [
+    {
+      icon: Package,
+      title: t('cs1Title'),
+      description: t('cs1Desc'),
+      points: [t('cs1p1'), t('cs1p2'), t('cs1p3'), t('cs1p4'), t('cs1p5'), t('cs1p6')],
+    },
+    {
+      icon: Globe,
+      title: t('cs2Title'),
+      description: t('cs2Desc'),
+      points: [t('cs2p1'), t('cs2p2'), t('cs2p3'), t('cs2p4'), t('cs2p5'), t('cs2p6')],
+    },
+    {
+      icon: Wrench,
+      title: t('cs3Title'),
+      description: t('cs3Desc'),
+      points: [t('cs3p1'), t('cs3p2'), t('cs3p3'), t('cs3p4'), t('cs3p5'), t('cs3p6')],
+    },
+    {
+      icon: HeartPulse,
+      title: t('cs4Title'),
+      description: t('cs4Desc'),
+      points: [t('cs4p1'), t('cs4p2'), t('cs4p3'), t('cs4p4'), t('cs4p5'), t('cs4p6')],
+    },
+    {
+      icon: PhoneCall,
+      title: t('cs5Title'),
+      description: t('cs5Desc'),
+      points: [t('cs5p1'), t('cs5p2'), t('cs5p3'), t('cs5p4'), t('cs5p5'), t('cs5p6')],
+    },
+    {
+      icon: Microscope,
+      title: t('cs6Title'),
+      description: t('cs6Desc'),
+      points: [t('cs6p1'), t('cs6p2'), t('cs6p3'), t('cs6p4'), t('cs6p5'), t('cs6p6')],
+    },
+  ]
 
-const process = [
-  {
-    step: '01',
-    title: 'Initial Consultation',
-    desc: "We begin with a thorough discussion of your institution's clinical requirements, budget parameters, and timeline.",
-  },
-  {
-    step: '02',
-    title: 'Needs Assessment',
-    desc: 'Our technical team evaluates your existing setup and recommends appropriate equipment and solutions.',
-  },
-  {
-    step: '03',
-    title: 'Proposal & Agreement',
-    desc: 'We present a detailed commercial proposal including equipment specifications, pricing, and service terms.',
-  },
-  {
-    step: '04',
-    title: 'Import & Delivery',
-    desc: 'Equipment is imported through proper regulatory channels, with all documentation handled by our team.',
-  },
-  {
-    step: '05',
-    title: 'Installation & Commissioning',
-    desc: 'Professional installation, testing, and commissioning ensure the system is clinically ready.',
-  },
-  {
-    step: '06',
-    title: 'Training & Handover',
-    desc: 'Comprehensive user training is conducted before formal system handover to your team.',
-  },
-  {
-    step: '07',
-    title: 'Ongoing Support',
-    desc: 'Long-term after-sales support, maintenance, and technical consultation maintain peak performance.',
-  },
-]
+  const specializations = [
+    { icon: FlaskConical, title: t('spec1Title'), desc: t('spec1Desc') },
+    { icon: Cpu,          title: t('spec2Title'), desc: t('spec2Desc') },
+    { icon: Settings,     title: t('spec3Title'), desc: t('spec3Desc') },
+    { icon: ShieldCheck,  title: t('spec4Title'), desc: t('spec4Desc') },
+  ]
 
-export default function ServicesPage() {
+  const process = [
+    { step: t('proc1Step'), title: t('proc1Title'), desc: t('proc1Desc') },
+    { step: t('proc2Step'), title: t('proc2Title'), desc: t('proc2Desc') },
+    { step: t('proc3Step'), title: t('proc3Title'), desc: t('proc3Desc') },
+    { step: t('proc4Step'), title: t('proc4Title'), desc: t('proc4Desc') },
+    { step: t('proc5Step'), title: t('proc5Title'), desc: t('proc5Desc') },
+    { step: t('proc6Step'), title: t('proc6Title'), desc: t('proc6Desc') },
+    { step: t('proc7Step'), title: t('proc7Title'), desc: t('proc7Desc') },
+  ]
+
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
@@ -195,17 +108,15 @@ export default function ServicesPage() {
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
-                Our Services
+                {t('heroLabel')}
               </span>
               <h1 className="text-4xl lg:text-5xl font-black text-ink-900 leading-[1.08] tracking-tight mb-5">
-                Complete Support for{' '}
-                <span className="text-gradient-brand">Oncology &amp; Radiotherapy</span>{' '}
-                Technology
+                {t('heroTitle1')}{' '}
+                <span className="text-gradient-brand">{t('heroTitle2')}</span>{' '}
+                {t('heroTitle3')}
               </h1>
               <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
-                From the first consultation to long-term after-sales support, ON Medical provides
-                the full spectrum of services that Egyptian healthcare institutions require when
-                working with specialized medical technology.
+                {t('heroDesc')}
               </p>
             </div>
           </AnimatedSection>
@@ -245,9 +156,9 @@ export default function ServicesPage() {
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
-              label="Core Services"
-              title="Specialized Services for Medical Professionals"
-              subtitle="Every service we provide is designed specifically for the demands of oncology, radiotherapy, and medical physics — not adapted from a generic medical distribution model."
+              label={t('coreLabel')}
+              title={t('coreTitle')}
+              subtitle={t('coreSubtitle')}
             />
           </AnimatedSection>
 
@@ -264,13 +175,6 @@ export default function ServicesPage() {
                         <div
                           className="absolute inset-0 bg-dot-grid-light pointer-events-none opacity-10"
                           style={{ backgroundSize: '20px 20px' }}
-                        />
-                        <div
-                          className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
-                          style={{
-                            background:
-                              'radial-gradient(circle, rgb(255 255 255 / 0.08) 0%, transparent 70%)',
-                          }}
                         />
                         <div className="relative z-10 flex flex-col gap-4">
                           <div className="w-12 h-12 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center">
@@ -289,7 +193,7 @@ export default function ServicesPage() {
                       <div className="lg:col-span-3 p-8 lg:p-10 flex flex-col justify-between gap-6">
                         <div>
                           <h4 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400 mb-4">
-                            What&apos;s Included
+                            {t('whatsIncluded')}
                           </h4>
                           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             {service.points.map(point => (
@@ -313,7 +217,7 @@ export default function ServicesPage() {
                             href="/contact"
                             className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand-600 hover:text-brand-700 group"
                           >
-                            Request this service
+                            {t('requestService')}
                             <ArrowRight
                               size={14}
                               className="group-hover:translate-x-0.5 transition-transform"
@@ -336,9 +240,9 @@ export default function ServicesPage() {
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
-              label="Our Process"
-              title="A Structured Approach from Enquiry to Support"
-              subtitle="We follow a consistent, transparent process to ensure every client engagement is professionally managed from first contact through ongoing operations."
+              label={t('processLabel')}
+              title={t('processTitle')}
+              subtitle={t('processSubtitle')}
             />
           </AnimatedSection>
 

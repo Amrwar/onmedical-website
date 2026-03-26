@@ -1,24 +1,71 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useTransition } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, ChevronRight } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
+import { Menu, X, Phone, ChevronRight, ChevronDown } from 'lucide-react'
+import { useTranslations, useLocale } from 'next-intl'
 
-const navLinks = [
-  { label: 'Home',     href: '/' },
-  { label: 'About',    href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Partners', href: '/partners' },
-  { label: 'Contact',  href: '/contact' },
+const localeConfig = [
+  { code: 'en', label: 'EN', flag: '🇬🇧' },
+  { code: 'ar', label: 'AR', flag: '🇪🇬' },
+  { code: 'nl', label: 'NL', flag: '🇳🇱' },
+  { code: 'zh', label: 'ZH', flag: '🇨🇳' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const pathname = usePathname()
+  const [langOpen,   setLangOpen]   = useState(false)
+  const pathname    = usePathname()
+  const router      = useRouter()
+  const [isPending, startTransition] = useTransition()
+  const t      = useTranslations('nav')
+  const locale = useLocale()
+
+  const navLinks = [
+    { label: t('home'),     href: '/' },
+    { label: t('about'),    href: '/about' },
+    { label: t('services'), href: '/services' },
+    { label: t('partners'), href: '/partners' },
+    { label: t('contact'),  href: '/contact' },
+  ]
 
   useEffect(() => setMobileOpen(false), [pathname])
+  useEffect(() => {
+    const close = () => setLangOpen(false)
+    if (langOpen) document.addEventListener('click', close)
+    return () => document.removeEventListener('click', close)
+  }, [langOpen])
+
+  function switchLocale(newLocale: string) {
+    // Strip current locale prefix from pathname, then add new locale prefix
+    const segments = pathname.split('/').filter(Boolean)
+    const supported = ['en', 'ar', 'nl', 'zh']
+    const rest = supported.includes(segments[0]) ? segments.slice(1) : segments
+    const newPath = newLocale === 'en'
+      ? '/' + rest.join('/')
+      : '/' + newLocale + (rest.length ? '/' + rest.join('/') : '')
+
+    startTransition(() => {
+      router.push(newPath)
+    })
+    setLangOpen(false)
+  }
+
+  const currentLocale = localeConfig.find(l => l.code === locale) ?? localeConfig[0]
+
+  // Prefix nav hrefs with locale
+  function localizeHref(href: string) {
+    if (locale === 'en') return href
+    return `/${locale}${href}`
+  }
+
+  function isActive(href: string) {
+    const localized = localizeHref(href)
+    if (href === '/') return pathname === '/' || pathname === `/${locale}`
+    return pathname === localized || pathname.startsWith(localized + '/')
+  }
 
   return (
     <header
@@ -49,7 +96,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[60px] lg:h-[66px]">
 
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center">
+          <Link href={localizeHref('/')} className="flex-shrink-0 flex items-center">
             <Image
               src="/logo-onmedical.png"
               alt="ON Medical Company"
@@ -63,11 +110,11 @@ export default function Navbar() {
           {/* Desktop links */}
           <nav className="hidden lg:flex items-center gap-0.5">
             {navLinks.map(({ label, href }) => {
-              const active = pathname === href
+              const active = isActive(href)
               return (
                 <Link
                   key={href}
-                  href={href}
+                  href={localizeHref(href)}
                   className={`relative px-4 py-2 text-[13px] font-medium rounded-lg transition-all duration-150 ${
                     active
                       ? 'text-brand-600'
@@ -85,11 +132,42 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
+            {/* Language switcher */}
+            <div className="relative" onClick={e => e.stopPropagation()}>
+              <button
+                onClick={() => setLangOpen(v => !v)}
+                className="hidden lg:flex items-center gap-1.5 px-3 py-2 text-[12px] font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-100/60 rounded-lg transition-colors"
+                aria-label="Switch language"
+              >
+                <span>{currentLocale.flag}</span>
+                <span>{currentLocale.label}</span>
+                <ChevronDown size={11} strokeWidth={2} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-1.5 w-36 bg-white rounded-xl border border-ink-200 shadow-card overflow-hidden z-50">
+                  {localeConfig.map(loc => (
+                    <button
+                      key={loc.code}
+                      onClick={() => switchLocale(loc.code)}
+                      className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-[12px] font-medium transition-colors ${
+                        loc.code === locale
+                          ? 'text-brand-600 bg-brand-50'
+                          : 'text-ink-700 hover:bg-ink-50 hover:text-ink-900'
+                      }`}
+                    >
+                      <span>{loc.flag}</span>
+                      <span>{loc.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
-              href="/contact"
+              href={localizeHref('/contact')}
               className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white text-[13px] font-semibold rounded-lg hover:bg-brand-700 active:bg-brand-800 transition-colors shadow-btn-red"
             >
-              Get in Touch
+              {t('getInTouch')}
             </Link>
 
             <button
@@ -109,16 +187,16 @@ export default function Navbar() {
       {/* ── Mobile panel ───────────────────────────────────── */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? 'max-h-[520px]' : 'max-h-0'
+          mobileOpen ? 'max-h-[580px]' : 'max-h-0'
         } bg-white border-t border-ink-200/60 shadow-[0_8px_32px_rgb(0_0_0_/_0.12)]`}
       >
         <div className="container-site py-3 space-y-0.5">
           {navLinks.map(({ label, href }) => {
-            const active = pathname === href
+            const active = isActive(href)
             return (
               <Link
                 key={href}
-                href={href}
+                href={localizeHref(href)}
                 className={`flex items-center justify-between px-4 py-3 rounded-lg text-[13px] font-medium transition-colors ${
                   active
                     ? 'text-brand-600 bg-brand-50 border border-brand-100'
@@ -132,11 +210,28 @@ export default function Navbar() {
           })}
           <div className="pt-3 mt-1 border-t border-ink-200/60 space-y-3 pb-1">
             <Link
-              href="/contact"
+              href={localizeHref('/contact')}
               className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-brand-600 text-white text-[13px] font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-btn-red"
             >
-              Get in Touch
+              {t('getInTouch')}
             </Link>
+            {/* Mobile language switcher */}
+            <div className="flex justify-center gap-2 flex-wrap">
+              {localeConfig.map(loc => (
+                <button
+                  key={loc.code}
+                  onClick={() => switchLocale(loc.code)}
+                  className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-colors ${
+                    loc.code === locale
+                      ? 'bg-brand-600 text-white'
+                      : 'bg-ink-100 text-ink-600 hover:bg-ink-200'
+                  }`}
+                >
+                  <span>{loc.flag}</span>
+                  <span>{loc.label}</span>
+                </button>
+              ))}
+            </div>
             <div className="flex justify-center gap-4 text-[11px] text-ink-400">
               <a href="tel:+20224115184" className="hover:text-brand-600 transition-colors">
                 +20 2 24115184

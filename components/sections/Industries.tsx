@@ -10,52 +10,53 @@ import {
 } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
-
-const industries = [
-  {
-    icon: Heart,
-    title: 'Oncology Hospitals',
-    description:
-      'Specialized cancer treatment hospitals requiring precision radiotherapy and dosimetry systems.',
-  },
-  {
-    icon: Building2,
-    title: 'Radiation Therapy Centres',
-    description: 'Dedicated radiotherapy facilities serving cancer patients across Egypt.',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Medical Universities',
-    description: 'Academic institutions conducting research and training in medical physics.',
-  },
-  {
-    icon: Landmark,
-    title: 'Government Health Institutions',
-    description: 'Ministry-affiliated hospitals and public oncology centres.',
-  },
-  {
-    icon: Stethoscope,
-    title: 'Private Medical Facilities',
-    description: 'High-end private hospitals and specialist medical centres.',
-  },
-  {
-    icon: FlaskConical,
-    title: 'Research Institutes',
-    description:
-      'Scientific research bodies studying radiotherapy QA and treatment planning.',
-  },
-]
+import { useTranslations } from 'next-intl'
 
 export default function Industries() {
+  const t = useTranslations('industries')
+
+  const industries = [
+    {
+      icon: Heart,
+      title: t('i1Title'),
+      description: t('i1Desc'),
+    },
+    {
+      icon: Building2,
+      title: t('i2Title'),
+      description: t('i2Desc'),
+    },
+    {
+      icon: GraduationCap,
+      title: t('i3Title'),
+      description: t('i3Desc'),
+    },
+    {
+      icon: Landmark,
+      title: t('i4Title'),
+      description: t('i4Desc'),
+    },
+    {
+      icon: Stethoscope,
+      title: t('i5Title'),
+      description: t('i5Desc'),
+    },
+    {
+      icon: FlaskConical,
+      title: t('i6Title'),
+      description: t('i6Desc'),
+    },
+  ]
+
   return (
     <section className="section-padding section-alt border-b border-ink-200/60">
       <div className="container-site">
 
         <AnimatedSection>
           <SectionHeader
-            label="Who We Serve"
-            title="Built for Healthcare Institutions"
-            subtitle="ON Medical partners with a wide range of Egyptian and regional healthcare organizations that depend on precision medical technology and professional support."
+            label={t('label')}
+            title={t('title')}
+            subtitle={t('subtitle')}
           />
         </AnimatedSection>
 

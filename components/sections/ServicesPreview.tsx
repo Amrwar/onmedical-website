@@ -13,62 +13,65 @@ import {
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
 import ServiceCard from '@/components/ui/ServiceCard'
-
-const services = [
-  {
-    icon: Package,
-    title: 'Equipment Distribution',
-    description:
-      'Supply of specialist oncology, radiotherapy, and radiation measurement systems from globally authorized manufacturers.',
-    variant: 'default' as const,
-  },
-  {
-    icon: Wrench,
-    title: 'Technical Support & Installation',
-    description:
-      'End-to-end installation, commissioning, and user training delivered by experienced technical professionals.',
-    variant: 'default' as const,
-  },
-  {
-    icon: HeartPulse,
-    title: 'After-Sales Service',
-    description:
-      'Scheduled maintenance, calibration guidance, and prompt corrective support throughout the equipment lifecycle.',
-    variant: 'default' as const,
-  },
-  {
-    icon: Microscope,
-    title: 'Medical Physics Solutions',
-    description:
-      'Dosimetry systems, radiation measurement equipment, and quality assurance tools for clinical physics programs.',
-    variant: 'dark' as const,
-  },
-  {
-    icon: Globe,
-    title: 'Market Representation',
-    description:
-      'Authorized Egyptian representation for international manufacturers — handling commercial, regulatory, and logistical aspects.',
-    variant: 'dark' as const,
-  },
-  {
-    icon: PhoneCall,
-    title: 'Technical Consultation',
-    description:
-      'Expert guidance on equipment selection, clinical workflow integration, and radiotherapy quality assurance program design.',
-    variant: 'dark' as const,
-  },
-]
+import { useTranslations, useLocale } from 'next-intl'
 
 export default function ServicesPreview() {
+  const t      = useTranslations('servicesPreview')
+  const locale = useLocale()
+
+  function localizeHref(href: string) {
+    if (locale === 'en') return href
+    return `/${locale}${href}`
+  }
+
+  const services = [
+    {
+      icon: Package,
+      title: t('s1Title'),
+      description: t('s1Desc'),
+      variant: 'default' as const,
+    },
+    {
+      icon: Wrench,
+      title: t('s2Title'),
+      description: t('s2Desc'),
+      variant: 'default' as const,
+    },
+    {
+      icon: HeartPulse,
+      title: t('s3Title'),
+      description: t('s3Desc'),
+      variant: 'default' as const,
+    },
+    {
+      icon: Microscope,
+      title: t('s4Title'),
+      description: t('s4Desc'),
+      variant: 'dark' as const,
+    },
+    {
+      icon: Globe,
+      title: t('s5Title'),
+      description: t('s5Desc'),
+      variant: 'dark' as const,
+    },
+    {
+      icon: PhoneCall,
+      title: t('s6Title'),
+      description: t('s6Desc'),
+      variant: 'dark' as const,
+    },
+  ]
+
   return (
     <section className="section-padding section-alt border-y border-ink-200/60">
       <div className="container-site">
 
         <AnimatedSection>
           <SectionHeader
-            label="What We Do"
-            title="End-to-End Medical Technology Services"
-            subtitle="From initial consultation through installation, training, and long-term support — ON Medical provides the complete service structure that Egyptian medical institutions require."
+            label={t('label')}
+            title={t('title')}
+            subtitle={t('subtitle')}
           />
         </AnimatedSection>
 
@@ -81,8 +84,8 @@ export default function ServicesPreview() {
         </div>
 
         <AnimatedSection delay={0.3} className="flex justify-center mt-12">
-          <Link href="/services" className="btn-primary">
-            View All Services <ArrowRight size={14} />
+          <Link href={localizeHref('/services')} className="btn-primary">
+            {t('viewAll')} <ArrowRight size={14} />
           </Link>
         </AnimatedSection>
       </div>

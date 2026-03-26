@@ -1,69 +1,62 @@
 import type { Metadata } from 'next'
 import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import ContactForm from '@/components/ui/ContactForm'
 import ContactFaq from '@/components/ui/ContactFaq'
 import SectionDivider from '@/components/ui/SectionDivider'
 
-export const metadata: Metadata = {
-  title: 'Contact Us',
-  description:
-    'Contact ON Medical Company — Cairo, Egypt. Reach our team for equipment enquiries, technical support, after-sales service, or partnership discussions.',
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Contact Us',
+    description:
+      'Contact ON Medical Company — Cairo, Egypt. Reach our team for equipment enquiries, technical support, after-sales service, or partnership discussions.',
+  }
 }
 
-const contactDetails = [
-  {
-    icon: MapPin,
-    label: 'Address',
-    lines: ['Al Shahid Ahmed Abd Al Naby Bayoumi St. 548', 'Nasr City, Cairo, Egypt'],
-    href: 'https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt',
-  },
-  {
-    icon: Phone,
-    label: 'Telephone / Fax',
-    lines: ['+20 2 24115184'],
-    href: 'tel:+20224115184',
-  },
-  {
-    icon: Phone,
-    label: 'Mobile',
-    lines: ['+20 155 217 6156'],
-    href: 'tel:+201552176156',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    lines: ['osama@onmedical.net'],
-    href: 'mailto:osama@onmedical.net',
-  },
-  {
-    icon: Clock,
-    label: 'Working Hours',
-    lines: ['Sunday – Thursday', '9:00 AM – 5:00 PM (Cairo time)'],
-    href: null,
-  },
-]
+export default async function ContactPage() {
+  const t = await getTranslations('contact')
 
-const audienceCards = [
-  {
-    title: 'Hospitals & Oncology Centres',
-    desc: 'Seeking specialized radiotherapy or dosimetry equipment? Our team is ready to assist with product selection, pricing, and technical specifications.',
-    action: 'Equipment Enquiry',
-  },
-  {
-    title: 'Medical Universities & Research',
-    desc: 'We support academic institutions and research bodies with medical physics equipment and technical consultation services.',
-    action: 'Research Enquiry',
-  },
-  {
-    title: 'International Manufacturers',
-    desc: 'Looking for authorized representation in Egypt? We have the network, compliance expertise, and technical credibility to represent your brand.',
-    action: 'Partnership Discussion',
-  },
-]
+  const contactDetails = [
+    {
+      icon: MapPin,
+      label: t('address'),
+      lines: ['Al Shahid Ahmed Abd Al Naby Bayoumi St. 548', 'Nasr City, Cairo, Egypt'],
+      href: 'https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt',
+    },
+    {
+      icon: Phone,
+      label: t('telephoneFax'),
+      lines: ['+20 2 24115184'],
+      href: 'tel:+20224115184',
+    },
+    {
+      icon: Phone,
+      label: t('mobile'),
+      lines: ['+20 155 217 6156'],
+      href: 'tel:+201552176156',
+    },
+    {
+      icon: Mail,
+      label: t('email'),
+      lines: ['osama@onmedical.net'],
+      href: 'mailto:osama@onmedical.net',
+    },
+    {
+      icon: Clock,
+      label: t('workingHours'),
+      lines: [t('workingHoursLine1'), t('workingHoursLine2')],
+      href: null,
+    },
+  ]
 
-export default function ContactPage() {
+  const audienceCards = [
+    { title: t('card1Title'), desc: t('card1Desc'), action: t('card1Action') },
+    { title: t('card2Title'), desc: t('card2Desc'), action: t('card2Action') },
+    { title: t('card3Title'), desc: t('card3Desc'), action: t('card3Action') },
+  ]
+
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
@@ -85,16 +78,14 @@ export default function ContactPage() {
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
-                Contact Us
+                {t('heroLabel')}
               </span>
               <h1 className="text-4xl lg:text-5xl font-black text-ink-900 leading-[1.08] tracking-tight mb-5">
-                Let&apos;s Start a{' '}
-                <span className="text-gradient-brand">Conversation</span>
+                {t('heroTitle1')}{' '}
+                <span className="text-gradient-brand">{t('heroTitle2')}</span>
               </h1>
               <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8]">
-                Whether you are a hospital seeking specialized equipment, an oncology centre
-                requiring technical support, or an international manufacturer looking for an
-                authorized Egyptian representative — we are ready to help.
+                {t('heroDesc')}
               </p>
             </div>
           </AnimatedSection>
@@ -107,16 +98,15 @@ export default function ContactPage() {
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12">
 
-            {/* Contact details — left (server rendered) */}
+            {/* Contact details — left */}
             <AnimatedSection direction="left" className="lg:col-span-2 flex flex-col gap-6">
               <div className="flex flex-col gap-4">
-                <span className="section-label">Get in Touch</span>
+                <span className="section-label">{t('getInTouch')}</span>
                 <h2 className="section-title !text-left text-2xl lg:text-[1.75rem]">
-                  Contact Information
+                  {t('contactInfoTitle')}
                 </h2>
                 <p className="text-[13px] text-ink-500 leading-relaxed">
-                  Our team is available during business hours to assist with enquiries, technical
-                  questions, and commercial discussions.
+                  {t('contactInfoDesc')}
                 </p>
               </div>
 
@@ -166,13 +156,6 @@ export default function ContactPage() {
                     className="absolute inset-0 bg-dot-grid pointer-events-none opacity-50"
                     style={{ backgroundSize: '18px 18px' }}
                   />
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background:
-                        'radial-gradient(circle at center, rgb(229 25 25 / 0.08) 0%, transparent 60%)',
-                    }}
-                  />
                   <MapPin size={28} className="text-brand-600 relative z-10" strokeWidth={1.5} />
                   <p className="text-ink-900 text-[13px] font-semibold relative z-10">
                     Nasr City, Cairo, Egypt
@@ -188,7 +171,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="text-[11px] text-brand-600 hover:text-brand-700 transition-colors text-center block"
                   >
-                    Open in Google Maps →
+                    {t('openMaps')}
                   </a>
                 </div>
               </div>
@@ -208,9 +191,9 @@ export default function ContactPage() {
         <div className="container-site">
           <AnimatedSection className="mb-12">
             <SectionHeader
-              label="Who We Help"
-              title="Serving Every Corner of Egyptian Healthcare"
-              subtitle="Wherever you are in the medical sector, ON Medical has the expertise and partnerships to support your specific needs."
+              label={t('whoWeHelpLabel')}
+              title={t('whoWeHelpTitle')}
+              subtitle={t('whoWeHelpSubtitle')}
             />
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -245,9 +228,9 @@ export default function ContactPage() {
         <div className="container-site max-w-3xl">
           <AnimatedSection>
             <SectionHeader
-              label="FAQ"
-              title="Frequently Asked Questions"
-              subtitle="Answers to common questions from hospitals, medical centres, and international partners."
+              label={t('faqLabel')}
+              title={t('faqTitle')}
+              subtitle={t('faqSubtitle')}
             />
           </AnimatedSection>
           <div className="mt-12">

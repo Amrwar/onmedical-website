@@ -5,38 +5,44 @@ import Image from 'next/image'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
-
-const partners = [
-  {
-    name: 'PTW Freiburg',
-    country: 'Germany',
-    badge: '🇩🇪 Germany',
-    logo: '/logo-ptw.png',
-    website: 'https://www.ptwdosimetry.com',
-    short:
-      'High-precision dosimetry systems and radiation measurement devices for radiotherapy quality assurance.',
-  },
-  {
-    name: 'Ashland Medical',
-    country: 'United States',
-    badge: '🇺🇸 United States',
-    logo: '/logo-ashland.png',
-    website: 'https://www.ashland.com',
-    short:
-      'Specialized accessories and complementary measuring devices for teletherapy and brachytherapy applications.',
-  },
-  {
-    name: 'Klarity',
-    country: 'China',
-    badge: '🇨🇳 China',
-    logo: '/logo-klarity.png',
-    website: 'https://www.klarity-medical.com',
-    short:
-      'Computer-controlled motorized patient translation couches for Total Body Irradiation procedures.',
-  },
-]
+import { useTranslations, useLocale } from 'next-intl'
 
 export default function PartnersPreview() {
+  const t      = useTranslations('partnersPreview')
+  const locale = useLocale()
+
+  function localizeHref(href: string) {
+    if (locale === 'en') return href
+    return `/${locale}${href}`
+  }
+
+  const partners = [
+    {
+      name: 'PTW Freiburg',
+      country: 'Germany',
+      badge: '🇩🇪 Germany',
+      logo: '/logo-ptw.png',
+      website: 'https://www.ptwdosimetry.com',
+      short: t('ptw.short'),
+    },
+    {
+      name: 'Ashland Medical',
+      country: 'United States',
+      badge: '🇺🇸 United States',
+      logo: '/logo-ashland.png',
+      website: 'https://www.ashland.com',
+      short: t('ashland.short'),
+    },
+    {
+      name: 'Klarity',
+      country: 'China',
+      badge: '🇨🇳 China',
+      logo: '/logo-klarity.png',
+      website: 'https://www.klarity-medical.com',
+      short: t('klarity.short'),
+    },
+  ]
+
   return (
     <section className="section-padding bg-ink-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden relative">
       <div
@@ -47,9 +53,9 @@ export default function PartnersPreview() {
       <div className="container-site relative z-10">
         <AnimatedSection>
           <SectionHeader
-            label="Global Partnerships"
-            title="Representing World-Class Manufacturers"
-            subtitle="We are the authorized Egyptian representative for internationally recognized companies whose technologies set the standard in oncology and radiotherapy."
+            label={t('label')}
+            title={t('title')}
+            subtitle={t('subtitle')}
           />
         </AnimatedSection>
 
@@ -89,7 +95,7 @@ export default function PartnersPreview() {
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-3 border-t border-ink-200/60">
                   <span className="text-[11px] text-brand-600 font-medium">
-                    Authorized Rep · Egypt
+                    {t('authorizedRep')}
                   </span>
                   <a
                     href={p.website}
@@ -97,7 +103,7 @@ export default function PartnersPreview() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-[11px] text-ink-400 hover:text-brand-600 transition-colors"
                   >
-                    Visit <ExternalLink size={10} />
+                    {t('visit')} <ExternalLink size={10} />
                   </a>
                 </div>
               </div>
@@ -107,12 +113,12 @@ export default function PartnersPreview() {
 
         <AnimatedSection delay={0.35} className="flex justify-center mt-12">
           <Link
-            href="/partners"
+            href={localizeHref('/partners')}
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg border border-brand-300
                        text-brand-700 text-[13px] font-semibold hover:bg-brand-100 hover:border-brand-400
                        transition-all duration-200 bg-white"
           >
-            View All Partners <ArrowRight size={14} />
+            {t('viewAll')} <ArrowRight size={14} />
           </Link>
         </AnimatedSection>
       </div>

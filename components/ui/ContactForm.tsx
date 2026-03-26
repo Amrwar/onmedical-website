@@ -2,15 +2,7 @@
 
 import { useState, FormEvent } from 'react'
 import { Send, CheckCircle2, ChevronDown } from 'lucide-react'
-
-const enquiryTypes = [
-  'Equipment Enquiry',
-  'Technical Support',
-  'After-Sales Service',
-  'Partnership / Representation',
-  'General Information',
-  'Other',
-]
+import { useTranslations } from 'next-intl'
 
 interface FormState {
   name: string
@@ -35,6 +27,16 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [loading,   setLoading]   = useState(false)
   const [error,     setError]     = useState<string | null>(null)
+  const t = useTranslations('contact')
+
+  const enquiryTypes = [
+    t('enquiryType1'),
+    t('enquiryType2'),
+    t('enquiryType3'),
+    t('enquiryType4'),
+    t('enquiryType5'),
+    t('enquiryType6'),
+  ]
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -55,7 +57,7 @@ export default function ContactForm() {
       if (!res.ok) throw new Error('Failed to send')
       setSubmitted(true)
     } catch {
-      setError('Something went wrong. Please try again or email us directly.')
+      setError(t('formError'))
     } finally {
       setLoading(false)
     }
@@ -69,10 +71,9 @@ export default function ContactForm() {
             <CheckCircle2 size={28} className="text-green-600" strokeWidth={1.75} />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-ink-900 mb-2">Enquiry Received</h3>
+            <h3 className="text-xl font-bold text-ink-900 mb-2">{t('formSuccess')}</h3>
             <p className="text-ink-500 text-[13px] leading-relaxed max-w-sm">
-              Thank you for reaching out to ON Medical Company. A member of our team will review
-              your message and respond within one business day.
+              {t('formSuccessDesc')}
             </p>
           </div>
           <button
@@ -82,15 +83,15 @@ export default function ContactForm() {
             }}
             className="text-[13px] text-brand-600 hover:text-brand-700 font-semibold transition-colors"
           >
-            Send another enquiry
+            {t('formSendAnother')}
           </button>
         </div>
       ) : (
         <>
           <div className="mb-7 pb-6 border-b border-ink-200/60">
-            <h2 className="text-xl font-bold text-ink-900 mb-1.5">Send an Enquiry</h2>
+            <h2 className="text-xl font-bold text-ink-900 mb-1.5">{t('formTitle')}</h2>
             <p className="text-ink-400 text-[13px]">
-              Fill in the form below and we will respond within one business day.
+              {t('formSubtitle')}
             </p>
           </div>
 
@@ -99,24 +100,24 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
                 <label className="input-label">
-                  Full Name <span className="text-brand-500">*</span>
+                  {t('formName')} <span className="text-brand-500">*</span>
                 </label>
                 <input
                   name="name"
                   value={formState.name}
                   onChange={handleChange}
                   required
-                  placeholder="Dr. Ahmed Hassan"
+                  placeholder={t('formNamePlaceholder')}
                   className="input-field"
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="input-label">Organisation / Hospital</label>
+                <label className="input-label">{t('formOrg')}</label>
                 <input
                   name="organization"
                   value={formState.organization}
                   onChange={handleChange}
-                  placeholder="Cairo University Hospital"
+                  placeholder={t('formOrgPlaceholder')}
                   className="input-field"
                 />
               </div>
@@ -126,7 +127,7 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
                 <label className="input-label">
-                  Email Address <span className="text-brand-500">*</span>
+                  {t('formEmail')} <span className="text-brand-500">*</span>
                 </label>
                 <input
                   name="email"
@@ -134,18 +135,18 @@ export default function ContactForm() {
                   value={formState.email}
                   onChange={handleChange}
                   required
-                  placeholder="name@hospital.com"
+                  placeholder={t('formEmailPlaceholder')}
                   className="input-field"
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="input-label">Phone Number</label>
+                <label className="input-label">{t('formPhone')}</label>
                 <input
                   name="phone"
                   type="tel"
                   value={formState.phone}
                   onChange={handleChange}
-                  placeholder="+20 1XX XXX XXXX"
+                  placeholder={t('formPhonePlaceholder')}
                   className="input-field"
                 />
               </div>
@@ -153,7 +154,7 @@ export default function ContactForm() {
 
             {/* Enquiry type */}
             <div className="flex flex-col gap-1.5">
-              <label className="input-label">Nature of Enquiry</label>
+              <label className="input-label">{t('formEnquiryType')}</label>
               <div className="relative">
                 <select
                   name="enquiryType"
@@ -162,11 +163,11 @@ export default function ContactForm() {
                   className="input-field appearance-none pr-10"
                 >
                   <option value="" disabled>
-                    Select enquiry type…
+                    {t('formSelectType')}
                   </option>
-                  {enquiryTypes.map(t => (
-                    <option key={t} value={t}>
-                      {t}
+                  {enquiryTypes.map(type => (
+                    <option key={type} value={type}>
+                      {type}
                     </option>
                   ))}
                 </select>
@@ -181,7 +182,7 @@ export default function ContactForm() {
             {/* Message */}
             <div className="flex flex-col gap-1.5">
               <label className="input-label">
-                Message <span className="text-brand-500">*</span>
+                {t('formMessage')} <span className="text-brand-500">*</span>
               </label>
               <textarea
                 name="message"
@@ -189,14 +190,13 @@ export default function ContactForm() {
                 onChange={handleChange}
                 required
                 rows={5}
-                placeholder="Please describe your requirements, the equipment you are interested in, or any questions you have for our team…"
+                placeholder={t('formMessagePlaceholder')}
                 className="input-field resize-none"
               />
             </div>
 
             <p className="text-[11px] text-ink-400 leading-relaxed">
-              By submitting this form, you consent to ON Medical Company contacting you regarding
-              your enquiry. Your information will not be shared with third parties.
+              {t('formConsent')}
             </p>
 
             {error && (
@@ -211,7 +211,7 @@ export default function ContactForm() {
               className="btn-primary w-full justify-center py-3.5 text-[14px] disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Send size={15} strokeWidth={1.75} />
-              {loading ? 'Sending…' : 'Submit Enquiry'}
+              {loading ? t('formSending') : t('formSubmit')}
             </button>
           </form>
         </>

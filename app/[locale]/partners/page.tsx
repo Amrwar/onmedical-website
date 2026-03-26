@@ -6,13 +6,16 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
 
-export const metadata: Metadata = {
-  title: 'Partners & Technologies',
-  description:
-    'ON Medical Company is the authorized Egyptian representative for PTW Freiburg, Ashland Medical, and Klarity — presenting premium dosimetry, film QA, and patient positioning technologies for oncology and radiotherapy.',
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Partners & Technologies',
+    description:
+      'ON Medical Company is the authorized Egyptian representative for PTW Freiburg, Ashland Medical, and Klarity — presenting premium dosimetry, film QA, and patient positioning technologies for oncology and radiotherapy.',
+  }
 }
 
 /* ─── Image placeholder component ─────────────────────────────── */
@@ -171,7 +174,8 @@ function PartnerHeader({
 }
 
 /* ═══════════════════════════════════════════════════════════════ */
-export default function PartnersPage() {
+export default async function PartnersPage() {
+  const t = await getTranslations('partners')
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────── */}
@@ -193,17 +197,15 @@ export default function PartnersPage() {
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
-                Partners & Technologies
+                {t('heroLabel')}
               </span>
               <h1 className="text-4xl lg:text-[3.25rem] font-black text-ink-900 leading-[1.06] tracking-tight mb-5">
-                World-Class Technology,{' '}
+                {t('heroTitle1')}{' '}
                 <br className="hidden lg:block" />
-                <span className="text-gradient-brand">Delivered Locally</span>
+                <span className="text-gradient-brand">{t('heroTitle2')}</span>
               </h1>
               <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
-                ON Medical Company is the authorized Egyptian representative for three
-                internationally recognized manufacturers — each a leader in their field of
-                oncology, radiotherapy, and medical physics technology.
+                {t('heroDesc')}
               </p>
             </div>
           </AnimatedSection>
@@ -246,13 +248,13 @@ export default function PartnersPage() {
           <PartnerHeader
             id="ptw"
             flag="🇩🇪"
-            country="Germany"
-            name="PTW Freiburg"
-            tagline="Global Leader in Dosimetry & Radiation Quality Control"
-            description="Founded in 1922 and headquartered in Freiburg, Germany, PTW is the world's leading manufacturer of dosimetry and quality control solutions for radiation medicine. Serving medical radiation experts in more than 160 countries, PTW combines a century of precision engineering expertise with continuous innovation — operating the oldest and largest accredited calibration laboratory in the field of ionizing radiation."
+            country={t('ptwCountry')}
+            name={t('ptwName')}
+            tagline={t('ptwTagline')}
+            description={t('ptwDesc')}
             logo="/logo-ptw.png"
             website="https://www.ptwdosimetry.com"
-            credential="Authorized Egyptian Representative"
+            credential={t('ptwCredential')}
           />
 
           {/* ── Featured Technology: BEAMSCAN ─────────────────── */}
@@ -522,13 +524,13 @@ export default function PartnersPage() {
           <PartnerHeader
             id="ashland"
             flag="🇺🇸"
-            country="United States"
-            name="Ashland Medical"
-            tagline="Precision Film Dosimetry for Radiotherapy & Radiology QA"
-            description="Ashland Medical develops and manufactures Gafchromic™ dosimetry films — a globally established standard for accurate, chemical-free dose measurement in radiotherapy and radiology quality assurance. Used in hospitals and cancer centres worldwide, Gafchromic™ films deliver submillimeter spatial resolution with no angular correction dependence, making them well-suited for both patient QA workflows and machine QA programs."
+            country={t('ashlandCountry')}
+            name={t('ashlandName')}
+            tagline={t('ashlandTagline')}
+            description={t('ashlandDesc')}
             logo="/logo-ashland.png"
             website="https://www.ashland.com"
-            credential="Authorized Egyptian Representative"
+            credential={t('ashlandCredential')}
           />
 
           {/* ── Gafchromic films overview ──────────────────────── */}
@@ -860,13 +862,13 @@ export default function PartnersPage() {
           <PartnerHeader
             id="klarity"
             flag="🇨🇳"
-            country="China"
-            name="Klarity"
-            tagline="Patient Positioning & Immobilization Solutions for Radiotherapy"
-            description="Klarity develops specialized patient positioning and immobilization systems for use in radiotherapy and oncology treatment workflows. Their product range addresses the precise positioning requirements of modern radiotherapy techniques, providing clinical teams with reliable, configurable platforms designed to support accurate and reproducible treatment delivery."
+            country={t('klarityCountry')}
+            name={t('klarityName')}
+            tagline={t('klarityTagline')}
+            description={t('klarityDesc')}
             logo="/logo-klarity.png"
             website="https://www.klarity-medical.com"
-            credential="Authorized Egyptian Representative"
+            credential={t('klarityCredential')}
           />
 
           {/* ── UNO™ All-In-One hero ───────────────────────────── */}

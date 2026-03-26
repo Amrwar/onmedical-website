@@ -3,8 +3,17 @@
 import Link from 'next/link'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { useTranslations, useLocale } from 'next-intl'
 
 export default function ContactCTA() {
+  const t      = useTranslations('contactCTA')
+  const locale = useLocale()
+
+  function localizeHref(href: string) {
+    if (locale === 'en') return href
+    return `/${locale}${href}`
+  }
+
   return (
     <section className="section-padding bg-white">
       <div className="container-site">
@@ -34,15 +43,13 @@ export default function ContactCTA() {
               {/* Text */}
               <div className="max-w-xl">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-600 block mb-3">
-                  Get in Touch
+                  {t('label')}
                 </span>
                 <h2 className="text-2xl lg:text-3xl font-bold text-ink-900 leading-tight mb-4">
-                  Ready to Advance Your Oncology Services?
+                  {t('title')}
                 </h2>
                 <p className="text-[14px] text-ink-600 leading-relaxed mb-7">
-                  Whether you represent a hospital, oncology centre, university, or an international
-                  manufacturer seeking an Egyptian partner — we are ready to discuss how ON Medical
-                  can support your needs.
+                  {t('desc')}
                 </p>
                 <div className="flex flex-wrap gap-5">
                   <a
@@ -64,14 +71,14 @@ export default function ContactCTA() {
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3 flex-shrink-0">
-                <Link href="/contact" className="btn-primary whitespace-nowrap">
-                  Send an Enquiry <ArrowRight size={14} />
+                <Link href={localizeHref('/contact')} className="btn-primary whitespace-nowrap">
+                  {t('cta1')} <ArrowRight size={14} />
                 </Link>
                 <Link
-                  href="/partners"
+                  href={localizeHref('/partners')}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg border border-ink-300 text-ink-700 text-[13px] font-semibold hover:bg-ink-50 hover:border-ink-400 transition-all duration-200 whitespace-nowrap"
                 >
-                  Our Partners
+                  {t('cta2')}
                 </Link>
               </div>
             </div>

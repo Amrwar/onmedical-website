@@ -1,25 +1,31 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPin, Phone, Mail, Printer, ArrowUpRight } from 'lucide-react'
-
-const pages = [
-  { label: 'Home',      href: '/' },
-  { label: 'About Us',  href: '/about' },
-  { label: 'Services',  href: '/services' },
-  { label: 'Partners',  href: '/partners' },
-  { label: 'Contact',   href: '/contact' },
-]
-
-const services = [
-  'Equipment Distribution',
-  'Technical Support',
-  'Installation Services',
-  'After-Sales Service',
-  'Technical Consultation',
-  'Market Representation',
-]
+import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react'
+import { useTranslations, useLocale } from 'next-intl'
 
 export default function Footer() {
+  const t      = useTranslations('footer')
+  const locale = useLocale()
+
+  function localizeHref(href: string) {
+    if (locale === 'en') return href
+    return `/${locale}${href}`
+  }
+
+  const pages = [
+    { label: t('p1'), href: '/' },
+    { label: t('p2'), href: '/about' },
+    { label: t('p3'), href: '/services' },
+    { label: t('p4'), href: '/partners' },
+    { label: t('p5'), href: '/contact' },
+  ]
+
+  const services = [
+    t('s1'), t('s2'), t('s3'), t('s4'), t('s5'), t('s6'),
+  ]
+
   return (
     <footer className="bg-ink-50 border-t border-ink-200">
 
@@ -32,7 +38,7 @@ export default function Footer() {
 
           {/* Brand col — 4 cols */}
           <div className="lg:col-span-4 space-y-5 lg:pr-6">
-            <Link href="/" className="inline-block">
+            <Link href={localizeHref('/')} className="inline-block">
               <Image
                 src="/logo-onmedical.png"
                 alt="ON Medical Company"
@@ -42,12 +48,12 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[13px] text-ink-600 leading-relaxed max-w-[240px]">
-              A specialized Egyptian company advancing oncology and radiotherapy technology throughout the healthcare sector since 2014.
+              {t('tagline')}
             </p>
             <div className="flex items-center gap-2.5 pt-1">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-400">
-                Established Cairo, Egypt · 2014
+                {t('established')}
               </span>
             </div>
           </div>
@@ -55,13 +61,13 @@ export default function Footer() {
           {/* Navigation — 2 cols */}
           <div className="lg:col-span-2 lg:border-l lg:border-ink-200 lg:pl-6 space-y-4">
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
-              Navigation
+              {t('navigation')}
             </p>
             <ul className="space-y-2.5">
               {pages.map(p => (
                 <li key={p.href}>
                   <Link
-                    href={p.href}
+                    href={localizeHref(p.href)}
                     className="flex items-center gap-2 text-[13px] text-ink-600 hover:text-brand-600 transition-colors group"
                   >
                     <span className="w-1 h-1 rounded-full bg-brand-600 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -75,7 +81,7 @@ export default function Footer() {
           {/* Services — 3 cols */}
           <div className="lg:col-span-3 lg:border-l lg:border-ink-200 lg:pl-6 space-y-4">
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
-              Services
+              {t('services')}
             </p>
             <ul className="space-y-2.5">
               {services.map(s => (
@@ -90,14 +96,14 @@ export default function Footer() {
           {/* Contact — 3 cols */}
           <div className="lg:col-span-3 lg:border-l lg:border-ink-200 lg:pl-6 space-y-4">
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
-              Contact
+              {t('contact')}
             </p>
             <ul className="space-y-3.5">
               {([
-                { icon: MapPin,  text: 'Al Shahid Ahmed Abd Al Naby Bayoumi St. 548\nNasr City, Cairo, Egypt', href: 'https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt' },
-                { icon: Phone,   text: '+20 2 24115184 (Tel / Fax)',               href: 'tel:+20224115184' },
-                { icon: Phone,   text: '+20 155 217 6156 (Mobile)',               href: 'tel:+201552176156' },
-                { icon: Mail,    text: 'osama@onmedical.net',                     href: 'mailto:osama@onmedical.net' },
+                { icon: MapPin, text: 'Al Shahid Ahmed Abd Al Naby Bayoumi St. 548\nNasr City, Cairo, Egypt', href: 'https://maps.google.com/?q=Al+Shahid+Ahmed+Abd+Al+Naby+Bayoumi+Street+548+Nasr+City+Cairo+Egypt' },
+                { icon: Phone,  text: '+20 2 24115184 (Tel / Fax)',               href: 'tel:+20224115184' },
+                { icon: Phone,  text: '+20 155 217 6156 (Mobile)',               href: 'tel:+201552176156' },
+                { icon: Mail,   text: 'osama@onmedical.net',                     href: 'mailto:osama@onmedical.net' },
               ] as { icon: typeof MapPin; text: string; href: string | null }[]).map(({ icon: Icon, text, href }, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Icon size={13} className="text-brand-600 mt-0.5 flex-shrink-0" strokeWidth={1.75} />
@@ -118,10 +124,10 @@ export default function Footer() {
             </ul>
             <div className="pt-1">
               <Link
-                href="/contact"
+                href={localizeHref('/contact')}
                 className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-[12px] font-semibold rounded-lg transition-colors shadow-btn-red"
               >
-                Send Enquiry <ArrowUpRight size={13} />
+                {t('sendEnquiry')} <ArrowUpRight size={13} />
               </Link>
             </div>
           </div>
@@ -132,10 +138,10 @@ export default function Footer() {
       <div className="border-t border-ink-200">
         <div className="container-site py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-[11px] text-ink-400">
-            © {new Date().getFullYear()} ON Medical Company. All rights reserved.
+            © {new Date().getFullYear()} {t('copyright')}
           </p>
           <p className="text-[11px] text-ink-400">
-            Oncology &amp; Radiotherapy Equipment · Cairo, Egypt
+            {t('subtag')}
           </p>
         </div>
       </div>
