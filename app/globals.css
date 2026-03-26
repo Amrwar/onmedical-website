@@ -234,3 +234,15 @@
     @apply w-12 h-1 bg-gradient-to-r from-brand-600 to-brand-400 rounded-full;
   }
 }
+
+/* ─── Red arrow pulse animation ────────────────────────────────── */
+@keyframes arrow-color-pulse {
+  0%, 100% { opacity: 1;   filter: drop-shadow(0 0 6px rgb(204 18 18 / 0.7)); }
+  50%       { opacity: 0.3; filter: drop-shadow(0 0 2px rgb(204 18 18 / 0.2)); }
+}
+.animate-arrow-pulse {
+  animation: arrow-color-pulse 1.8s ease-in-out infinite;
+}
+.animate-arrow-pulse-delay {
+  animation: arrow-color-pulse 1.8s ease-in-out infinite 0.9s;
+}

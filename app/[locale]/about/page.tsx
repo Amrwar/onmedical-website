@@ -85,6 +85,13 @@ export default async function AboutPage() {
 
             <AnimatedSection direction="left" className="flex flex-col gap-7">
               <div className="flex flex-col gap-4">
+                <Image
+                  src="/logo-onmedical.png"
+                  alt="ON Medical Company"
+                  width={180}
+                  height={52}
+                  className="h-12 w-auto object-contain mix-blend-multiply"
+                />
                 <span className="section-label">{t('overviewLabel')}</span>
                 <h2 className="section-title !text-left">{t('overviewTitle')}</h2>
               </div>
@@ -252,50 +259,69 @@ export default async function AboutPage() {
             <SectionHeader label={t('missionVisionLabel')} title={t('missionVisionTitle')} />
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-14">
+          <div className="relative mt-14">
 
-            {/* Mission */}
-            <AnimatedSection direction="left">
-              <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-600 to-brand-400 rounded-t-2xl" />
-                <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
-                  <Target size={22} className="text-brand-600" strokeWidth={1.75} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-ink-900 mb-1">{t('missionTitle')}</h3>
-                  <div className="w-8 h-0.5 rounded-full bg-brand-600 mb-5" />
-                  <p className="text-ink-500 leading-[1.8] text-[14px] mb-4">{t('missionP1')}</p>
-                  <p className="text-ink-500 leading-[1.8] text-[14px]">{t('missionP2')}</p>
-                </div>
-              </div>
-            </AnimatedSection>
+            {/* Left arrow → pointing into Mission block */}
+            <div className="hidden lg:flex absolute -left-14 top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-1">
+              <svg width="44" height="28" viewBox="0 0 44 28" fill="none" className="animate-arrow-pulse">
+                <path d="M2 14 L34 14" stroke="#CC1212" strokeWidth="3" strokeLinecap="round"/>
+                <path d="M26 5 L42 14 L26 23" stroke="#CC1212" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
 
-            {/* Vision */}
-            <AnimatedSection direction="right">
-              <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden">
-                <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-brand-600 to-brand-400 rounded-l-2xl" />
-                <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
-                  <Eye size={22} className="text-brand-600" strokeWidth={1.75} />
+            {/* Right arrow ← pointing into Vision block */}
+            <div className="hidden lg:flex absolute -right-14 top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-1">
+              <svg width="44" height="28" viewBox="0 0 44 28" fill="none" className="animate-arrow-pulse-delay">
+                <path d="M42 14 L10 14" stroke="#CC1212" strokeWidth="3" strokeLinecap="round"/>
+                <path d="M18 5 L2 14 L18 23" stroke="#CC1212" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+              {/* Mission */}
+              <AnimatedSection direction="left">
+                <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-card-hover">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-600 to-brand-400 rounded-t-2xl" />
+                  <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
+                    <Target size={22} className="text-brand-600" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-ink-900 mb-1">{t('missionTitle')}</h3>
+                    <div className="w-8 h-0.5 rounded-full bg-brand-600 mb-5" />
+                    <p className="text-ink-500 leading-[1.8] text-[14px] mb-4">{t('missionP1')}</p>
+                    <p className="text-ink-500 leading-[1.8] text-[14px]">{t('missionP2')}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-ink-900 mb-1">{t('visionTitle')}</h3>
-                  <div className="w-8 h-0.5 rounded-full bg-brand-600 mb-5" />
-                  <p className="text-ink-600 leading-[1.8] text-[14px] mb-6">{t('visionP')}</p>
-                  <ul className="space-y-3">
-                    {visionGoals.map(goal => (
-                      <li key={goal} className="flex items-start gap-2.5 text-[13px] text-ink-600">
-                        <CheckCircle2
-                          size={14}
-                          className="text-brand-600 mt-0.5 flex-shrink-0"
-                          strokeWidth={2}
-                        />
-                        {goal}
-                      </li>
-                    ))}
-                  </ul>
+              </AnimatedSection>
+
+              {/* Vision */}
+              <AnimatedSection direction="right">
+                <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-card-hover">
+                  <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-brand-600 to-brand-400 rounded-l-2xl" />
+                  <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
+                    <Eye size={22} className="text-brand-600" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-ink-900 mb-1">{t('visionTitle')}</h3>
+                    <div className="w-8 h-0.5 rounded-full bg-brand-600 mb-5" />
+                    <p className="text-ink-600 leading-[1.8] text-[14px] mb-6">{t('visionP')}</p>
+                    <ul className="space-y-3">
+                      {visionGoals.map(goal => (
+                        <li key={goal} className="flex items-start gap-2.5 text-[13px] text-ink-600">
+                          <CheckCircle2
+                            size={14}
+                            className="text-brand-600 mt-0.5 flex-shrink-0"
+                            strokeWidth={2}
+                          />
+                          {goal}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
