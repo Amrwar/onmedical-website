@@ -93,8 +93,8 @@ export default async function ContactPage() {
       </section>
 
       {/* ── Contact section ───────────────────────────────── */}
-      <SectionDivider bg="muted" />
-      <section id="contact-form" className="section-padding section-alt">
+      <SectionDivider />
+      <section id="contact-form" className="section-padding bg-white">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12">
 
@@ -179,7 +179,9 @@ export default async function ContactPage() {
 
             {/* Contact form — right (client component) */}
             <AnimatedSection direction="right" className="lg:col-span-3">
-              <ContactForm />
+              <div className="rounded-2xl overflow-hidden" style={{ borderTop: '3px solid #CC1212', borderBottom: '3px solid #CC1212', borderLeft: '3px solid #e5e7eb', borderRight: '3px solid #e5e7eb' }}>
+                <ContactForm />
+              </div>
             </AnimatedSection>
           </div>
         </div>
@@ -190,6 +192,31 @@ export default async function ContactPage() {
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection className="mb-12">
+            {/* Handshake icon above WHO WE HELP */}
+            <div className="flex justify-center mb-5">
+              <svg width="80" height="56" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Left arm */}
+                <path d="M2,28 L18,20 L28,24 L36,20" stroke="#1a1a1a" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                {/* Left hand fingers */}
+                <path d="M36,20 L40,16 L44,18" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                <path d="M36,20 L38,14 L42,15" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                <path d="M36,20 L37,12 L41,13" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                {/* Right arm */}
+                <path d="M78,28 L62,20 L52,24 L44,20" stroke="#CC1212" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                {/* Right hand fingers */}
+                <path d="M44,20 L40,16 L36,18" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                <path d="M44,20 L42,14 L38,15" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                <path d="M44,20 L43,12 L39,13" stroke="#CC1212" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                {/* Clasped hands centre */}
+                <ellipse cx="40" cy="22" rx="6" ry="5" fill="#CC1212" opacity="0.15"/>
+                <circle cx="40" cy="22" r="4" fill="#CC1212" opacity="0.9"/>
+                <circle cx="40" cy="22" r="2" fill="white" opacity="0.6"/>
+                {/* Cuff left */}
+                <path d="M18,20 L14,32 L24,36 L28,24" fill="#1a1a1a" opacity="0.12"/>
+                {/* Cuff right */}
+                <path d="M62,20 L66,32 L56,36 L52,24" fill="#CC1212" opacity="0.12"/>
+              </svg>
+            </div>
             <SectionHeader
               label={t('whoWeHelpLabel')}
               title={t('whoWeHelpTitle')}
@@ -199,7 +226,7 @@ export default async function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {audienceCards.map((card, i) => (
               <AnimatedSection key={card.title} delay={i * 0.08}>
-                <div className="card p-7 flex flex-col gap-4 h-full group">
+                <div className="bg-white rounded-2xl shadow-card p-7 flex flex-col gap-4 h-full group" style={{ borderTop: '2px solid #CC1212', borderBottom: '2px solid #CC1212', borderLeft: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}>
                   <div className="step-number">{String(i + 1).padStart(2, '0')}</div>
                   <h3 className="text-[15px] font-bold text-ink-900 leading-snug">
                     {card.title}
@@ -223,8 +250,8 @@ export default async function ContactPage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────── */}
-      <SectionDivider bg="muted" />
-      <section id="faq" className="relative section-padding section-alt">
+      <SectionDivider />
+      <section id="faq" className="relative section-padding bg-white">
         {/* Top zigzag strip */}
         <div className="absolute top-0 left-0 right-0 h-4 pointer-events-none overflow-hidden">
           <svg viewBox="0 0 1200 16" preserveAspectRatio="none" className="w-full h-full">
@@ -239,6 +266,25 @@ export default async function ContactPage() {
         </div>
         <div className="container-site max-w-3xl">
           <AnimatedSection>
+            {/* FAQ icon — speech bubble with question mark */}
+            <div className="flex justify-center mb-5">
+              <svg width="68" height="64" viewBox="0 0 68 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Main bubble */}
+                <rect x="2" y="2" width="56" height="44" rx="10" fill="#1a1a1a"/>
+                <rect x="2" y="2" width="56" height="44" rx="10" fill="none" stroke="#CC1212" strokeWidth="2"/>
+                {/* Tail */}
+                <path d="M18,46 L10,58 L30,46 Z" fill="#1a1a1a"/>
+                <path d="M18,46 L10,58 L30,46" fill="none" stroke="#CC1212" strokeWidth="1.5" strokeLinejoin="round"/>
+                {/* Question mark curve */}
+                <path d="M22,18 C22,13 25,10 30,10 C35,10 38,13 38,18 C38,22 35,24 32,26 C31,27 30,28 30,31" stroke="#CC1212" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                {/* Question mark dot */}
+                <circle cx="30" cy="37" r="2.5" fill="#CC1212"/>
+                {/* Second smaller bubble top-right */}
+                <circle cx="54" cy="12" r="10" fill="#CC1212"/>
+                <circle cx="54" cy="12" r="7" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+                <text x="54" y="16" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold" fontFamily="sans-serif">?</text>
+              </svg>
+            </div>
             <SectionHeader
               label={t('faqLabel')}
               title={t('faqTitle')}
