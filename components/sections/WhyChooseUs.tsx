@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
                 {isRed ? (
                   <div
                     className="group p-7 rounded-xl border border-brand-700/40 flex flex-col gap-4 h-full relative overflow-hidden hover:-translate-y-0.5 transition-all duration-300"
-                    style={{ background: 'linear-gradient(145deg, #b91c1c 0%, #CC1212 50%, #e53e3e 100%)' }}
+                    style={{ background: 'linear-gradient(145deg, #ef4444 0%, #f05252 50%, #f87171 100%)' }}
                   >
                     <div className="absolute inset-0 bg-dot-grid-light opacity-15 pointer-events-none" />
                     <div className="relative z-10 flex flex-col gap-4 h-full">
