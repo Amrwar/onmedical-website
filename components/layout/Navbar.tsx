@@ -9,9 +9,9 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useIntlRouter, useIntlPathname } from '@/navigation'
 
 const localeConfig = [
-  { code: 'en', label: 'EN', flag: '🇬🇧' },
-  { code: 'nl', label: 'NL', flag: '🇳🇱' },
-  { code: 'zh', label: 'ZH', flag: '🇨🇳' },
+  { code: 'en', label: 'English',  flagImg: 'https://flagcdn.com/w40/gb.png',  short: 'EN' },
+  { code: 'nl', label: 'Dutch',    flagImg: 'https://flagcdn.com/w40/nl.png',  short: 'NL' },
+  { code: 'zh', label: '中文',     flagImg: 'https://flagcdn.com/w40/cn.png',  short: 'ZH' },
 ]
 
 export default function Navbar() {
@@ -130,8 +130,8 @@ export default function Navbar() {
                 className="hidden lg:flex items-center gap-1.5 px-3 py-2 text-[12px] font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-100/60 rounded-lg transition-colors"
                 aria-label="Switch language"
               >
-                <span>{currentLocale.flag}</span>
-                <span>{currentLocale.label}</span>
+                <img src={currentLocale.flagImg} alt={currentLocale.short} className="w-5 h-3.5 object-cover rounded-[2px]" />
+                <span>{currentLocale.short}</span>
                 <ChevronDown size={11} strokeWidth={2} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
               </button>
               {langOpen && (
@@ -146,7 +146,7 @@ export default function Navbar() {
                           : 'text-ink-700 hover:bg-ink-50 hover:text-ink-900'
                       }`}
                     >
-                      <span>{loc.flag}</span>
+                      <img src={loc.flagImg} alt={loc.short} className="w-5 h-3.5 object-cover rounded-[2px] flex-shrink-0" />
                       <span>{loc.label}</span>
                     </button>
                   ))}
@@ -218,8 +218,8 @@ export default function Navbar() {
                       : 'bg-ink-100 text-ink-600 hover:bg-ink-200'
                   }`}
                 >
-                  <span>{loc.flag}</span>
-                  <span>{loc.label}</span>
+                  <img src={loc.flagImg} alt={loc.short} className="w-5 h-3.5 object-cover rounded-[2px]" />
+                  <span>{loc.short}</span>
                 </button>
               ))}
             </div>
