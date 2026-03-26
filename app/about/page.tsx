@@ -185,36 +185,23 @@ export default function AboutPage() {
             {/* Photos */}
             <AnimatedSection direction="left" className="lg:col-span-5">
               <div className="grid grid-cols-2 gap-4">
-                {/* Primary large photo */}
-                <div className="col-span-2 sm:col-span-1 relative rounded-2xl overflow-hidden aspect-[3/4] shadow-[0_4px_24px_rgb(0_0_0_/_0.10)] border border-ink-200">
+                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] shadow-[0_4px_24px_rgb(0_0_0_/_0.10)] border border-ink-200">
                   <Image
                     src="/owner-1.jpeg"
-                    alt="Osama — Founder & Managing Director, ON Medical Company"
+                    alt="Osama Hefny — Founder & Managing Director, ON Medical Company"
                     fill
                     className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, 50vw"
+                    sizes="25vw"
                   />
                 </div>
-                {/* Secondary stacked photos */}
-                <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
-                  <div className="relative rounded-2xl overflow-hidden aspect-square shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200">
-                    <Image
-                      src="/owner-2.jpeg"
-                      alt="Osama — ON Medical Company"
-                      fill
-                      className="object-cover object-top"
-                      sizes="25vw"
-                    />
-                  </div>
-                  <div className="relative rounded-2xl overflow-hidden aspect-square shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200">
-                    <Image
-                      src="/owner-3.jpeg"
-                      alt="Osama — ON Medical Company"
-                      fill
-                      className="object-cover object-center"
-                      sizes="25vw"
-                    />
-                  </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200 mt-8">
+                  <Image
+                    src="/owner-3.jpeg"
+                    alt="Osama Hefny — ON Medical Company"
+                    fill
+                    className="object-cover object-center"
+                    sizes="25vw"
+                  />
                 </div>
               </div>
             </AnimatedSection>
