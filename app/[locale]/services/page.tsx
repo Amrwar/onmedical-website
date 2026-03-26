@@ -171,19 +171,19 @@ export default async function ServicesPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-5">
 
                       {/* Left red panel */}
-                      <div className="lg:col-span-2 bg-brand-600 p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden">
+                      <div className="lg:col-span-2 bg-brand-50 border-b lg:border-b-0 lg:border-r border-brand-100 p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden">
                         <div
-                          className="absolute inset-0 bg-dot-grid-light pointer-events-none opacity-10"
+                          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-30"
                           style={{ backgroundSize: '20px 20px' }}
                         />
                         <div className="relative z-10 flex flex-col gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center">
-                            <Icon size={22} className="text-white" strokeWidth={1.75} />
+                          <div className="w-12 h-12 rounded-xl bg-white border border-brand-100 shadow-sm flex items-center justify-center">
+                            <Icon size={22} className="text-brand-600" strokeWidth={1.75} />
                           </div>
-                          <h2 className="text-xl font-bold text-white leading-snug">
+                          <h2 className="text-xl font-bold text-ink-900 leading-snug">
                             {service.title}
                           </h2>
-                          <p className="text-[13px] text-white/75 leading-relaxed">
+                          <p className="text-[13px] text-ink-500 leading-relaxed">
                             {service.description}
                           </p>
                         </div>
