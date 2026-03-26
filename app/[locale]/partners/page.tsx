@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
+import PartnerSideNav from '@/components/ui/PartnerSideNav'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -88,11 +89,15 @@ function ProductImageBox({
 /* ─── Section separator ────────────────────────────────────────── */
 function PartnerSeparator() {
   return (
-    <div className="container-site">
-      <div className="flex items-center gap-4 py-2">
-        <div className="flex-1 h-px bg-ink-200/60" />
-        <div className="w-1.5 h-1.5 rounded-full bg-brand-600/40" />
-        <div className="flex-1 h-px bg-ink-200/60" />
+    <div className="container-site py-2">
+      <div className="flex items-center gap-4">
+        <div className="flex-1 h-px bg-ink-300/70" />
+        <div className="flex items-center gap-2.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-brand-600" />
+          <div className="w-2 h-2 rounded-full bg-brand-600" />
+          <div className="w-1.5 h-1.5 rounded-full bg-brand-600" />
+        </div>
+        <div className="flex-1 h-px bg-ink-300/70" />
       </div>
     </div>
   )
@@ -214,33 +219,8 @@ export default async function PartnersPage() {
         </div>
       </section>
 
-      {/* ── Partner anchor navigation ──────────────────────────── */}
-      <div className="sticky top-[60px] lg:top-[66px] z-40 bg-white/95 backdrop-blur-xl border-b border-ink-200/60 shadow-nav">
-        <div className="container-site">
-          <div className="flex items-stretch gap-0 overflow-x-auto no-scrollbar">
-            {[
-              { label: t('ptwName'), sub: t('navPTWSub'), href: '#ptw', logo: '/logo-ptw.png' },
-              { label: t('ashlandName'), sub: t('navAshlandSub'), href: '#ashland', logo: '/logo-ashland.png' },
-              { label: t('klarityName'), sub: t('navKlaritySub'), href: '#klarity', logo: '/logo-klarity.png' },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="flex flex-col items-center justify-center gap-1.5 px-6 py-3 text-[13px] font-medium text-ink-600 hover:text-brand-600 hover:bg-brand-50/40 transition-all border-r border-ink-200/50 last:border-r-0 flex-shrink-0 group"
-              >
-                <Image
-                  src={item.logo}
-                  alt={item.label}
-                  width={80}
-                  height={28}
-                  className="h-6 w-auto object-contain mix-blend-multiply opacity-70 group-hover:opacity-100 transition-opacity"
-                />
-                <span className="text-ink-400 font-normal text-[11px]">{item.sub}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* ── Partner left sidebar nav ───────────────────────────── */}
+      <PartnerSideNav />
 
       {/* ══════════════════════════════════════════════════════════
           PARTNER 1 — PTW FREIBURG
