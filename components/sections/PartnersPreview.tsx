@@ -85,9 +85,8 @@ export default function PartnersPreview() {
           {partners.map((p, i) => (
             <AnimatedSection key={p.name} delay={i * 0.1}>
               <div
-                className="rounded-xl border border-ink-200 bg-white p-7
-                            hover:border-ink-300 hover:shadow-card transition-all duration-300
-                            flex flex-col gap-5 h-full"
+                className="rounded-xl bg-white p-7 hover:shadow-card transition-all duration-300 flex flex-col gap-5 h-full"
+                style={{ borderTop: '2px solid #CC1212', borderBottom: '2px solid #CC1212', borderLeft: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}
               >
                 {/* Country badge */}
                 <span

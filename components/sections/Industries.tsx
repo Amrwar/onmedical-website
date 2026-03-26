@@ -124,7 +124,7 @@ export default function Industries() {
             const Icon = item.icon
             return (
               <AnimatedSection key={item.title} delay={i * 0.07}>
-                <div className="card p-6 flex items-start gap-4">
+                <div className="bg-white rounded-2xl shadow-card p-6 flex items-start gap-4" style={{ borderTop: '2px solid #CC1212', borderBottom: '2px solid #CC1212', borderLeft: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}>
                   <div className="icon-box flex-shrink-0 mt-0.5">
                     <Icon size={17} className="text-brand-600" strokeWidth={1.75} />
                   </div>
