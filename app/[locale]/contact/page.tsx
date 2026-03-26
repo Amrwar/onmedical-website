@@ -94,7 +94,7 @@ export default async function ContactPage() {
 
       {/* ── Contact section ───────────────────────────────── */}
       <SectionDivider bg="muted" />
-      <section className="section-padding section-alt">
+      <section id="contact-form" className="section-padding section-alt">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12">
 
@@ -206,7 +206,7 @@ export default async function ContactPage() {
                   </h3>
                   <p className="text-[13px] text-ink-500 leading-relaxed flex-1">{card.desc}</p>
                   <a
-                    href="mailto:osama@onmedical.net"
+                    href="#contact-form"
                     className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand-600 hover:text-brand-700 group/link mt-auto"
                   >
                     {card.action}
