@@ -570,49 +570,50 @@ export default async function AboutPage() {
       <SectionDivider />
       <section className="section-padding bg-white">
         <div className="container-site">
+          <AnimatedSection>
+            <div className="flex justify-center mb-5">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Chip body */}
+                <rect x="16" y="16" width="32" height="32" rx="3" fill="#1a1a1a"/>
+                {/* Inner processor die */}
+                <rect x="22" y="22" width="20" height="20" rx="1.5" fill="#CC1212"/>
+                {/* Die grid lines */}
+                <line x1="22" y1="28" x2="42" y2="28" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
+                <line x1="22" y1="34" x2="42" y2="34" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
+                <line x1="28" y1="22" x2="28" y2="42" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
+                <line x1="34" y1="22" x2="34" y2="42" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
+                {/* Centre highlight */}
+                <rect x="27" y="27" width="10" height="10" rx="1" fill="rgba(255,255,255,0.18)"/>
+                {/* Top pins */}
+                <line x1="23" y1="16" x2="23" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="29" y1="16" x2="29" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="35" y1="16" x2="35" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="41" y1="16" x2="41" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                {/* Bottom pins */}
+                <line x1="23" y1="48" x2="23" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="29" y1="48" x2="29" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="35" y1="48" x2="35" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="41" y1="48" x2="41" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                {/* Left pins */}
+                <line x1="16" y1="23" x2="10" y2="23" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="16" y1="29" x2="10" y2="29" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="16" y1="35" x2="10" y2="35" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="16" y1="41" x2="10" y2="41" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                {/* Right pins */}
+                <line x1="48" y1="23" x2="54" y2="23" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="48" y1="29" x2="54" y2="29" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="48" y1="35" x2="54" y2="35" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="48" y1="41" x2="54" y2="41" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <div className="text-center mb-12">
+              <span className="section-label">{t('expertiseLabel')}</span>
+              <h2 className="section-title mt-2">{t('expertiseTitle')}</h2>
+            </div>
+          </AnimatedSection>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
             <AnimatedSection direction="left" className="flex flex-col gap-6">
-              <div className="flex flex-col gap-4">
-                {/* Technical / CPU chip icon */}
-                <div className="w-fit">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Chip body */}
-                  <rect x="16" y="16" width="32" height="32" rx="3" fill="#1a1a1a"/>
-                  {/* Inner processor die */}
-                  <rect x="22" y="22" width="20" height="20" rx="1.5" fill="#CC1212"/>
-                  {/* Die grid lines */}
-                  <line x1="22" y1="28" x2="42" y2="28" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
-                  <line x1="22" y1="34" x2="42" y2="34" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
-                  <line x1="28" y1="22" x2="28" y2="42" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
-                  <line x1="34" y1="22" x2="34" y2="42" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8"/>
-                  {/* Centre highlight */}
-                  <rect x="27" y="27" width="10" height="10" rx="1" fill="rgba(255,255,255,0.18)"/>
-                  {/* Top pins */}
-                  <line x1="23" y1="16" x2="23" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="29" y1="16" x2="29" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="35" y1="16" x2="35" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="41" y1="16" x2="41" y2="10" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  {/* Bottom pins */}
-                  <line x1="23" y1="48" x2="23" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="29" y1="48" x2="29" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="35" y1="48" x2="35" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="41" y1="48" x2="41" y2="54" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  {/* Left pins */}
-                  <line x1="16" y1="23" x2="10" y2="23" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="16" y1="29" x2="10" y2="29" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="16" y1="35" x2="10" y2="35" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="16" y1="41" x2="10" y2="41" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  {/* Right pins */}
-                  <line x1="48" y1="23" x2="54" y2="23" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="48" y1="29" x2="54" y2="29" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="48" y1="35" x2="54" y2="35" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="48" y1="41" x2="54" y2="41" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-                </div>
-                <span className="section-label">{t('expertiseLabel')}</span>
-                <h2 className="section-title !text-left">{t('expertiseTitle')}</h2>
-              </div>
               <div className="space-y-4 text-[14px] leading-[1.8] text-ink-500">
                 <p>{t('expertiseP1')}</p>
                 <p>{t('expertiseP2')}</p>
