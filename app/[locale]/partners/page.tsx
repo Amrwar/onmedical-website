@@ -245,7 +245,7 @@ export default async function PartnersPage() {
       {/* ══════════════════════════════════════════════════════════
           PARTNER 1 — PTW FREIBURG
       ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding section-alt border-b border-ink-200/60">
+      <section className="section-padding bg-white border-b border-ink-200/60">
         <div className="container-site space-y-16">
 
           <PartnerHeader
@@ -767,50 +767,6 @@ export default async function PartnersPage() {
             </div>
           </AnimatedSection>
 
-          {/* ── QA Applications gallery ───────────────────────── */}
-          <AnimatedSection>
-            <div className="bg-ink-50/70 rounded-2xl border border-ink-200/70 p-8 lg:p-10">
-              <div className="mb-7">
-                <span className="section-label mb-3 block">{t('qaApplicationsLabel')}</span>
-                <p className="text-[13px] text-ink-500 max-w-xl">
-                  {t('qaApplicationsDesc')}
-                </p>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                {[
-                  { label: t('qaApp1Label'), sub: t('qaApp1Sub') },
-                  { label: t('qaApp2Label'), sub: t('qaApp2Sub') },
-                  { label: t('qaApp3Label'), sub: t('qaApp3Sub') },
-                  { label: t('qaApp4Label'), sub: t('qaApp4Sub') },
-                  { label: t('qaApp5Label'), sub: t('qaApp5Sub') },
-                  { label: t('qaApp6Label'), sub: t('qaApp6Sub') },
-                  { label: t('qaApp7Label'), sub: t('qaApp7Sub') },
-                  { label: t('qaApp8Label'), sub: t('qaApp8Sub') },
-                ].map((app, i) => (
-                  <div
-                    key={app.label}
-                    className="bg-white border border-ink-200/70 rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:border-brand-200 transition-all duration-200 flex flex-col"
-                  >
-                    {/* Image area */}
-                    <div className="bg-ink-100/60 border-b border-ink-200/50 p-5 flex flex-col items-center justify-center gap-2" style={{ aspectRatio: '1' }}>
-                      <div className="w-8 h-8 rounded-lg bg-white border border-ink-200/60 shadow-sm flex items-center justify-center">
-                        <Activity size={14} className="text-ink-400" strokeWidth={1.5} />
-                      </div>
-                      <p className="text-[9px] text-ink-300 text-center">{t('imagePlaceholder')}</p>
-                    </div>
-                    <p className="text-[9px] text-ink-300 text-center pt-2 px-3">
-                      Gafchromic™ · {app.label}
-                    </p>
-                    <div className="p-3.5">
-                      <p className="text-[12px] font-semibold text-ink-800 leading-snug">{app.label}</p>
-                      <p className="text-[10px] text-ink-400 mt-0.5 leading-snug">{app.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-
           {/* ── Ashland brochure CTA ──────────────────────────── */}
           <AnimatedSection>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-7 py-5 rounded-xl border border-ink-200/70 bg-white">
@@ -846,7 +802,7 @@ export default async function PartnersPage() {
       {/* ══════════════════════════════════════════════════════════
           PARTNER 3 — KLARITY
       ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding section-alt border-b border-ink-200/60">
+      <section className="section-padding bg-white border-b border-ink-200/60">
         <div className="container-site space-y-16">
 
           <PartnerHeader
