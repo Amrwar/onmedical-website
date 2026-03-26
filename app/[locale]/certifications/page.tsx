@@ -5,6 +5,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionDivider from '@/components/ui/SectionDivider'
 import ContactCTA from '@/components/sections/ContactCTA'
+import { getTranslations } from 'next-intl/server'
 
 export const metadata: Metadata = {
   title: 'Certifications',
@@ -12,183 +13,174 @@ export const metadata: Metadata = {
     'Professional certifications and technical training credentials of Mohammed Osama — Founder & CEO of ON Medical Company. Over 20 years of verified expertise in radiotherapy and medical physics.',
 }
 
-const certs = [
-  {
-    title: 'OCTAVIUS 4D Phantom Service Recertification Training',
-    issuer: 'PTW / The Dosimetry School',
-    date: 'February 2026',
-    country: 'Germany',
-    category: 'PTW Certified Specialist',
-    description:
-      'Qualified PTW Service Specialist for the OCTAVIUS 4D Phantom system. Authorized to service PTW OCTAVIUS 4D Phantom devices until February 29, 2028.',
-    topics: [
-      'Troubleshooting',
-      'Usage of new Inclinometer',
-      'Check and repair inclinometer',
-      'Compatibility',
-      'Device identification',
-    ],
-    image: '/certificates/octavius-2026.png',
-  },
-  {
-    title: 'BEAMSCAN® Preventive Maintenance Recertification Training',
-    issuer: 'PTW / The Dosimetry School',
-    date: 'December 2025',
-    country: 'Germany',
-    category: 'PTW Certified Specialist',
-    description:
-      'Qualified PTW Service Specialist for the BEAMSCAN® water phantom system. Authorized to service PTW BEAMSCAN® devices until December 31, 2027.',
-    topics: [
-      'Visual check of hoses, cables, wheels and water condition',
-      'Check of axes alignment',
-      'Functional test of lift, axes, control panel and water sensor',
-      'Software version and license check, communication and general performance test',
-      'Electrometer and high voltage check',
-      'Maintenance of mechanical parts',
-    ],
-    image: '/certificates/beamscan-2025.png',
-  },
-  {
-    title: 'Certificate of Achievement — HMD-IB Simulator (No. 417)',
-    issuer: 'Nuclear Power Institute of China (NPIC)',
-    date: 'December 23, 2011',
-    country: 'China',
-    category: 'Technical Training',
-    description:
-      'Successfully completed training in maintenance & installation of the HMD-IB Simulator. Fully authorized and certified as expert to operate the above machines.',
-    topics: [
-      'Maintenance of HMD-IB Simulator',
-      'Installation procedures',
-      'Authorized operation',
-    ],
-    image: '/certificates/npic-2011.png',
-  },
-  {
-    title: 'Certificate of Training — GWXJ-80 Cobalt-60 Teletherapy Machine (No. 333)',
-    issuer: 'Nuclear Power Institute of China (NPIC)',
-    date: 'November 13, 2009',
-    country: 'China',
-    category: 'Technical Training',
-    description:
-      'Successfully completed the full-scale training program covering service, maintenance, repair and radiation safety of the GWXJ-80 Cobalt-60 Teletherapy Machine.',
-    topics: [
-      'Service and maintenance',
-      'Repair procedures',
-      'Radiation safety',
-      'GWXJ-80 Cobalt-60 operation',
-    ],
-    image: '/certificates/npic-2009.png',
-  },
-  {
-    title: 'Technical Training Certificate — A2D Block Cutting Unit',
-    issuer: 'HEK Medical GmbH',
-    date: 'June 24, 2009',
-    country: 'Germany (Lübeck)',
-    category: 'Technical Training',
-    description:
-      'Completed the technical training for the A2D block cutting unit as a certified Service Engineer for Hek Medical equipment.',
-    topics: [
-      'A2D block cutting unit operation',
-      'Service engineering',
-      'Technical maintenance',
-    ],
-    image: '/certificates/hekmedical-2009.png',
-  },
-  {
-    title: 'Prowess Panther Radiation Treatment Planning Software Training',
-    issuer: 'Prowess, Inc. (USA)',
-    date: 'March 19, 2009',
-    country: 'United States',
-    category: 'Software Certification',
-    description:
-      'Successfully completed the Prowess Panther Radiation Treatment Planning Software Training Program — Overview 3D Conformal & Utilities.',
-    topics: [
-      'Radiation Treatment Planning Software',
-      '3D Conformal treatment planning',
-      'Utilities and tools',
-    ],
-    image: '/certificates/prowess-2009.png',
-  },
-  {
-    title: 'ACAT 1 Plus / AutoCAT 2 Wave Series IABP Technical Training',
-    issuer: 'Kimal International',
-    date: 'October 10, 2008',
-    country: 'United Kingdom',
-    category: 'Technical Training',
-    description:
-      'Successfully completed a course of instruction in ACAT 1 Plus / AutoCAT 2 Wave Series Intra-Aortic Balloon Pump (IABP) technical training.',
-    topics: [
-      'ACAT 1 Plus operation and service',
-      'AutoCAT 2 Wave Series IABP',
-      'Technical maintenance procedures',
-    ],
-    image: '/certificates/kimal-2008.png',
-  },
-  {
-    title: 'PTW Certificate — Seven29 2D-Array, TLD, TPR & In-Vivo Systems',
-    issuer: 'PTW-Freiburg',
-    date: 'June 12, 2008',
-    country: 'Germany (Freiburg)',
-    category: 'PTW Authorized',
-    description:
-      'Authorized to operate and train others on PTW devices including the Seven29 2D-Array, TLD system, TPR measurements of MEPHYSTO mc², PTW in-vivo system (DIODE MATE & VivoSoft), and SC Gantry Holder. Training held at Children Cancer Hospital, Cairo.',
-    topics: [
-      'Seven29 2D-Array application incl. VeriSoft and MultiCheck',
-      'TLD system of Fimel',
-      'TPR measurements of MEPHYSTO mc²',
-      'PTW in-vivo system (DIODE MATE & VivoSoft)',
-      'SC Gantry Holder application',
-    ],
-    image: '/certificates/ptw-2008.png',
-  },
-  {
-    title: 'Certificate of TBI Couch Workshop',
-    issuer: 'JBH Jochen Barry GmbH',
-    date: 'November 9, 2007',
-    country: 'Germany (Essen)',
-    category: 'Workshop Certification',
-    description:
-      'Successfully completed a six-day workshop which fully enables installation and supervision of the Patient Translation Couch for Total Body Irradiation (TBI).',
-    topics: [
-      'Patient Translation Couch installation',
-      'TBI couch supervision',
-      'Total Body Irradiation procedures',
-    ],
-    image: '/certificates/jbh-2007.png',
-  },
-  {
-    title: 'PTW Certificate — Relative Dosimetry (MP3-M)',
-    issuer: 'PTW-Freiburg',
-    date: 'March 22, 2006',
-    country: 'Germany (Freiburg)',
-    category: 'PTW Authorized',
-    description:
-      'Authorized to operate the MP3-M Relative Dosimetry system and train other qualified persons. Training held at Al-Hussein Hospital, Cairo.',
-    topics: [
-      'Relative Dosimetry (MP3-M)',
-      'Authorized operation',
-      'Staff training qualification',
-    ],
-    image: '/certificates/ptw-2006.png',
-  },
-  {
-    title: 'TERADI 800C 1st Line Service Training Course',
-    issuer: 'INVAP Medical Equipment Division',
-    date: 'August 28–29, 2005',
-    country: 'Argentina',
-    category: 'Technical Training',
-    description:
-      'Completed the TERADI 800C 1st Line Service Training Course issued by INVAP Medical Equipment Division, Argentina.',
-    topics: [
-      'TERADI 800C first-line service',
-      'Maintenance procedures',
-      'Technical troubleshooting',
-    ],
-    image: '/certificates/invap-2005.png',
-  },
-]
+export default async function CertificationsPage() {
+  const t = await getTranslations('certifications')
 
-export default function CertificationsPage() {
+  const certs = [
+    {
+      title: t('cert1Title'),
+      issuer: t('cert1Issuer'),
+      date: t('cert1Date'),
+      country: t('cert1Country'),
+      category: t('cert1Category'),
+      description: t('cert1Desc'),
+      topics: [
+        t('cert1Topic1'),
+        t('cert1Topic2'),
+        t('cert1Topic3'),
+        t('cert1Topic4'),
+        t('cert1Topic5'),
+      ],
+      image: '/certificates/octavius-2026.png',
+    },
+    {
+      title: t('cert2Title'),
+      issuer: t('cert2Issuer'),
+      date: t('cert2Date'),
+      country: t('cert2Country'),
+      category: t('cert2Category'),
+      description: t('cert2Desc'),
+      topics: [
+        t('cert2Topic1'),
+        t('cert2Topic2'),
+        t('cert2Topic3'),
+        t('cert2Topic4'),
+        t('cert2Topic5'),
+        t('cert2Topic6'),
+      ],
+      image: '/certificates/beamscan-2025.png',
+    },
+    {
+      title: t('cert3Title'),
+      issuer: t('cert3Issuer'),
+      date: t('cert3Date'),
+      country: t('cert3Country'),
+      category: t('cert3Category'),
+      description: t('cert3Desc'),
+      topics: [
+        t('cert3Topic1'),
+        t('cert3Topic2'),
+        t('cert3Topic3'),
+      ],
+      image: '/certificates/npic-2011.png',
+    },
+    {
+      title: t('cert4Title'),
+      issuer: t('cert4Issuer'),
+      date: t('cert4Date'),
+      country: t('cert4Country'),
+      category: t('cert4Category'),
+      description: t('cert4Desc'),
+      topics: [
+        t('cert4Topic1'),
+        t('cert4Topic2'),
+        t('cert4Topic3'),
+        t('cert4Topic4'),
+      ],
+      image: '/certificates/npic-2009.png',
+    },
+    {
+      title: t('cert5Title'),
+      issuer: t('cert5Issuer'),
+      date: t('cert5Date'),
+      country: t('cert5Country'),
+      category: t('cert5Category'),
+      description: t('cert5Desc'),
+      topics: [
+        t('cert5Topic1'),
+        t('cert5Topic2'),
+        t('cert5Topic3'),
+      ],
+      image: '/certificates/hekmedical-2009.png',
+    },
+    {
+      title: t('cert6Title'),
+      issuer: t('cert6Issuer'),
+      date: t('cert6Date'),
+      country: t('cert6Country'),
+      category: t('cert6Category'),
+      description: t('cert6Desc'),
+      topics: [
+        t('cert6Topic1'),
+        t('cert6Topic2'),
+        t('cert6Topic3'),
+      ],
+      image: '/certificates/prowess-2009.png',
+    },
+    {
+      title: t('cert7Title'),
+      issuer: t('cert7Issuer'),
+      date: t('cert7Date'),
+      country: t('cert7Country'),
+      category: t('cert7Category'),
+      description: t('cert7Desc'),
+      topics: [
+        t('cert7Topic1'),
+        t('cert7Topic2'),
+        t('cert7Topic3'),
+      ],
+      image: '/certificates/kimal-2008.png',
+    },
+    {
+      title: t('cert8Title'),
+      issuer: t('cert8Issuer'),
+      date: t('cert8Date'),
+      country: t('cert8Country'),
+      category: t('cert8Category'),
+      description: t('cert8Desc'),
+      topics: [
+        t('cert8Topic1'),
+        t('cert8Topic2'),
+        t('cert8Topic3'),
+        t('cert8Topic4'),
+        t('cert8Topic5'),
+      ],
+      image: '/certificates/ptw-2008.png',
+    },
+    {
+      title: t('cert9Title'),
+      issuer: t('cert9Issuer'),
+      date: t('cert9Date'),
+      country: t('cert9Country'),
+      category: t('cert9Category'),
+      description: t('cert9Desc'),
+      topics: [
+        t('cert9Topic1'),
+        t('cert9Topic2'),
+        t('cert9Topic3'),
+      ],
+      image: '/certificates/jbh-2007.png',
+    },
+    {
+      title: t('cert10Title'),
+      issuer: t('cert10Issuer'),
+      date: t('cert10Date'),
+      country: t('cert10Country'),
+      category: t('cert10Category'),
+      description: t('cert10Desc'),
+      topics: [
+        t('cert10Topic1'),
+        t('cert10Topic2'),
+        t('cert10Topic3'),
+      ],
+      image: '/certificates/ptw-2006.png',
+    },
+    {
+      title: t('cert11Title'),
+      issuer: t('cert11Issuer'),
+      date: t('cert11Date'),
+      country: t('cert11Country'),
+      category: t('cert11Category'),
+      description: t('cert11Desc'),
+      topics: [
+        t('cert11Topic1'),
+        t('cert11Topic2'),
+        t('cert11Topic3'),
+      ],
+      image: '/certificates/invap-2005.png',
+    },
+  ]
+
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
@@ -210,16 +202,14 @@ export default function CertificationsPage() {
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
-                Professional Credentials
+                {t('heroLabel')}
               </span>
               <h1 className="text-4xl lg:text-5xl font-black text-ink-900 leading-[1.08] tracking-tight mb-5">
-                Certifications &{' '}
-                <span className="text-gradient-brand">Technical Training</span>
+                {t('heroTitle1')}{' '}
+                <span className="text-gradient-brand">{t('heroTitle2')}</span>
               </h1>
               <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
-                Over two decades of certified training from the world&apos;s leading manufacturers
-                in radiotherapy, dosimetry, and medical physics — a foundation of verified
-                technical expertise behind every service ON Medical provides.
+                {t('heroDesc')}
               </p>
             </div>
           </AnimatedSection>
@@ -238,7 +228,7 @@ export default function CertificationsPage() {
                 <div className="w-64 h-80 lg:w-72 lg:h-[22rem] rounded-2xl overflow-hidden shadow-card-hover border border-ink-200">
                   <Image
                     src="/owner-1.jpeg"
-                    alt="Mohammed Osama — Founder & CEO, ON Medical"
+                    alt={t('founderAlt')}
                     fill
                     className="object-cover object-top"
                   />
@@ -249,8 +239,8 @@ export default function CertificationsPage() {
                     <Award size={18} className="text-brand-600" strokeWidth={1.75} />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-ink-900 leading-tight">11 Certificates</p>
-                    <p className="text-[10px] text-ink-400">2005 – 2026</p>
+                    <p className="text-[11px] font-bold text-ink-900 leading-tight">{t('credBadge11Certs')}</p>
+                    <p className="text-[10px] text-ink-400">{t('credBadgePeriod')}</p>
                   </div>
                 </div>
               </div>
@@ -259,29 +249,25 @@ export default function CertificationsPage() {
             {/* Bio */}
             <AnimatedSection direction="right" className="lg:col-span-3 flex flex-col gap-6">
               <div>
-                <span className="section-label">Founder & CEO</span>
+                <span className="section-label">{t('founderLabel')}</span>
                 <h2 className="section-title !text-left text-2xl lg:text-[1.9rem] mt-2">
-                  Mohammed Osama
+                  {t('founderName')}
                 </h2>
                 <p className="text-[13px] text-ink-500 mt-1">
-                  B.Eng. Biomedical Engineering, Helwan University · Cairo, Egypt
+                  {t('founderDegree')}
                 </p>
               </div>
 
               <p className="text-[14px] text-ink-600 leading-relaxed">
-                With over 20 years of hands-on experience in radiotherapy and medical physics,
-                Mohammed Osama has accumulated a portfolio of technical certifications from
-                internationally recognized institutions across Germany, China, the United States,
-                the United Kingdom, and Argentina. His credentials span dosimetry systems,
-                treatment planning software, teletherapy machines, and radiation safety.
+                {t('founderBio')}
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {[
-                  { value: '20+', label: 'Years Experience' },
-                  { value: '40+', label: 'Linacs Commissioned' },
-                  { value: '11',  label: 'Certificates'  },
-                  { value: '6',   label: 'Countries'     },
+                  { value: t('stat1Value'), label: t('stat1Label') },
+                  { value: t('stat2Value'), label: t('stat2Label') },
+                  { value: t('stat3Value'), label: t('stat3Label') },
+                  { value: t('stat4Value'), label: t('stat4Label') },
                 ].map(s => (
                   <div key={s.label} className="bg-white rounded-xl border border-ink-200 p-4 text-center shadow-sm">
                     <p className="text-2xl font-black text-brand-600 leading-none">{s.value}</p>
@@ -291,7 +277,10 @@ export default function CertificationsPage() {
               </div>
 
               <div className="flex flex-wrap gap-2 pt-1">
-                {['PTW Freiburg', 'NPIC China', 'Prowess USA', 'HEK Medical', 'Kimal Intl', 'INVAP Argentina', 'JBH Germany'].map(tag => (
+                {[
+                  t('tag1'), t('tag2'), t('tag3'), t('tag4'),
+                  t('tag5'), t('tag6'), t('tag7'),
+                ].map(tag => (
                   <span
                     key={tag}
                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-ink-100 text-ink-600 border border-ink-200"
@@ -311,9 +300,9 @@ export default function CertificationsPage() {
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
-              label="Certificates"
-              title="Verified Technical Credentials"
-              subtitle="Each certificate represents a formal training programme completed with an internationally recognized manufacturer or institution."
+              label={t('certsLabel')}
+              title={t('certsTitle')}
+              subtitle={t('certsSubtitle')}
             />
           </AnimatedSection>
 
@@ -374,7 +363,7 @@ export default function CertificationsPage() {
                       {/* Topics */}
                       <div>
                         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400 mb-3">
-                          Topics Covered
+                          {t('topicsCovered')}
                         </p>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {cert.topics.map(topic => (
