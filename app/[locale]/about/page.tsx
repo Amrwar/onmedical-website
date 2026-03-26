@@ -215,23 +215,31 @@ export default async function AboutPage() {
             {/* Photos */}
             <AnimatedSection direction="left" className="lg:col-span-5">
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] shadow-[0_4px_24px_rgb(0_0_0_/_0.10)] border border-ink-200">
-                  <Image
-                    src="/owner-1.jpeg"
-                    alt="Osama Hefny — Founder & Managing Director, ON Medical Company"
-                    fill
-                    className="object-cover object-top"
-                    sizes="25vw"
-                  />
+                {/* Photo 1 */}
+                <div className="rounded-2xl shadow-[0_4px_24px_rgb(0_0_0_/_0.10)]"
+                  style={{ borderTop: '3px solid #CC1212', borderBottom: '3px solid #CC1212', borderLeft: '3px solid white', borderRight: '3px solid white' }}>
+                  <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
+                    <Image
+                      src="/owner-1.jpeg"
+                      alt="Osama Hefny — Founder & Managing Director, ON Medical Company"
+                      fill
+                      className="object-cover object-top"
+                      sizes="25vw"
+                    />
+                  </div>
                 </div>
-                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200 mt-8">
-                  <Image
-                    src="/owner-3.jpeg"
-                    alt="Osama Hefny — ON Medical Company"
-                    fill
-                    className="object-cover object-center"
-                    sizes="25vw"
-                  />
+                {/* Photo 2 */}
+                <div className="mt-8 rounded-2xl shadow-[0_4px_24px_rgb(0_0_0_/_0.08)]"
+                  style={{ borderTop: '3px solid #CC1212', borderBottom: '3px solid #CC1212', borderLeft: '3px solid white', borderRight: '3px solid white' }}>
+                  <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
+                    <Image
+                      src="/owner-3.jpeg"
+                      alt="Osama Hefny — ON Medical Company"
+                      fill
+                      className="object-cover object-center"
+                      sizes="25vw"
+                    />
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
