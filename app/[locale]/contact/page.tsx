@@ -101,6 +101,18 @@ export default async function ContactPage() {
             {/* Contact details — left */}
             <AnimatedSection direction="left" className="lg:col-span-2 flex flex-col gap-6">
               <div className="flex flex-col gap-4">
+                {/* Communication / GET IN TOUCH icon */}
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Outer circle */}
+                  <circle cx="28" cy="28" r="26" fill="#1a1a1a"/>
+                  <circle cx="28" cy="28" r="26" fill="none" stroke="#CC1212" strokeWidth="2"/>
+                  {/* Phone handset body */}
+                  <path d="M18,16 L22,16 C23,16 24,17 24,18 L24,22 C24,23 23,24 22,24 L20,24 C20,24 20,32 28,36 C28,36 28,34 28,34 L32,34 C33,34 34,35 34,36 L34,40 C34,41 33,42 32,42 L28,42 C22,42 14,34 14,24 L14,20 C14,18 16,16 18,16 Z" fill="#CC1212"/>
+                  {/* Signal waves top-right */}
+                  <path d="M34,18 Q38,18 38,22" stroke="#CC1212" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+                  <path d="M34,14 Q42,14 42,22" stroke="#CC1212" strokeWidth="1.8" strokeLinecap="round" fill="none" opacity="0.6"/>
+                  <path d="M34,10 Q46,10 46,22" stroke="#CC1212" strokeWidth="1.8" strokeLinecap="round" fill="none" opacity="0.3"/>
+                </svg>
                 <span className="section-label">{t('getInTouch')}</span>
                 <h2 className="section-title !text-left text-2xl lg:text-[1.75rem]">
                   {t('contactInfoTitle')}
