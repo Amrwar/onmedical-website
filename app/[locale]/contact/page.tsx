@@ -204,47 +204,21 @@ export default async function ContactPage() {
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection className="mb-12">
-            {/* Handshake icon above WHO WE HELP */}
+            {/* WHO WE HELP — three person silhouettes */}
             <div className="flex justify-center mb-5">
-              <svg width="88" height="60" viewBox="0 0 88 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* ── Left hand (black) coming from left ── */}
-                {/* Sleeve / wrist */}
-                <path d="M2,42 L2,36 L18,30 L24,32" fill="#1a1a1a"/>
-                {/* Palm */}
-                <path d="M18,30 L24,32 L30,28 L34,26 L34,34 L28,38 L18,40 Z" fill="#1a1a1a"/>
-                {/* Index finger */}
-                <path d="M30,28 L32,20 L36,20 L34,28" fill="#1a1a1a"/>
-                {/* Middle finger */}
-                <path d="M33,27 L35,18 L39,19 L37,27" fill="#1a1a1a"/>
-                {/* Ring finger */}
-                <path d="M36,27 L37,20 L41,21 L40,28" fill="#1a1a1a"/>
-                {/* Pinky */}
-                <path d="M39,28 L40,22 L43,23 L42,29" fill="#1a1a1a"/>
-                {/* Thumb */}
-                <path d="M18,30 L14,26 L17,22 L22,28" fill="#1a1a1a"/>
-
-                {/* ── Right hand (red) coming from right ── */}
-                {/* Sleeve / wrist */}
-                <path d="M86,42 L86,36 L70,30 L64,32" fill="#CC1212"/>
-                {/* Palm */}
-                <path d="M70,30 L64,32 L58,28 L54,26 L54,34 L60,38 L70,40 Z" fill="#CC1212"/>
-                {/* Index finger */}
-                <path d="M58,28 L56,20 L52,20 L54,28" fill="#CC1212"/>
-                {/* Middle finger */}
-                <path d="M55,27 L53,18 L49,19 L51,27" fill="#CC1212"/>
-                {/* Ring finger */}
-                <path d="M52,27 L51,20 L47,21 L48,28" fill="#CC1212"/>
-                {/* Pinky */}
-                <path d="M49,28 L48,22 L45,23 L46,29" fill="#CC1212"/>
-                {/* Thumb */}
-                <path d="M70,30 L74,26 L71,22 L66,28" fill="#CC1212"/>
-
-                {/* ── Clasped grip in centre ── */}
-                <path d="M34,26 Q44,22 54,26 L54,38 Q44,42 34,38 Z" fill="#2a2a2a"/>
-                {/* Finger overlap highlights */}
-                <line x1="38" y1="26" x2="38" y2="38" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
-                <line x1="44" y1="24" x2="44" y2="38" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
-                <line x1="50" y1="26" x2="50" y2="38" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+              <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Left person — dark */}
+                <circle cx="16" cy="13" r="7" fill="#1a1a1a"/>
+                <path d="M4,42 C4,30 10,26 16,26 C22,26 28,30 28,42" fill="#1a1a1a"/>
+                {/* Right person — dark */}
+                <circle cx="68" cy="13" r="7" fill="#1a1a1a"/>
+                <path d="M56,42 C56,30 62,26 68,26 C74,26 80,30 80,42" fill="#1a1a1a"/>
+                {/* Centre person — red, taller/prominent */}
+                <circle cx="42" cy="11" r="9" fill="#CC1212"/>
+                <circle cx="42" cy="11" r="6" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2"/>
+                <path d="M27,50 C27,36 33,30 42,30 C51,30 57,36 57,50" fill="#CC1212"/>
+                {/* Connecting arc — shows unity */}
+                <path d="M16,26 Q42,18 68,26" stroke="#CC1212" strokeWidth="1.5" strokeDasharray="3 2" fill="none" opacity="0.5"/>
               </svg>
             </div>
             <SectionHeader
