@@ -16,7 +16,7 @@ export default function StatsBar() {
   return (
     <section className="bg-white border-b border-ink-200/60">
       <div className="container-site py-10 lg:py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-ink-200/60">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-brand-200">
           {stats.map((s, i) => (
             <AnimatedSection
               key={s.label}
