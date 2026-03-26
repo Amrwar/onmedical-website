@@ -311,7 +311,8 @@ export default async function ServicesPage() {
               ]
               return (
               <AnimatedSection key={step.step} delay={i * 0.13}>
-                <div className="relative bg-white rounded-2xl border border-ink-200/60 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col gap-4 h-full group overflow-hidden">
+                <div className="relative bg-white rounded-2xl shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col gap-4 h-full group overflow-hidden"
+                  style={{ borderTop: '2px solid #CC1212', borderBottom: '2px solid #CC1212', borderLeft: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}>
                   {/* Step number watermark */}
                   <span className="absolute top-4 right-5 text-[11px] font-bold text-ink-200 tabular-nums select-none">
                     {step.step}
