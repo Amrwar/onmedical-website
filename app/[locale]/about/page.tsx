@@ -268,7 +268,7 @@ export default async function AboutPage() {
                   { icon: BookOpen, label: t('credPublications'), value: t('credPublicationsVal') },
                   { icon: Award,    label: t('credEducation'),    value: t('credEducationVal') },
                 ].map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex flex-col gap-2 p-4 bg-white rounded-xl border border-ink-200 shadow-sm">
+                  <div key={label} className="flex flex-col gap-2 p-4 bg-white rounded-xl shadow-sm" style={{ borderTop: '2px solid #CC1212', borderLeft: '2px solid #CC1212', borderBottom: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}>
                     <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center">
                       <Icon size={15} className="text-brand-600" strokeWidth={1.75} />
                     </div>

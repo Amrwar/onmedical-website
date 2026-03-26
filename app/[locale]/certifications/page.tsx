@@ -274,7 +274,7 @@ export default async function CertificationsPage() {
                   { value: t('stat3Value'), label: t('stat3Label') },
                   { value: t('stat4Value'), label: t('stat4Label') },
                 ].map(s => (
-                  <div key={s.label} className="bg-white rounded-xl border border-ink-200 p-4 text-center shadow-sm">
+                  <div key={s.label} className="bg-white rounded-xl p-4 text-center shadow-sm" style={{ borderTop: '2px solid #CC1212', borderLeft: '2px solid #CC1212', borderBottom: '2px solid #e5e7eb', borderRight: '2px solid #e5e7eb' }}>
                     <p className="text-2xl font-black text-brand-600 leading-none">{s.value}</p>
                     <p className="text-[11px] text-ink-500 mt-1 leading-tight">{s.label}</p>
                   </div>
