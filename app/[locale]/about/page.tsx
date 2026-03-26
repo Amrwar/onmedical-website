@@ -153,13 +153,13 @@ export default async function AboutPage() {
             <AnimatedSection direction="right">
               <div className="relative rounded-2xl overflow-hidden bg-white border border-ink-200 shadow-card">
                 <div className="h-1 w-full bg-gradient-to-r from-brand-600 to-brand-400" />
-                <div className="px-7 py-5 border-b border-ink-100 flex items-center gap-3">
+                <div className="px-7 py-5 border-b border-brand-100 flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse-dot" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink-400">
                     {t('profileLabel')}
                   </span>
                 </div>
-                <div className="divide-y divide-ink-100">
+                <div className="divide-y divide-brand-100">
                   {companyFacts.map(({ label, value }) => (
                     <div key={label} className="flex flex-col gap-0.5 px-7 py-4 hover:bg-ink-50 transition-colors">
                       <span className="text-[10px] uppercase tracking-[0.15em] text-ink-400 font-semibold">
@@ -575,6 +575,7 @@ export default async function AboutPage() {
             <AnimatedSection direction="left" className="flex flex-col gap-6">
               <div className="flex flex-col gap-4">
                 {/* Technical / CPU chip icon */}
+                <div className="w-fit">
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Chip body */}
                   <rect x="16" y="16" width="32" height="32" rx="3" fill="#1a1a1a"/>
@@ -608,6 +609,7 @@ export default async function AboutPage() {
                   <line x1="48" y1="35" x2="54" y2="35" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
                   <line x1="48" y1="41" x2="54" y2="41" stroke="#CC1212" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
+                </div>
                 <span className="section-label">{t('expertiseLabel')}</span>
                 <h2 className="section-title !text-left">{t('expertiseTitle')}</h2>
               </div>
@@ -616,7 +618,7 @@ export default async function AboutPage() {
                 <p>{t('expertiseP2')}</p>
               </div>
 
-              <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-ink-200 shadow-card">
+              <div className="flex items-center gap-4 p-5 bg-white rounded-xl shadow-card" style={{ border: '2px solid #CC1212' }}>
                 <div className="w-11 h-11 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center flex-shrink-0">
                   <BookOpen size={18} className="text-brand-600" strokeWidth={1.75} />
                 </div>

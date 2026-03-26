@@ -82,11 +82,11 @@ export default function CertificateViewer({ certs, labels }: { certs: CertData[]
       <div className="space-y-6 mt-14">
         {certs.map((cert, i) => (
           <AnimatedSection key={cert.title} delay={i % 3 === 0 ? 0 : 0.06}>
-            <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden" style={{ border: '2px solid #e5e7eb', borderLeft: '2px solid #CC1212', borderRight: '2px solid #CC1212' }}>
               <div className="grid grid-cols-1 lg:grid-cols-5">
 
                 {/* Certificate image — clickable */}
-                <div className="lg:col-span-2 relative bg-ink-50 border-b lg:border-b-0 lg:border-r border-ink-200/60 flex items-center justify-center p-6 min-h-[260px] group cursor-zoom-in"
+                <div className="lg:col-span-2 relative bg-brand-50 border-b lg:border-b-0 lg:border-r border-brand-100 flex items-center justify-center p-6 min-h-[260px] group cursor-zoom-in"
                   onClick={() => openLightbox(i)}
                 >
                   <div className="relative w-full max-w-[300px] h-[220px] lg:h-[260px]">

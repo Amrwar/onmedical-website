@@ -135,7 +135,7 @@ function PartnerHeader({
       {/* Left — partner identity */}
       <AnimatedSection direction="left" className="lg:col-span-3 flex flex-col gap-6">
         <div className="flex items-center gap-3">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-ink-100 border border-ink-200/70 text-[11px] font-bold tracking-widest uppercase text-ink-500">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brand-50 border border-brand-200 text-[11px] font-bold tracking-widest uppercase text-brand-700">
             {flag} {country}
           </span>
           <span className="text-[11px] text-ink-400 font-medium">{credential}</span>
@@ -152,7 +152,7 @@ function PartnerHeader({
             href={website}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-ink-600 hover:text-brand-600 transition-colors border border-ink-200/70 hover:border-brand-200 rounded-lg px-4 py-2 bg-white hover:bg-brand-50/30"
+            className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-brand-600 hover:text-brand-700 transition-colors border border-brand-500 hover:border-brand-700 rounded-lg px-4 py-2 bg-white hover:bg-brand-50/30"
           >
             {visitWebsiteLabel} <ExternalLink size={11} />
           </a>
