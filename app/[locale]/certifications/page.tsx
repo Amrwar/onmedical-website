@@ -313,7 +313,7 @@ export default function CertificationsPage() {
             <SectionHeader
               label="Certificates"
               title="Verified Technical Credentials"
-              subtitle="Sorted newest to oldest. Each certificate represents a formal training programme completed with an internationally recognized manufacturer or institution."
+              subtitle="Each certificate represents a formal training programme completed with an internationally recognized manufacturer or institution."
             />
           </AnimatedSection>
 

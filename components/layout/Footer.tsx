@@ -19,6 +19,7 @@ export default function Footer() {
     { label: t('p2'), href: '/about' },
     { label: t('p3'), href: '/services' },
     { label: t('p4'), href: '/partners' },
+    { label: t('p6'), href: '/certifications' },
     { label: t('p5'), href: '/contact' },
   ]
 
