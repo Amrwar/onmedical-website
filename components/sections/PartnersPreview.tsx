@@ -54,24 +54,35 @@ export default function PartnersPreview() {
         <AnimatedSection>
           {/* Globe icon above "GLOBAL PARTNERSHIPS" */}
           <div className="flex justify-center mb-5">
-            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Globe circle */}
-              <circle cx="28" cy="28" r="24" fill="#1a1a1a" stroke="#CC1212" strokeWidth="2"/>
-              {/* Latitude lines */}
-              <ellipse cx="28" cy="28" rx="24" ry="10" fill="none" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.5"/>
-              <line x1="4" y1="28" x2="52" y2="28" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.5"/>
-              <line x1="7"  y1="18" x2="49" y2="18" stroke="#CC1212" strokeWidth="1" strokeOpacity="0.35"/>
-              <line x1="7"  y1="38" x2="49" y2="38" stroke="#CC1212" strokeWidth="1" strokeOpacity="0.35"/>
-              {/* Longitude lines */}
-              <ellipse cx="28" cy="28" rx="10" ry="24" fill="none" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.5"/>
-              <ellipse cx="28" cy="28" rx="18" ry="24" fill="none" stroke="#CC1212" strokeWidth="1" strokeOpacity="0.3"/>
-              {/* Vertical axis */}
-              <line x1="28" y1="4" x2="28" y2="52" stroke="#CC1212" strokeWidth="1.2" strokeOpacity="0.4"/>
-              {/* Top and bottom poles */}
-              <circle cx="28" cy="4"  r="2" fill="#CC1212"/>
-              <circle cx="28" cy="52" r="2" fill="#CC1212"/>
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="globeRed" cx="38%" cy="32%" r="65%">
+                  <stop offset="0%" stopColor="#e53e3e"/>
+                  <stop offset="55%" stopColor="#CC1212"/>
+                  <stop offset="100%" stopColor="#991111"/>
+                </radialGradient>
+              </defs>
+              {/* Globe body — red gradient */}
+              <circle cx="30" cy="30" r="26" fill="url(#globeRed)"/>
+              {/* Inner highlight */}
+              <ellipse cx="22" cy="20" rx="8" ry="6" fill="rgba(255,255,255,0.12)"/>
+              {/* Latitude lines — white */}
+              <ellipse cx="30" cy="30" rx="26" ry="10" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1.2"/>
+              <line x1="4" y1="30" x2="56" y2="30" stroke="rgba(255,255,255,0.25)" strokeWidth="1.2"/>
+              <line x1="8"  y1="19" x2="52" y2="19" stroke="rgba(255,255,255,0.15)" strokeWidth="0.9"/>
+              <line x1="8"  y1="41" x2="52" y2="41" stroke="rgba(255,255,255,0.15)" strokeWidth="0.9"/>
+              {/* Longitude lines — white */}
+              <ellipse cx="30" cy="30" rx="11" ry="26" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="1.2"/>
+              <ellipse cx="30" cy="30" rx="20" ry="26" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="0.9"/>
+              <line x1="30" y1="4" x2="30" y2="56" stroke="rgba(255,255,255,0.22)" strokeWidth="1.2"/>
+              {/* Poles */}
+              <circle cx="30" cy="4"  r="2.5" fill="#1a1a1a"/>
+              <circle cx="30" cy="56" r="2.5" fill="#1a1a1a"/>
+              {/* Location pin — dark */}
+              <circle cx="37" cy="26" r="4" fill="#1a1a1a"/>
+              <circle cx="37" cy="26" r="2" fill="rgba(255,255,255,0.5)"/>
               {/* Outer border */}
-              <circle cx="28" cy="28" r="24" fill="none" stroke="#CC1212" strokeWidth="2"/>
+              <circle cx="30" cy="30" r="26" fill="none" stroke="#1a1a1a" strokeWidth="1.8"/>
             </svg>
           </div>
           <SectionHeader
