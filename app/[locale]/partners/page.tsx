@@ -161,7 +161,7 @@ function PartnerHeader({
 
       {/* Right — logo display */}
       <AnimatedSection direction="right" className="lg:col-span-2">
-        <div className="bg-white border border-ink-200/70 rounded-2xl shadow-card p-10 flex flex-col items-center justify-center gap-5 aspect-square max-h-56 lg:max-h-none">
+        <div className="bg-white rounded-2xl shadow-card p-10 flex flex-col items-center justify-center gap-5 aspect-square max-h-56 lg:max-h-none" style={{ border: '2px solid #CC1212' }}>
           <Image
             src={logo}
             alt={`${name} logo`}
