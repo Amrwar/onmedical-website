@@ -225,7 +225,7 @@ export default async function PartnersPage() {
       {/* ══════════════════════════════════════════════════════════
           PARTNER 1 — PTW FREIBURG
       ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-white border-b border-ink-200/60">
+      <section className="section-padding bg-white">
         <div className="container-site space-y-16">
 
           <PartnerHeader
@@ -494,7 +494,7 @@ export default async function PartnersPage() {
       {/* ══════════════════════════════════════════════════════════
           PARTNER 2 — ASHLAND MEDICAL
       ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-white border-b border-ink-200/60">
+      <section className="section-padding bg-white">
         <div className="container-site space-y-16">
 
           <PartnerHeader
@@ -782,7 +782,7 @@ export default async function PartnersPage() {
       {/* ══════════════════════════════════════════════════════════
           PARTNER 3 — KLARITY
       ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-white border-b border-ink-200/60">
+      <section className="section-padding bg-white">
         <div className="container-site space-y-16">
 
           <PartnerHeader
