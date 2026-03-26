@@ -127,7 +127,7 @@ export default async function ServicesPage() {
       <SectionDivider />
       <section className="py-10 bg-white">
         <div className="container-site">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 lg:divide-x divide-ink-200/60">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 lg:divide-x divide-brand-200">
             {specializations.map((spec, i) => {
               const Icon = spec.icon
               return (
