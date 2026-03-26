@@ -173,7 +173,7 @@ export default function AboutPage() {
 
       {/* ── Founder / Leadership ──────────────────────────── */}
       <SectionDivider bg="muted" />
-      <section className="section-padding bg-ink-50">
+      <section className="section-padding bg-ink-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
@@ -380,7 +380,7 @@ export default function AboutPage() {
 
       {/* ── History Timeline ──────────────────────────────── */}
       <SectionDivider bg="muted" />
-      <section className="section-padding bg-ink-50">
+      <section className="section-padding bg-ink-50 mx-3 sm:mx-5 lg:mx-8 rounded-3xl overflow-hidden">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
