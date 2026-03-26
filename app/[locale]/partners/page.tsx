@@ -536,35 +536,34 @@ export default async function PartnersPage() {
               <span className="section-label">{t('featuredTechnology')}</span>
             </div>
 
-            <div className="bg-ink-950 rounded-2xl border border-ink-800/60 overflow-hidden shadow-card">
+            <div className="rounded-2xl border border-brand-100 overflow-hidden shadow-card">
               <div className="grid grid-cols-1 lg:grid-cols-5">
 
-                {/* Dark left panel */}
-                <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col gap-6 relative overflow-hidden border-r border-white/[0.07]">
+                {/* Left panel — brand gradient */}
+                <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col gap-6 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-white/20"
+                  style={{ background: 'linear-gradient(145deg, #b91c1c 0%, #CC1212 45%, #e53e3e 100%)' }}
+                >
                   <div
-                    className="absolute inset-0 bg-dot-grid-light pointer-events-none opacity-60"
+                    className="absolute inset-0 bg-dot-grid-light pointer-events-none opacity-20"
                     style={{ backgroundSize: '20px 20px' }}
                   />
                   <div
-                    className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none"
-                    style={{
-                      background:
-                        'radial-gradient(circle, rgb(204 18 18 / 0.12) 0%, transparent 65%)',
-                    }}
+                    className="absolute bottom-0 left-0 w-56 h-56 rounded-full pointer-events-none"
+                    style={{ background: 'radial-gradient(circle, rgb(255 255 255 / 0.08) 0%, transparent 65%)' }}
                   />
                   <div className="relative z-10 flex flex-col gap-4 h-full">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-brand-600/15 border border-brand-500/25 text-brand-400 text-[10px] font-bold uppercase tracking-widest w-fit">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/15 border border-white/25 text-white text-[10px] font-bold uppercase tracking-widest w-fit">
                       {t('gafchromicCategory')}
                     </span>
                     <h3 className="text-3xl font-black text-white leading-tight tracking-tight">
                       {t('gafchromicTitle')}
                       <br />
-                      <span className="text-brand-400">{t('gafchromicSubtitle')}</span>
+                      <span className="text-white/70">{t('gafchromicSubtitle')}</span>
                     </h3>
-                    <p className="text-[13px] text-white/50 leading-relaxed">
+                    <p className="text-[13px] text-white/75 leading-relaxed">
                       {t('gafchromicDesc')}
                     </p>
-                    <div className="mt-auto pt-5 border-t border-white/[0.08] grid grid-cols-3 gap-3">
+                    <div className="mt-auto pt-5 border-t border-white/20 grid grid-cols-3 gap-3">
                       {[
                         { label: t('gafchromicStatResolutionLabel'), value: t('gafchromicStatResolutionValue') },
                         { label: t('gafchromicStatAccuracyLabel'), value: t('gafchromicStatAccuracyValue') },
@@ -572,28 +571,25 @@ export default async function PartnersPage() {
                       ].map(stat => (
                         <div key={stat.label} className="text-center">
                           <p className="text-white text-[15px] font-black leading-none">{stat.value}</p>
-                          <p className="text-white/35 text-[10px] mt-1 uppercase tracking-wider">{stat.label}</p>
+                          <p className="text-white/60 text-[10px] mt-1 uppercase tracking-wider">{stat.label}</p>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Right panel */}
-                <div className="lg:col-span-3 p-8 lg:p-10 flex flex-col gap-8 bg-ink-900">
-                  {/* Main product image */}
-                  <div className="bg-ink-950/60 border border-white/[0.07] rounded-xl p-10 flex flex-col items-center justify-center gap-4" style={{ aspectRatio: '16/9' }}>
-                    <div className="w-16 h-16 rounded-2xl bg-brand-600/20 border border-brand-500/30 flex items-center justify-center">
-                      <Layers size={28} className="text-brand-400" strokeWidth={1.5} />
+                {/* Right panel — white */}
+                <div className="lg:col-span-3 p-8 lg:p-10 flex flex-col gap-8 bg-white">
+                  {/* Placeholder image area */}
+                  <div className="bg-ink-50 border border-ink-100 rounded-xl p-10 flex flex-col items-center justify-center gap-4" style={{ aspectRatio: '16/9' }}>
+                    <div className="w-14 h-14 rounded-2xl bg-brand-50 border border-brand-100 flex items-center justify-center">
+                      <Layers size={26} className="text-brand-400" strokeWidth={1.5} />
                     </div>
                     <div className="text-center">
-                      <p className="text-white/60 text-[13px] font-semibold">Gafchromic™ Film Product Range</p>
-                      <p className="text-white/25 text-[10px] mt-1">Product image · Replace with official Ashland imagery</p>
+                      <p className="text-ink-600 text-[13px] font-semibold">Gafchromic™ Film Product Range</p>
+                      <p className="text-ink-400 text-[10px] mt-1">{t('gafchromicImageCaption')}</p>
                     </div>
                   </div>
-                  <p className="text-[11px] text-white/30 text-center">
-                    {t('gafchromicImageCaption')}
-                  </p>
 
                   {/* Key qualities */}
                   <div className="grid grid-cols-2 gap-3">
@@ -607,8 +603,8 @@ export default async function PartnersPage() {
                       t('gafchromicFeat7'),
                       t('gafchromicFeat8'),
                     ].map(feat => (
-                      <div key={feat} className="flex items-start gap-2 text-[12px] text-white/55">
-                        <CheckCircle2 size={13} className="text-brand-500 mt-0.5 flex-shrink-0" strokeWidth={2} />
+                      <div key={feat} className="flex items-start gap-2 text-[12px] text-ink-600">
+                        <CheckCircle2 size={13} className="text-brand-600 mt-0.5 flex-shrink-0" strokeWidth={2} />
                         {feat}
                       </div>
                     ))}
@@ -872,74 +868,85 @@ export default async function PartnersPage() {
               <span className="section-label">{t('featuredTechnology')}</span>
             </div>
 
-            <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card overflow-hidden">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            <div className="rounded-2xl border border-brand-100 overflow-hidden shadow-card">
+              <div className="grid grid-cols-1 lg:grid-cols-5">
 
-                {/* Left — main product image (flagship) */}
-                <div className="border-r border-ink-200/60">
-                  <div className="relative" style={{ minHeight: '400px' }}>
+                {/* Left panel — brand gradient */}
+                <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col gap-6 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-white/20"
+                  style={{ background: 'linear-gradient(145deg, #b91c1c 0%, #CC1212 45%, #e53e3e 100%)' }}
+                >
+                  <div
+                    className="absolute inset-0 bg-dot-grid-light pointer-events-none opacity-20"
+                    style={{ backgroundSize: '20px 20px' }}
+                  />
+                  <div
+                    className="absolute bottom-0 left-0 w-56 h-56 rounded-full pointer-events-none"
+                    style={{ background: 'radial-gradient(circle, rgb(255 255 255 / 0.08) 0%, transparent 65%)' }}
+                  />
+                  <div className="relative z-10 flex flex-col gap-4 h-full">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/15 border border-white/25 text-white text-[10px] font-bold uppercase tracking-widest w-fit">
+                      {t('klarityFlagshipBadge')}
+                    </span>
+                    <h3 className="text-3xl font-black text-white leading-tight tracking-tight">
+                      {t('klarityUNOTitle')}
+                      <br />
+                      <span className="text-white/70">{t('klarityUNOSubtitle')}</span>
+                    </h3>
+                    <p className="text-[13px] text-white/75 leading-relaxed">
+                      {t('klarityUNODesc')}
+                    </p>
+                    <div className="mt-auto pt-5 border-t border-white/20">
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-2 text-[13px] font-semibold text-white/90 hover:text-white group"
+                      >
+                        {t('klarityEnquireLink')}
+                        <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right panel — white */}
+                <div className="lg:col-span-3 p-8 lg:p-10 flex flex-col gap-8 bg-white">
+                  {/* Product image */}
+                  <div className="relative rounded-xl overflow-hidden border border-ink-100" style={{ aspectRatio: '16/9' }}>
                     <Image
                       src="/klarity uno.jpeg"
                       alt="Klarity UNO™ All-In-One System"
                       fill
-                      className="object-contain p-6"
+                      className="object-contain p-4"
                     />
                   </div>
-                  <div className="bg-white border-t border-ink-200/60 px-8 py-3 text-center">
-                    <p className="text-[11px] text-ink-400">
-                      {t('klarityUNOImageCaption')}
-                    </p>
-                  </div>
-                </div>
+                  <p className="text-[11px] text-ink-400 text-center -mt-4">
+                    {t('klarityUNOImageCaption')}
+                  </p>
 
-                {/* Right — product details */}
-                <div className="p-8 lg:p-10 flex flex-col gap-6">
-                  <div>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-brand-50 border border-brand-100 text-brand-600 text-[10px] font-bold uppercase tracking-widest w-fit mb-3">
-                      {t('klarityFlagshipBadge')}
-                    </span>
-                    <h3 className="text-2xl font-black text-ink-950 leading-tight tracking-tight mb-2">
-                      {t('klarityUNOTitle')}
-                      <br />
-                      <span className="text-brand-600">{t('klarityUNOSubtitle')}</span>
-                    </h3>
-                    <p className="text-[13px] text-ink-500 leading-[1.8]">
-                      {t('klarityUNODesc')}
-                    </p>
-                  </div>
-
-                  <div className="space-y-3">
-                    <h4 className="text-[10px] font-bold uppercase tracking-[0.18em] text-ink-400">
+                  {/* Clinical context points */}
+                  <div className="space-y-2.5">
+                    <h4 className="text-[10px] font-bold uppercase tracking-[0.18em] text-ink-400 mb-3">
                       {t('klarityUNOClinicalContextLabel')}
                     </h4>
-                    {[
-                      t('klarityUNOPoint1'),
-                      t('klarityUNOPoint2'),
-                      t('klarityUNOPoint3'),
-                      t('klarityUNOPoint4'),
-                    ].map(point => (
-                      <div key={point} className="flex items-start gap-2.5 text-[13px] text-ink-600">
-                        <CheckCircle2 size={14} className="text-brand-600 mt-0.5 flex-shrink-0" strokeWidth={2} />
-                        {point}
-                      </div>
-                    ))}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {[
+                        t('klarityUNOPoint1'),
+                        t('klarityUNOPoint2'),
+                        t('klarityUNOPoint3'),
+                        t('klarityUNOPoint4'),
+                      ].map(point => (
+                        <div key={point} className="flex items-start gap-2 text-[12px] text-ink-600">
+                          <CheckCircle2 size={13} className="text-brand-600 mt-0.5 flex-shrink-0" strokeWidth={2} />
+                          {point}
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-ink-50 border border-ink-200/60 mt-2">
-                    <p className="text-[12px] text-ink-500 leading-relaxed">
-                      <span className="font-semibold text-ink-700">{t('klarityUNOConfigNoteLabel')}</span>{' '}
+                  <div className="p-4 rounded-xl bg-brand-50 border border-brand-100">
+                    <p className="text-[12px] text-ink-600 leading-relaxed">
+                      <span className="font-semibold text-ink-800">{t('klarityUNOConfigNoteLabel')}</span>{' '}
                       {t('klarityUNOConfigNote')}
                     </p>
-                  </div>
-
-                  <div className="pt-2">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand-600 hover:text-brand-700 group"
-                    >
-                      {t('klarityEnquireLink')}
-                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                    </Link>
                   </div>
                 </div>
               </div>
