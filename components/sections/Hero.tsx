@@ -116,7 +116,7 @@ export default function Hero() {
             {/* Trust badges */}
             <motion.div
               variants={item}
-              className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1 border-t border-ink-200"
+              className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1 border-t border-brand-200"
             >
               {trust.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2">
