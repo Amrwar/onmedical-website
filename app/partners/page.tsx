@@ -175,16 +175,16 @@ export default function PartnersPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-hero-light pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
+          className="absolute inset-0 bg-dot-grid pointer-events-none"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.14) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
@@ -1017,29 +1017,29 @@ export default function PartnersPage() {
       </section>
 
       {/* ── Bottom CTA ─────────────────────────────────────────── */}
-      <section className="section-padding bg-ink-950 relative overflow-hidden">
+      <section className="section-padding bg-brand-50 relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-40"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse, rgb(204 18 18 / 0.09) 0%, transparent 65%)',
+              'radial-gradient(ellipse, rgb(229 25 25 / 0.08) 0%, transparent 65%)',
           }}
         />
         <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
-              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-6">
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-white mb-6">
                 Product Enquiries
               </span>
-              <h2 className="text-3xl lg:text-[2.5rem] font-bold text-white mb-4 leading-[1.12] tracking-tight">
+              <h2 className="text-3xl lg:text-[2.5rem] font-bold text-ink-900 mb-4 leading-[1.12] tracking-tight">
                 Looking for Advanced Radiotherapy, Dosimetry,
                 <br className="hidden lg:block" /> or Patient Positioning Solutions?
               </h2>
-              <p className="text-white/50 text-[14px] leading-[1.8] max-w-xl mx-auto mb-10">
+              <p className="text-ink-600 text-[14px] leading-[1.8] max-w-xl mx-auto mb-10">
                 ON Medical Company provides end-to-end support for institutions seeking
                 specialized oncology and radiotherapy equipment — from initial consultation
                 through import, installation, and long-term after-sales service.
@@ -1050,7 +1050,7 @@ export default function PartnersPage() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="btn-outline-white"
+                  className="btn-secondary"
                 >
                   <Mail size={14} />
                   Request Product Information

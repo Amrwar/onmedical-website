@@ -17,6 +17,7 @@ import Link from 'next/link'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import ContactCTA from '@/components/sections/ContactCTA'
+import SectionDivider from '@/components/ui/SectionDivider'
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -176,16 +177,16 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-hero-light pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
+          className="absolute inset-0 bg-dot-grid pointer-events-none"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.14) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
@@ -211,7 +212,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Specialization strip ──────────────────────────── */}
-      <section className="py-10 bg-white border-b border-ink-200/60">
+      <SectionDivider />
+      <section className="py-10 bg-white">
         <div className="container-site">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 lg:divide-x divide-ink-200/60">
             {specializations.map((spec, i) => {
@@ -237,7 +239,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Core Services ─────────────────────────────────── */}
-      <section className="section-padding section-alt border-b border-ink-200/60">
+      <SectionDivider bg="muted" />
+      <section className="section-padding section-alt">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
@@ -327,6 +330,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Process ───────────────────────────────────────── */}
+      <SectionDivider />
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>

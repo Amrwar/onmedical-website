@@ -195,13 +195,18 @@
 
   /* Premium dot grid bg */
   .bg-dot-grid {
-    background-image: radial-gradient(circle, rgb(0 0 0 / 0.06) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgb(0 0 0 / 0.10) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   .bg-dot-grid-light {
-    background-image: radial-gradient(circle, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgb(255 255 255 / 0.10) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  /* Hero light background — warm white with subtle red gradient */
+  .bg-hero-light {
+    background: linear-gradient(145deg, #ffffff 0%, #fff5f5 45%, #fff0f0 70%, #ffffff 100%);
   }
 
   /* Text gradient */

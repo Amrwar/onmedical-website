@@ -4,6 +4,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import ContactForm from '@/components/ui/ContactForm'
 import ContactFaq from '@/components/ui/ContactFaq'
+import SectionDivider from '@/components/ui/SectionDivider'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -72,16 +73,16 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-hero-light pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
+          className="absolute inset-0 bg-dot-grid pointer-events-none"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.14) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
@@ -106,7 +107,8 @@ export default function ContactPage() {
       </section>
 
       {/* ── Contact section ───────────────────────────────── */}
-      <section className="section-padding section-alt border-b border-ink-200/60">
+      <SectionDivider bg="muted" />
+      <section className="section-padding section-alt">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12">
 
@@ -201,7 +203,8 @@ export default function ContactPage() {
       </section>
 
       {/* ── Audience CTA cards ────────────────────────────── */}
-      <section className="section-padding bg-white border-b border-ink-200/60">
+      <SectionDivider />
+      <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection className="mb-12">
             <SectionHeader
@@ -237,7 +240,8 @@ export default function ContactPage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────── */}
-      <section className="section-padding section-alt border-b border-ink-200/60">
+      <SectionDivider bg="muted" />
+      <section className="section-padding section-alt">
         <div className="container-site max-w-3xl">
           <AnimatedSection>
             <SectionHeader

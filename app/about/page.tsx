@@ -4,6 +4,7 @@ import { CheckCircle2, Target, Eye, Cpu, BookOpen, Mail, Phone, Award, Users } f
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import ContactCTA from '@/components/sections/ContactCTA'
+import SectionDivider from '@/components/ui/SectionDivider'
 
 export const metadata: Metadata = {
   title: 'About ON Medical Company',
@@ -68,16 +69,16 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Page Hero ─────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-hero-light pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
+          className="absolute inset-0 bg-dot-grid pointer-events-none"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.14) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
@@ -102,7 +103,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── Company Overview ──────────────────────────────── */}
-      <section className="section-padding bg-white border-t border-ink-200/60">
+      <SectionDivider />
+      <section className="section-padding bg-white">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
@@ -170,13 +172,14 @@ export default function AboutPage() {
       </section>
 
       {/* ── Founder / Leadership ──────────────────────────── */}
-      <section className="section-padding bg-ink-50 border-y border-ink-200/60">
+      <SectionDivider bg="muted" />
+      <section className="section-padding bg-ink-50">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
               label="Leadership"
               title="Meet the Founder"
-              subtitle="A decade of specialized expertise in oncology and radiotherapy technology, built on a foundation of scientific rigor and institutional trust."
+              subtitle="Over 20 years of hands-on expertise in medical physics, dosimetry, and radiotherapy — from field engineer to CEO and Managing Director of PTW Africa."
             />
           </AnimatedSection>
 
@@ -214,42 +217,44 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-8 h-0.5 bg-brand-600 rounded-full" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-600">
-                    Founder &amp; Managing Director
+                    CEO &amp; Founder · Managing Director, PTW Africa
                   </span>
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-black text-ink-900 tracking-tight">
-                  Osama Hefny
+                  Mohammed Osama
                 </h2>
-                <p className="text-ink-500 text-sm mt-1">ON Medical Company · Cairo, Egypt</p>
+                <p className="text-ink-500 text-sm mt-1">Biomedical Engineer · Nasr City, Cairo, Egypt</p>
               </div>
 
               {/* Bio */}
               <div className="space-y-4 text-[14px] leading-[1.8] text-ink-600">
                 <p>
-                  With over two decades of experience in medical physics, radiotherapy technology,
-                  and oncology equipment, Osama founded ON Medical Company in 2014 with a singular
-                  vision: to bridge the gap between world-class international manufacturers and
-                  Egypt&apos;s growing healthcare sector.
+                  Mohammed Osama is a results-driven Biomedical Engineer with over 20 years of
+                  experience in medical physics, dosimetry, and healthcare technology. Beginning his
+                  career as a Field Engineer in 2005, he progressed through service management,
+                  institutional leadership, and international business — culminating in founding ON
+                  Medical Company in 2014 and being appointed Managing Director of PTW Africa in 2023.
                 </p>
                 <p>
-                  His technical expertise spans radiation measurement, dosimetry, treatment
-                  planning systems, and quality assurance — knowledge that has been applied in
-                  collaboration with leading hospitals, oncology centres, and medical universities
-                  across Egypt.
+                  He served as Supervisor Biomedical Engineer at Children Cancer Hospital (2020–2023),
+                  where he led the biomedical engineering team and managed Egypt&apos;s CyberKnife
+                  &amp; Proton Therapy projects. He has personally commissioned over 40 linear
+                  accelerators and is a recognized expert in PTW dosimetry systems.
                 </p>
                 <p>
-                  Osama&apos;s scientific contributions extend to peer-reviewed publications in
-                  radiotherapy quality assurance and treatment planning, underscoring the
-                  consultative depth that ON Medical brings to every institutional partnership.
+                  His academic contributions include two peer-reviewed publications in radiotherapy
+                  quality assurance and dosimetry, and he holds a Radioactive Source User License
+                  from Egypt&apos;s Atomic Energy Authority.
                 </p>
               </div>
 
               {/* Credentials */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {[
-                  { icon: Award,   label: 'Founded',       value: '2014' },
-                  { icon: Users,   label: 'Institutions',  value: '50+ Served' },
-                  { icon: BookOpen, label: 'Research',     value: 'Published' },
+                  { icon: Award,    label: 'Experience',   value: '20+ Years' },
+                  { icon: Users,    label: 'Linacs',       value: '40+ Commissioned' },
+                  { icon: BookOpen, label: 'Publications', value: '2 Peer-Reviewed' },
+                  { icon: Award,    label: 'Education',    value: 'B.Eng Helwan' },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex flex-col gap-2 p-4 bg-white rounded-xl border border-ink-200 shadow-sm">
                     <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center">
@@ -257,7 +262,26 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <p className="text-[10px] uppercase tracking-widest text-ink-400 font-semibold">{label}</p>
-                      <p className="text-[14px] font-bold text-ink-900 mt-0.5">{value}</p>
+                      <p className="text-[12px] font-bold text-ink-900 mt-0.5 leading-snug">{value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Key roles timeline */}
+              <div className="space-y-2.5 pt-1">
+                {[
+                  { period: '2023 – Present', role: 'Managing Director', org: 'PTW Africa' },
+                  { period: '2014 – Present', role: 'CEO & Founder',     org: 'ON Medical Company' },
+                  { period: '2020 – 2023',    role: 'Supervisor Biomedical Engineer', org: 'Children Cancer Hospital' },
+                  { period: '2013 – 2019',    role: 'Sales & Service Manager',        org: 'Medical technology sector' },
+                  { period: '2005 – 2012',    role: 'Field Engineer → Service Manager', org: 'Radiotherapy equipment' },
+                ].map(({ period, role, org }) => (
+                  <div key={period} className="flex items-start gap-3 text-[13px]">
+                    <span className="text-brand-600 font-semibold w-28 flex-shrink-0 text-[11px] pt-0.5">{period}</span>
+                    <div>
+                      <span className="font-semibold text-ink-900">{role}</span>
+                      <span className="text-ink-400"> · {org}</span>
                     </div>
                   </div>
                 ))}
@@ -273,11 +297,11 @@ export default function AboutPage() {
                   osama@onmedical.net
                 </a>
                 <a
-                  href="tel:+20224115184"
+                  href="tel:+201066449661"
                   className="flex items-center gap-2 text-[13px] text-ink-600 hover:text-brand-600 transition-colors font-medium"
                 >
                   <Phone size={14} className="text-brand-600" />
-                  +20 2 24115184
+                  +20 106 644 9661
                 </a>
               </div>
             </AnimatedSection>
@@ -286,7 +310,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── Mission & Vision ──────────────────────────────── */}
-      <section className="section-padding bg-white border-b border-ink-200/60">
+      <SectionDivider />
+      <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader label="Our Direction" title="Mission &amp; Vision" />
@@ -354,7 +379,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── History Timeline ──────────────────────────────── */}
-      <section className="section-padding bg-ink-50 border-b border-ink-200/60">
+      <SectionDivider bg="muted" />
+      <section className="section-padding bg-ink-50">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
@@ -408,7 +434,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── Technical Expertise ───────────────────────────── */}
-      <section className="section-padding bg-white border-b border-ink-200/60">
+      <SectionDivider />
+      <section className="section-padding bg-white">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 

@@ -29,11 +29,11 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-hero-light">
 
       {/* Background dot texture */}
       <div
-        className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
+        className="absolute inset-0 bg-dot-grid pointer-events-none"
         style={{ backgroundSize: '28px 28px' }}
       />
 
@@ -42,15 +42,15 @@ export default function Hero() {
         className="absolute top-0 right-0 w-[650px] h-[650px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 65%)',
+            'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.14) 0%, transparent 65%)',
         }}
       />
-      {/* Subtle warm tint — bottom left */}
+      {/* Warm tint — bottom left */}
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at bottom left, rgb(229 25 25 / 0.04) 0%, transparent 70%)',
+            'radial-gradient(ellipse at bottom left, rgb(229 25 25 / 0.07) 0%, transparent 70%)',
         }}
       />
 
