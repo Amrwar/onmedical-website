@@ -417,6 +417,40 @@ export default async function AboutPage() {
       <section className="section-padding bg-white">
         <div className="container-site">
           <AnimatedSection>
+            {/* History book + decade icon */}
+            <div className="flex justify-center mb-5">
+              <svg width="90" height="72" viewBox="0 0 90 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* ── Open book ── */}
+                {/* Left page — red */}
+                <path d="M45,10 C45,10 30,6 10,8 C7,8 6,9.5 6,12 L6,54 C6,56.5 7,58 10,58 C30,56 45,60 45,60 Z" fill="#CC1212"/>
+                {/* Left page lines */}
+                <line x1="13" y1="20" x2="41" y2="18" stroke="rgba(255,255,255,0.30)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="13" y1="26" x2="41" y2="24" stroke="rgba(255,255,255,0.30)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="13" y1="32" x2="41" y2="30" stroke="rgba(255,255,255,0.30)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="13" y1="38" x2="41" y2="36" stroke="rgba(255,255,255,0.30)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="13" y1="44" x2="35" y2="42" stroke="rgba(255,255,255,0.30)" strokeWidth="1.4" strokeLinecap="round"/>
+                {/* Right page — dark */}
+                <path d="M45,10 C45,10 60,6 80,8 C83,8 84,9.5 84,12 L84,54 C84,56.5 83,58 80,58 C60,56 45,60 45,60 Z" fill="#1a1a1a"/>
+                {/* Right page lines */}
+                <line x1="77" y1="20" x2="49" y2="18" stroke="rgba(255,255,255,0.18)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="77" y1="26" x2="49" y2="24" stroke="rgba(255,255,255,0.18)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="77" y1="32" x2="49" y2="30" stroke="rgba(255,255,255,0.18)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="77" y1="38" x2="49" y2="36" stroke="rgba(255,255,255,0.18)" strokeWidth="1.4" strokeLinecap="round"/>
+                <line x1="77" y1="44" x2="55" y2="42" stroke="rgba(255,255,255,0.18)" strokeWidth="1.4" strokeLinecap="round"/>
+                {/* Spine */}
+                <line x1="45" y1="10" x2="45" y2="60" stroke="#CC1212" strokeWidth="3" strokeLinecap="round"/>
+                {/* Bottom curve */}
+                <path d="M6,54 Q45,64 84,54" stroke="#111" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+                {/* ── "10" badge on right page — decade marker ── */}
+                {/* Ribbon/badge background */}
+                <rect x="54" y="17" width="22" height="22" rx="3" fill="#CC1212" opacity="0.92"/>
+                {/* "1" digit */}
+                <line x1="63" y1="21" x2="63" y2="35" stroke="white" strokeWidth="2.8" strokeLinecap="round"/>
+                <path d="M60,24 L63,21" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+                {/* "0" digit */}
+                <rect x="66.5" y="21" width="6" height="14" rx="3" fill="none" stroke="white" strokeWidth="2.4"/>
+              </svg>
+            </div>
             <SectionHeader
               label={t('historyLabel')}
               title={t('historyTitle')}
