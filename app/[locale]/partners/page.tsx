@@ -217,24 +217,25 @@ export default async function PartnersPage() {
       {/* ── Partner anchor navigation ──────────────────────────── */}
       <div className="sticky top-[60px] lg:top-[66px] z-40 bg-white/95 backdrop-blur-xl border-b border-ink-200/60 shadow-nav">
         <div className="container-site">
-          <div className="flex items-center gap-0 overflow-x-auto no-scrollbar">
+          <div className="flex items-stretch gap-0 overflow-x-auto no-scrollbar">
             {[
-              { label: t('ptwName'), sub: t('navPTWSub'), href: '#ptw' },
-              { label: t('ashlandName'), sub: t('navAshlandSub'), href: '#ashland' },
-              { label: t('klarityName'), sub: t('navKlaritySub'), href: '#klarity' },
-            ].map((item, i) => (
+              { label: t('ptwName'), sub: t('navPTWSub'), href: '#ptw', logo: '/logo-ptw.png' },
+              { label: t('ashlandName'), sub: t('navAshlandSub'), href: '#ashland', logo: '/logo-ashland.png' },
+              { label: t('klarityName'), sub: t('navKlaritySub'), href: '#klarity', logo: '/logo-klarity.png' },
+            ].map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="flex items-center gap-2 px-5 py-3.5 text-[13px] font-medium text-ink-600 hover:text-brand-600 hover:bg-brand-50/40 transition-all border-r border-ink-200/50 last:border-r-0 flex-shrink-0 group"
+                className="flex flex-col items-center justify-center gap-1.5 px-6 py-3 text-[13px] font-medium text-ink-600 hover:text-brand-600 hover:bg-brand-50/40 transition-all border-r border-ink-200/50 last:border-r-0 flex-shrink-0 group"
               >
-                <span className="w-5 h-5 rounded-md bg-ink-100 group-hover:bg-brand-600 group-hover:text-white text-ink-500 text-[10px] font-bold flex items-center justify-center transition-colors flex-shrink-0">
-                  {i + 1}
-                </span>
-                <span>
-                  {item.label}
-                  <span className="text-ink-400 font-normal"> · {item.sub}</span>
-                </span>
+                <Image
+                  src={item.logo}
+                  alt={item.label}
+                  width={80}
+                  height={28}
+                  className="h-6 w-auto object-contain mix-blend-multiply opacity-70 group-hover:opacity-100 transition-opacity"
+                />
+                <span className="text-ink-400 font-normal text-[11px]">{item.sub}</span>
               </a>
             ))}
           </div>
