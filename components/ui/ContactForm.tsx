@@ -33,6 +33,8 @@ const emptyForm: FormState = {
 export default function ContactForm() {
   const [formState, setFormState] = useState<FormState>(emptyForm)
   const [submitted, setSubmitted] = useState(false)
+  const [loading,   setLoading]   = useState(false)
+  const [error,     setError]     = useState<string | null>(null)
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -40,10 +42,23 @@ export default function ContactForm() {
     setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    // In production: send to an API route or email service (Resend, SendGrid, Formspree, etc.)
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      })
+      if (!res.ok) throw new Error('Failed to send')
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -184,9 +199,19 @@ export default function ContactForm() {
               your enquiry. Your information will not be shared with third parties.
             </p>
 
-            <button type="submit" className="btn-primary w-full justify-center py-3.5 text-[14px]">
+            {error && (
+              <p className="text-[13px] text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                {error}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-primary w-full justify-center py-3.5 text-[14px] disabled:opacity-60 disabled:cursor-not-allowed"
+            >
               <Send size={15} strokeWidth={1.75} />
-              Submit Enquiry
+              {loading ? 'Sending…' : 'Submit Enquiry'}
             </button>
           </form>
         </>

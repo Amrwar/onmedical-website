@@ -72,30 +72,30 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="bg-hero relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.10) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
                 Contact Us
               </span>
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight mb-5">
+              <h1 className="text-4xl lg:text-5xl font-black text-ink-900 leading-[1.08] tracking-tight mb-5">
                 Let&apos;s Start a{' '}
                 <span className="text-gradient-brand">Conversation</span>
               </h1>
-              <p className="text-white/55 text-[15px] lg:text-base leading-[1.8]">
+              <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8]">
                 Whether you are a hospital seeking specialized equipment, an oncology centre
                 requiring technical support, or an international manufacturer looking for an
                 authorized Egyptian representative — we are ready to help.
@@ -163,28 +163,28 @@ export default function ContactPage() {
               </div>
 
               {/* Location visual */}
-              <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card overflow-hidden">
-                <div className="bg-ink-950 h-44 flex flex-col items-center justify-center gap-2.5 relative">
+              <div className="bg-white rounded-2xl border border-ink-200 shadow-card overflow-hidden">
+                <div className="h-44 flex flex-col items-center justify-center gap-2.5 relative bg-brand-50">
                   <div
-                    className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+                    className="absolute inset-0 bg-dot-grid pointer-events-none opacity-50"
                     style={{ backgroundSize: '18px 18px' }}
                   />
                   <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       background:
-                        'radial-gradient(circle at center, rgb(204 18 18 / 0.10) 0%, transparent 60%)',
+                        'radial-gradient(circle at center, rgb(229 25 25 / 0.08) 0%, transparent 60%)',
                     }}
                   />
-                  <MapPin size={28} className="text-brand-500 relative z-10" strokeWidth={1.5} />
-                  <p className="text-white/65 text-[13px] font-semibold relative z-10">
+                  <MapPin size={28} className="text-brand-600 relative z-10" strokeWidth={1.5} />
+                  <p className="text-ink-900 text-[13px] font-semibold relative z-10">
                     Nasr City, Cairo, Egypt
                   </p>
-                  <p className="text-white/35 text-[11px] relative z-10">
+                  <p className="text-ink-400 text-[11px] relative z-10">
                     548 Zahraa Nasr City
                   </p>
                 </div>
-                <div className="px-5 py-3.5 border-t border-ink-200/60">
+                <div className="px-5 py-3.5 border-t border-ink-200">
                   <p className="text-[11px] text-ink-400 text-center">
                     Located in Nasr City, Cairo — accessible from across the Greater Cairo area.
                   </p>

@@ -29,28 +29,28 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-hero">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
 
-      {/* Background texture */}
+      {/* Background dot texture */}
       <div
-        className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+        className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
         style={{ backgroundSize: '28px 28px' }}
       />
 
-      {/* Radial red glow — top right */}
+      {/* Red glow — top right */}
       <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-0 right-0 w-[650px] h-[650px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.12) 0%, transparent 65%)',
+            'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 65%)',
         }}
       />
-      {/* Radial subtle — bottom left */}
+      {/* Subtle warm tint — bottom left */}
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at bottom left, rgb(255 255 255 / 0.02) 0%, transparent 70%)',
+            'radial-gradient(ellipse at bottom left, rgb(229 25 25 / 0.04) 0%, transparent 70%)',
         }}
       />
 
@@ -66,8 +66,8 @@ export default function Hero() {
           >
             {/* Eyebrow */}
             <motion.div variants={item}>
-              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
                 Oncology &amp; Radiotherapy Specialists — Egypt
               </span>
             </motion.div>
@@ -75,7 +75,7 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={item}
-              className="text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-black text-white leading-[1.07] tracking-tight"
+              className="text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-black text-ink-900 leading-[1.07] tracking-tight"
             >
               Advancing{' '}
               <span className="text-gradient-brand">Oncology Technology</span>{' '}
@@ -86,7 +86,7 @@ export default function Hero() {
             {/* Subtext */}
             <motion.p
               variants={item}
-              className="text-[15px] lg:text-base text-white/55 leading-[1.75] max-w-xl"
+              className="text-[15px] lg:text-base text-ink-600 leading-[1.75] max-w-xl"
             >
               ON Medical Company is Egypt&apos;s specialized distributor of radiotherapy, radiation
               measurement, and medical physics systems — bridging leading international manufacturers
@@ -98,7 +98,7 @@ export default function Hero() {
               <Link href="/services" className="btn-primary">
                 Explore Our Services <ArrowRight size={15} strokeWidth={2} />
               </Link>
-              <Link href="/partners" className="btn-outline-white">
+              <Link href="/partners" className="btn-secondary">
                 Our Global Partners
               </Link>
             </motion.div>
@@ -106,12 +106,12 @@ export default function Hero() {
             {/* Trust badges */}
             <motion.div
               variants={item}
-              className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1 border-t border-white/[0.08]"
+              className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1 border-t border-ink-200"
             >
               {trust.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2">
-                  <Icon size={13} className="text-brand-500" strokeWidth={1.75} />
-                  <span className="text-[11px] font-medium text-white/40">{label}</span>
+                  <Icon size={13} className="text-brand-600" strokeWidth={1.75} />
+                  <span className="text-[11px] font-medium text-ink-500">{label}</span>
                 </div>
               ))}
             </motion.div>
@@ -125,44 +125,46 @@ export default function Hero() {
             className="xl:col-span-5"
           >
             <div
-              className="relative rounded-2xl border border-white/10 overflow-hidden
-                          bg-white/[0.03] backdrop-blur-sm
-                          shadow-[0_0_0_1px_rgb(255_255_255_/_0.06),0_24px_64px_rgb(0_0_0_/_0.4)]"
+              className="relative rounded-2xl border border-ink-200 overflow-hidden bg-white
+                          shadow-[0_2px_8px_rgb(0_0_0_/_0.06),0_16px_48px_rgb(0_0_0_/_0.08)]"
             >
+              {/* Red top accent bar */}
+              <div className="h-1 w-full bg-gradient-to-r from-brand-600 to-brand-400" />
+
               {/* Panel header */}
-              <div className="px-7 py-5 border-b border-white/[0.08] flex items-center gap-3">
+              <div className="px-7 py-5 border-b border-ink-100 flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse-dot" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/35">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink-400">
                   Company at a Glance
                 </span>
               </div>
 
               {/* Stats */}
-              <div className="divide-y divide-white/[0.08]">
+              <div className="divide-y divide-ink-100">
                 {stats.map((stat, i) => (
                   <div
                     key={stat.label}
-                    className="flex items-center gap-6 px-7 py-5 hover:bg-white/[0.03] transition-colors group"
+                    className="flex items-center gap-6 px-7 py-5 hover:bg-brand-50/40 transition-colors group"
                   >
-                    <span className="text-[13px] font-semibold text-white/20 w-5 text-right flex-shrink-0 group-hover:text-brand-600/60 transition-colors">
+                    <span className="text-[13px] font-semibold text-ink-200 w-5 text-right flex-shrink-0 group-hover:text-brand-500 transition-colors">
                       0{i + 1}
                     </span>
                     <div className="flex-1">
-                      <div className="text-2xl font-black text-white tracking-tight">
+                      <div className="text-2xl font-black text-ink-900 tracking-tight">
                         {stat.value}
                       </div>
-                      <div className="text-[13px] font-medium text-white/60 mt-0.5">
+                      <div className="text-[13px] font-medium text-ink-700 mt-0.5">
                         {stat.label}
                       </div>
-                      <div className="text-[11px] text-white/30 mt-0.5">{stat.sub}</div>
+                      <div className="text-[11px] text-ink-400 mt-0.5">{stat.sub}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Panel footer */}
-              <div className="px-7 py-4 border-t border-white/[0.08] bg-white/[0.02]">
-                <span className="text-[11px] text-white/25">
+              <div className="px-7 py-4 border-t border-ink-100 bg-ink-50">
+                <span className="text-[11px] text-ink-400">
                   Authorized representative · Egypt &amp; MENA region
                 </span>
               </div>
@@ -176,7 +178,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/25"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-ink-400"
       >
         <span className="text-[9px] uppercase tracking-[0.2em] font-medium">Scroll</span>
         <ChevronDown size={14} className="animate-bounce" />

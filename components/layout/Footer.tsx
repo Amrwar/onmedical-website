@@ -21,7 +21,10 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink-950 text-white">
+    <footer className="bg-ink-50 border-t border-ink-200">
+
+      {/* Red top accent */}
+      <div className="h-1 w-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400" />
 
       {/* ── Main content ───────────────────────────────────── */}
       <div className="container-site pt-16 pb-12 lg:pt-20 lg:pb-16">
@@ -29,7 +32,7 @@ export default function Footer() {
 
           {/* Brand col — 4 cols */}
           <div className="lg:col-span-4 space-y-5 lg:pr-6">
-            <Link href="/" className="inline-block bg-white/95 rounded-lg px-4 py-2">
+            <Link href="/" className="inline-block">
               <Image
                 src="/logo-onmedical.png"
                 alt="ON Medical Company"
@@ -38,20 +41,20 @@ export default function Footer() {
                 className="h-8 w-auto object-contain"
               />
             </Link>
-            <p className="text-[13px] text-white/50 leading-relaxed max-w-[240px]">
+            <p className="text-[13px] text-ink-600 leading-relaxed max-w-[240px]">
               A specialized Egyptian company advancing oncology and radiotherapy technology throughout the healthcare sector since 2014.
             </p>
             <div className="flex items-center gap-2.5 pt-1">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/35">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-400">
                 Established Cairo, Egypt · 2014
               </span>
             </div>
           </div>
 
           {/* Navigation — 2 cols */}
-          <div className="lg:col-span-2 lg:border-l lg:border-white/[0.08] lg:pl-6 space-y-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">
+          <div className="lg:col-span-2 lg:border-l lg:border-ink-200 lg:pl-6 space-y-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
               Navigation
             </p>
             <ul className="space-y-2.5">
@@ -59,7 +62,7 @@ export default function Footer() {
                 <li key={p.href}>
                   <Link
                     href={p.href}
-                    className="flex items-center gap-2 text-[13px] text-white/55 hover:text-white transition-colors group"
+                    className="flex items-center gap-2 text-[13px] text-ink-600 hover:text-brand-600 transition-colors group"
                   >
                     <span className="w-1 h-1 rounded-full bg-brand-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {p.label}
@@ -70,13 +73,13 @@ export default function Footer() {
           </div>
 
           {/* Services — 3 cols */}
-          <div className="lg:col-span-3 lg:border-l lg:border-white/[0.08] lg:pl-6 space-y-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">
+          <div className="lg:col-span-3 lg:border-l lg:border-ink-200 lg:pl-6 space-y-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
               Services
             </p>
             <ul className="space-y-2.5">
               {services.map(s => (
-                <li key={s} className="flex items-start gap-2 text-[13px] text-white/55">
+                <li key={s} className="flex items-start gap-2 text-[13px] text-ink-600">
                   <span className="mt-[7px] w-1 h-1 rounded-full bg-brand-600 flex-shrink-0" />
                   {s}
                 </li>
@@ -85,8 +88,8 @@ export default function Footer() {
           </div>
 
           {/* Contact — 3 cols */}
-          <div className="lg:col-span-3 lg:border-l lg:border-white/[0.08] lg:pl-6 space-y-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">
+          <div className="lg:col-span-3 lg:border-l lg:border-ink-200 lg:pl-6 space-y-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
               Contact
             </p>
             <ul className="space-y-3.5">
@@ -98,16 +101,16 @@ export default function Footer() {
                 { icon: Mail,    text: 'osama@onmedical.net',                     href: 'mailto:osama@onmedical.net' },
               ] as { icon: typeof MapPin; text: string; href: string | null }[]).map(({ icon: Icon, text, href }, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Icon size={13} className="text-brand-500 mt-0.5 flex-shrink-0" strokeWidth={1.75} />
+                  <Icon size={13} className="text-brand-600 mt-0.5 flex-shrink-0" strokeWidth={1.75} />
                   {href ? (
                     <a
                       href={href}
-                      className="text-[13px] text-white/55 hover:text-white transition-colors leading-snug whitespace-pre-line"
+                      className="text-[13px] text-ink-600 hover:text-brand-600 transition-colors leading-snug whitespace-pre-line"
                     >
                       {text}
                     </a>
                   ) : (
-                    <span className="text-[13px] text-white/55 leading-snug whitespace-pre-line">
+                    <span className="text-[13px] text-ink-600 leading-snug whitespace-pre-line">
                       {text}
                     </span>
                   )}
@@ -127,12 +130,12 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom bar ─────────────────────────────────────── */}
-      <div className="border-t border-white/[0.08]">
+      <div className="border-t border-ink-200">
         <div className="container-site py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[11px] text-white/25">
+          <p className="text-[11px] text-ink-400">
             © {new Date().getFullYear()} ON Medical Company. All rights reserved.
           </p>
-          <p className="text-[11px] text-white/[0.18]">
+          <p className="text-[11px] text-ink-400">
             Oncology &amp; Radiotherapy Equipment · Cairo, Egypt
           </p>
         </div>

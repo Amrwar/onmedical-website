@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { CheckCircle2, Target, Eye, Cpu, BookOpen, Calendar } from 'lucide-react'
+import Image from 'next/image'
+import { CheckCircle2, Target, Eye, Cpu, BookOpen, Mail, Phone, Award, Users } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import ContactCTA from '@/components/sections/ContactCTA'
@@ -67,30 +68,30 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Page Hero ─────────────────────────────────────── */}
-      <section className="bg-hero relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.10) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
                 About ON Medical
               </span>
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight mb-5">
+              <h1 className="text-4xl lg:text-5xl font-black text-ink-900 leading-[1.08] tracking-tight mb-5">
                 Dedicated to Advancing{' '}
                 <span className="text-gradient-brand">Oncology Technology</span>
               </h1>
-              <p className="text-white/55 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
+              <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
                 Since 2014, ON Medical Company has connected Egyptian healthcare with world-class
                 radiotherapy, radiation measurement, and medical physics technologies — with the
                 technical depth that specialized medicine demands.
@@ -101,7 +102,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Company Overview ──────────────────────────────── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white border-t border-ink-200/60">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
@@ -139,35 +140,26 @@ export default function AboutPage() {
             </AnimatedSection>
 
             <AnimatedSection direction="right">
-              <div className="relative rounded-2xl overflow-hidden bg-ink-950 border border-white/[0.08] shadow-dark">
-                <div
-                  className="absolute inset-0 bg-dot-grid-light pointer-events-none"
-                  style={{ backgroundSize: '20px 20px' }}
-                />
-                <div
-                  className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
-                  style={{
-                    background:
-                      'radial-gradient(circle, rgb(204 18 18 / 0.10) 0%, transparent 65%)',
-                  }}
-                />
+              <div className="relative rounded-2xl overflow-hidden bg-white border border-ink-200 shadow-card">
+                {/* Red top accent */}
+                <div className="h-1 w-full bg-gradient-to-r from-brand-600 to-brand-400" />
 
                 {/* Panel header */}
-                <div className="relative z-10 px-7 py-5 border-b border-white/[0.08] flex items-center gap-3">
+                <div className="px-7 py-5 border-b border-ink-100 flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse-dot" />
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/35">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink-400">
                     Company Profile
                   </span>
                 </div>
 
                 {/* Facts */}
-                <div className="relative z-10 divide-y divide-white/[0.08]">
+                <div className="divide-y divide-ink-100">
                   {companyFacts.map(({ label, value }) => (
-                    <div key={label} className="flex flex-col gap-0.5 px-7 py-4">
-                      <span className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-semibold">
+                    <div key={label} className="flex flex-col gap-0.5 px-7 py-4 hover:bg-ink-50 transition-colors">
+                      <span className="text-[10px] uppercase tracking-[0.15em] text-ink-400 font-semibold">
                         {label}
                       </span>
-                      <span className="text-[13px] font-medium text-white/70">{value}</span>
+                      <span className="text-[13px] font-medium text-ink-800">{value}</span>
                     </div>
                   ))}
                 </div>
@@ -177,8 +169,137 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── Founder / Leadership ──────────────────────────── */}
+      <section className="section-padding bg-ink-50 border-y border-ink-200/60">
+        <div className="container-site">
+          <AnimatedSection>
+            <SectionHeader
+              label="Leadership"
+              title="Meet the Founder"
+              subtitle="A decade of specialized expertise in oncology and radiotherapy technology, built on a foundation of scientific rigor and institutional trust."
+            />
+          </AnimatedSection>
+
+          <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+            {/* Photos */}
+            <AnimatedSection direction="left" className="lg:col-span-5">
+              <div className="grid grid-cols-2 gap-4">
+                {/* Primary large photo */}
+                <div className="col-span-2 sm:col-span-1 relative rounded-2xl overflow-hidden aspect-[3/4] shadow-[0_4px_24px_rgb(0_0_0_/_0.10)] border border-ink-200">
+                  <Image
+                    src="/owner-1.jpg"
+                    alt="Osama — Founder & Managing Director, ON Medical Company"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                </div>
+                {/* Secondary stacked photos */}
+                <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
+                  <div className="relative rounded-2xl overflow-hidden aspect-square shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200">
+                    <Image
+                      src="/owner-2.jpg"
+                      alt="Osama — ON Medical Company"
+                      fill
+                      className="object-cover object-top"
+                      sizes="25vw"
+                    />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square shadow-[0_4px_24px_rgb(0_0_0_/_0.08)] border border-ink-200">
+                    <Image
+                      src="/owner-3.jpg"
+                      alt="Osama — ON Medical Company"
+                      fill
+                      className="object-cover object-center"
+                      sizes="25vw"
+                    />
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Bio content */}
+            <AnimatedSection direction="right" className="lg:col-span-7 flex flex-col gap-7">
+
+              {/* Name & title */}
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-0.5 bg-brand-600 rounded-full" />
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-600">
+                    Founder &amp; Managing Director
+                  </span>
+                </div>
+                <h2 className="text-3xl lg:text-4xl font-black text-ink-900 tracking-tight">
+                  Osama Nafea
+                </h2>
+                <p className="text-ink-500 text-sm mt-1">ON Medical Company · Cairo, Egypt</p>
+              </div>
+
+              {/* Bio */}
+              <div className="space-y-4 text-[14px] leading-[1.8] text-ink-600">
+                <p>
+                  With over two decades of experience in medical physics, radiotherapy technology,
+                  and oncology equipment, Osama founded ON Medical Company in 2014 with a singular
+                  vision: to bridge the gap between world-class international manufacturers and
+                  Egypt&apos;s growing healthcare sector.
+                </p>
+                <p>
+                  His technical expertise spans radiation measurement, dosimetry, treatment
+                  planning systems, and quality assurance — knowledge that has been applied in
+                  collaboration with leading hospitals, oncology centres, and medical universities
+                  across Egypt.
+                </p>
+                <p>
+                  Osama&apos;s scientific contributions extend to peer-reviewed publications in
+                  radiotherapy quality assurance and treatment planning, underscoring the
+                  consultative depth that ON Medical brings to every institutional partnership.
+                </p>
+              </div>
+
+              {/* Credentials */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  { icon: Award,   label: 'Founded',       value: '2014' },
+                  { icon: Users,   label: 'Institutions',  value: '50+ Served' },
+                  { icon: BookOpen, label: 'Research',     value: 'Published' },
+                ].map(({ icon: Icon, label, value }) => (
+                  <div key={label} className="flex flex-col gap-2 p-4 bg-white rounded-xl border border-ink-200 shadow-sm">
+                    <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center">
+                      <Icon size={15} className="text-brand-600" strokeWidth={1.75} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-widest text-ink-400 font-semibold">{label}</p>
+                      <p className="text-[14px] font-bold text-ink-900 mt-0.5">{value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Contact */}
+              <div className="flex flex-wrap gap-4 pt-2 border-t border-ink-200">
+                <a
+                  href="mailto:osama@onmedical.net"
+                  className="flex items-center gap-2 text-[13px] text-ink-600 hover:text-brand-600 transition-colors font-medium"
+                >
+                  <Mail size={14} className="text-brand-600" />
+                  osama@onmedical.net
+                </a>
+                <a
+                  href="tel:+20224115184"
+                  className="flex items-center gap-2 text-[13px] text-ink-600 hover:text-brand-600 transition-colors font-medium"
+                >
+                  <Phone size={14} className="text-brand-600" />
+                  +20 2 24115184
+                </a>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* ── Mission & Vision ──────────────────────────────── */}
-      <section className="section-padding section-alt border-y border-ink-200/60">
+      <section className="section-padding bg-white border-b border-ink-200/60">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader label="Our Direction" title="Mission &amp; Vision" />
@@ -188,7 +309,8 @@ export default function AboutPage() {
 
             {/* Mission */}
             <AnimatedSection direction="left">
-              <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6">
+              <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-600 to-brand-400 rounded-t-2xl" />
                 <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
                   <Target size={22} className="text-brand-600" strokeWidth={1.75} />
                 </div>
@@ -212,28 +334,25 @@ export default function AboutPage() {
 
             {/* Vision */}
             <AnimatedSection direction="right">
-              <div className="bg-ink-950 rounded-2xl border border-white/[0.08] shadow-dark p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-dot-grid-light pointer-events-none"
-                  style={{ backgroundSize: '20px 20px' }}
-                />
-                <div className="relative z-10 w-12 h-12 rounded-xl bg-brand-600/15 border border-brand-500/20 flex items-center justify-center">
-                  <Eye size={22} className="text-brand-400" strokeWidth={1.75} />
+              <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 lg:p-10 h-full flex flex-col gap-6 relative overflow-hidden">
+                <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-brand-600 to-brand-400 rounded-l-2xl" />
+                <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100/80 flex items-center justify-center">
+                  <Eye size={22} className="text-brand-600" strokeWidth={1.75} />
                 </div>
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-white mb-1">Our Vision</h3>
+                <div>
+                  <h3 className="text-xl font-bold text-ink-900 mb-1">Our Vision</h3>
                   <div className="w-8 h-0.5 rounded-full bg-brand-600 mb-5" />
-                  <p className="text-white/55 leading-[1.8] text-[14px] mb-6">
+                  <p className="text-ink-600 leading-[1.8] text-[14px] mb-6">
                     ON Medical strives to become a leading specialized distributor in the Middle
                     East and North Africa region for radiotherapy technology, radiation measurement
                     equipment, and medical physics solutions.
                   </p>
                   <ul className="space-y-3">
                     {visionGoals.map(goal => (
-                      <li key={goal} className="flex items-start gap-2.5 text-[13px] text-white/60">
+                      <li key={goal} className="flex items-start gap-2.5 text-[13px] text-ink-600">
                         <CheckCircle2
                           size={14}
-                          className="text-brand-500 mt-0.5 flex-shrink-0"
+                          className="text-brand-600 mt-0.5 flex-shrink-0"
                           strokeWidth={2}
                         />
                         {goal}
@@ -248,7 +367,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── History Timeline ──────────────────────────────── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-ink-50 border-b border-ink-200/60">
         <div className="container-site">
           <AnimatedSection>
             <SectionHeader
@@ -302,7 +421,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Technical Expertise ───────────────────────────── */}
-      <section className="section-padding section-alt border-t border-ink-200/60">
+      <section className="section-padding bg-white border-b border-ink-200/60">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
@@ -328,9 +447,9 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-ink-200/70 shadow-card">
-                <div className="w-11 h-11 rounded-lg bg-ink-950 flex items-center justify-center flex-shrink-0">
-                  <BookOpen size={18} className="text-brand-400" strokeWidth={1.75} />
+              <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-ink-200 shadow-card">
+                <div className="w-11 h-11 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center flex-shrink-0">
+                  <BookOpen size={18} className="text-brand-600" strokeWidth={1.75} />
                 </div>
                 <div>
                   <p className="text-[13px] font-semibold text-ink-900">
@@ -344,7 +463,7 @@ export default function AboutPage() {
             </AnimatedSection>
 
             <AnimatedSection direction="right">
-              <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card p-8 space-y-5">
+              <div className="bg-white rounded-2xl border border-ink-200 shadow-card p-8 space-y-5">
                 <div className="flex items-center gap-3 pb-4 border-b border-ink-200/60">
                   <div className="icon-box">
                     <Cpu size={17} className="text-brand-600" strokeWidth={1.75} />

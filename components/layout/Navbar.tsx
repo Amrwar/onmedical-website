@@ -15,48 +15,29 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [scrolled,   setScrolled]   = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 24)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
-
   useEffect(() => setMobileOpen(false), [pathname])
-
-  const onDark = !scrolled && pathname === '/'
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        onDark
-          ? 'bg-transparent'
-          : 'bg-white/96 backdrop-blur-xl border-b border-ink-200/60 shadow-nav'
-      }`}
+      className="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white/96 backdrop-blur-xl border-b border-ink-200/60 shadow-nav"
     >
       {/* ── Top strip ──────────────────────────────────────── */}
-      <div className={`hidden lg:block border-b transition-colors duration-300 ${
-        onDark ? 'border-white/[0.08] bg-white/[0.04]' : 'border-ink-200/50 bg-ink-50/80'
-      }`}>
+      <div className="hidden lg:block border-b border-ink-200/50 bg-ink-50/80 transition-colors duration-300">
         <div className="container-site flex items-center justify-end gap-6 py-1.5">
           <a
             href="tel:+20224115184"
-            className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors ${
-              onDark ? 'text-white/55 hover:text-white/80' : 'text-ink-500 hover:text-brand-600'
-            }`}
+            className="flex items-center gap-1.5 text-[11px] font-medium text-ink-500 hover:text-brand-600 transition-colors"
           >
             <Phone size={10} strokeWidth={2} />
             +20 2 24115184
           </a>
-          <span className={`w-px h-3 ${onDark ? 'bg-white/15' : 'bg-ink-300'}`} />
+          <span className="w-px h-3 bg-ink-300" />
           <a
             href="mailto:osama@onmedical.net"
-            className={`text-[11px] font-medium transition-colors ${
-              onDark ? 'text-white/55 hover:text-white/80' : 'text-ink-500 hover:text-brand-600'
-            }`}
+            className="text-[11px] font-medium text-ink-500 hover:text-brand-600 transition-colors"
           >
             osama@onmedical.net
           </a>
@@ -89,21 +70,13 @@ export default function Navbar() {
                   href={href}
                   className={`relative px-4 py-2 text-[13px] font-medium rounded-lg transition-all duration-150 ${
                     active
-                      ? onDark
-                        ? 'text-white'
-                        : 'text-brand-600'
-                      : onDark
-                        ? 'text-white/65 hover:text-white hover:bg-white/[0.08]'
-                        : 'text-ink-600 hover:text-ink-900 hover:bg-ink-100/60'
+                      ? 'text-brand-600'
+                      : 'text-ink-600 hover:text-ink-900 hover:bg-ink-100/60'
                   }`}
                 >
                   {label}
                   {active && (
-                    <span
-                      className={`absolute bottom-[5px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${
-                        onDark ? 'bg-white' : 'bg-brand-600'
-                      }`}
-                    />
+                    <span className="absolute bottom-[5px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-600" />
                   )}
                 </Link>
               )
@@ -122,9 +95,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(v => !v)}
               aria-label="Toggle navigation"
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                onDark ? 'text-white hover:bg-white/10' : 'text-ink-700 hover:bg-ink-100'
-              }`}
+              className="lg:hidden p-2 rounded-lg transition-colors text-ink-700 hover:bg-ink-100"
             >
               {mobileOpen
                 ? <X size={21} strokeWidth={1.75} />
