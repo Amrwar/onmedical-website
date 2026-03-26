@@ -175,31 +175,31 @@ export default function PartnersPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="bg-hero relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.10) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
                 Partners & Technologies
               </span>
-              <h1 className="text-4xl lg:text-[3.25rem] font-black text-white leading-[1.06] tracking-tight mb-5">
+              <h1 className="text-4xl lg:text-[3.25rem] font-black text-ink-900 leading-[1.06] tracking-tight mb-5">
                 World-Class Technology,{' '}
                 <br className="hidden lg:block" />
                 <span className="text-gradient-brand">Delivered Locally</span>
               </h1>
-              <p className="text-white/55 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
+              <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
                 ON Medical Company is the authorized Egyptian representative for three
                 internationally recognized manufacturers — each a leader in their field of
                 oncology, radiotherapy, and medical physics technology.

@@ -176,31 +176,31 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="bg-hero relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
-          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+          className="absolute inset-0 bg-dot-grid pointer-events-none opacity-60"
           style={{ backgroundSize: '28px 28px' }}
         />
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at top right, rgb(204 18 18 / 0.10) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top right, rgb(229 25 25 / 0.07) 0%, transparent 60%)',
           }}
         />
         <div className="container-site relative z-10">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-300 border border-brand-500/25 bg-brand-600/10 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-dot" />
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-600 border border-brand-200 bg-brand-50 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
                 Our Services
               </span>
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight mb-5">
+              <h1 className="text-4xl lg:text-5xl font-black text-ink-900 leading-[1.08] tracking-tight mb-5">
                 Complete Support for{' '}
                 <span className="text-gradient-brand">Oncology &amp; Radiotherapy</span>{' '}
                 Technology
               </h1>
-              <p className="text-white/55 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
+              <p className="text-ink-600 text-[15px] lg:text-base leading-[1.8] max-w-2xl">
                 From the first consultation to long-term after-sales support, ON Medical provides
                 the full spectrum of services that Egyptian healthcare institutions require when
                 working with specialized medical technology.
@@ -255,27 +255,27 @@ export default function ServicesPage() {
                   <div className="bg-white rounded-2xl border border-ink-200/70 shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300">
                     <div className="grid grid-cols-1 lg:grid-cols-5">
 
-                      {/* Left dark panel */}
-                      <div className="lg:col-span-2 bg-ink-950 p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden">
+                      {/* Left red panel */}
+                      <div className="lg:col-span-2 bg-brand-600 p-8 lg:p-10 flex flex-col gap-5 relative overflow-hidden">
                         <div
-                          className="absolute inset-0 bg-dot-grid-light pointer-events-none"
+                          className="absolute inset-0 bg-dot-grid-light pointer-events-none opacity-10"
                           style={{ backgroundSize: '20px 20px' }}
                         />
                         <div
                           className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
                           style={{
                             background:
-                              'radial-gradient(circle, rgb(204 18 18 / 0.12) 0%, transparent 70%)',
+                              'radial-gradient(circle, rgb(255 255 255 / 0.08) 0%, transparent 70%)',
                           }}
                         />
                         <div className="relative z-10 flex flex-col gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-brand-600/15 border border-brand-500/20 flex items-center justify-center">
-                            <Icon size={22} className="text-brand-400" strokeWidth={1.75} />
+                          <div className="w-12 h-12 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center">
+                            <Icon size={22} className="text-white" strokeWidth={1.75} />
                           </div>
                           <h2 className="text-xl font-bold text-white leading-snug">
                             {service.title}
                           </h2>
-                          <p className="text-[13px] text-white/50 leading-relaxed">
+                          <p className="text-[13px] text-white/75 leading-relaxed">
                             {service.description}
                           </p>
                         </div>
