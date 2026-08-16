@@ -1,7 +1,9 @@
 import { createNavigation } from 'next-intl/navigation'
 
-export const locales = ['en', 'nl', 'zh'] as const
-export type Locale = (typeof locales)[number]
+import { locales } from './i18n/locales'
+
+export { locales, defaultLocale, isLocale } from './i18n/locales'
+export type { Locale } from './i18n/locales'
 
 export const { Link: IntlLink, useRouter: useIntlRouter, usePathname: useIntlPathname, redirect } =
   createNavigation({ locales })

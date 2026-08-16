@@ -29,3 +29,9 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+
+# Build info
+*.tsbuildinfo
+
+# Test output
+/coverage
