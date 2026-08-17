@@ -2,16 +2,16 @@
 
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { useTranslations } from 'next-intl'
+import { stats as statList } from '@/data/stats'
 
 export default function StatsBar() {
   const t = useTranslations('statsBar')
 
-  const stats = [
-    { value: '10+',  label: t('stat1Label'), sub: t('stat1Sub') },
-    { value: '3',    label: t('stat2Label'), sub: t('stat2Sub') },
-    { value: '100+', label: t('stat3Label'), sub: t('stat3Sub') },
-    { value: '2014', label: t('stat4Label'), sub: t('stat4Sub') },
-  ]
+  const stats = statList.map((entry) => ({
+    value: entry.value,
+    label: t(entry.labelKey),
+    sub: t(entry.subKey),
+  }))
 
   return (
     <section className="bg-white">

@@ -3,19 +3,14 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { faqEntries } from '@/data/faq'
 import { useTranslations } from 'next-intl'
 
 export default function ContactFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const t = useTranslations('contact')
 
-  const faqs = [
-    { q: t('faq1Q'), a: t('faq1A') },
-    { q: t('faq2Q'), a: t('faq2A') },
-    { q: t('faq3Q'), a: t('faq3A') },
-    { q: t('faq4Q'), a: t('faq4A') },
-    { q: t('faq5Q'), a: t('faq5A') },
-  ]
+  const faqs = faqEntries.map((entry) => ({ q: t(entry.questionKey), a: t(entry.answerKey) }))
 
   return (
     <div className="space-y-3">

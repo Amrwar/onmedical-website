@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react'
 import { Send, CheckCircle2, ChevronDown } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { enquiryTypeKeys } from '@/data/enquiryTypes'
 
 interface FormState {
   name: string
@@ -29,14 +30,7 @@ export default function ContactForm() {
   const [error,     setError]     = useState<string | null>(null)
   const t = useTranslations('contact')
 
-  const enquiryTypes = [
-    t('enquiryType1'),
-    t('enquiryType2'),
-    t('enquiryType3'),
-    t('enquiryType4'),
-    t('enquiryType5'),
-    t('enquiryType6'),
-  ]
+  const enquiryTypes = enquiryTypeKeys.map((key) => t(key))
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>

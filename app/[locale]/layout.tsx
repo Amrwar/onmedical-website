@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { isLocale, locales } from '@/i18n/locales'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,7 +14,6 @@ const inter = Inter({
   display: 'swap',
 })
 
-const locales = ['en', 'nl', 'zh']
 
 export const metadata: Metadata = {
   title: {
@@ -62,7 +62,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
 
-  if (!locales.includes(locale)) {
+  if (!isLocale(locale)) {
     notFound()
   }
 

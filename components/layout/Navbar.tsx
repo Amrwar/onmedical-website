@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Phone, ChevronRight, ChevronDown } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
+import { navRoutes, localizeHref as localizeSiteHref } from '@/lib/site'
 import { useIntlRouter, useIntlPathname } from '@/navigation'
 
 const localeConfig = [
@@ -23,14 +24,7 @@ export default function Navbar() {
   const t      = useTranslations('nav')
   const locale = useLocale()
 
-  const navLinks = [
-    { label: t('home'),             href: '/' },
-    { label: t('about'),           href: '/about' },
-    { label: t('services'),        href: '/services' },
-    { label: t('partners'),        href: '/partners' },
-    { label: t('certifications'),  href: '/certifications' },
-    { label: t('contact'),         href: '/contact' },
-  ]
+  const navLinks = navRoutes.map((route) => ({ label: t(route.labelKey), href: route.href }))
 
   useEffect(() => setMobileOpen(false), [pathname])
   useEffect(() => {
@@ -47,10 +41,7 @@ export default function Navbar() {
   const currentLocale = localeConfig.find(l => l.code === locale) ?? localeConfig[0]
 
   // Prefix nav hrefs with locale
-  function localizeHref(href: string) {
-    if (locale === 'en') return href
-    return `/${locale}${href}`
-  }
+  const localizeHref = (href: string) => localizeSiteHref(locale, href)
 
   function isActive(href: string) {
     const localized = localizeHref(href)

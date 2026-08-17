@@ -1,52 +1,18 @@
 'use client'
 
-import {
-  Building2,
-  GraduationCap,
-  FlaskConical,
-  Stethoscope,
-  Heart,
-  Landmark,
-} from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { useTranslations } from 'next-intl'
+import { industries as industryList } from '@/data/industries'
 
 export default function Industries() {
   const t = useTranslations('industries')
 
-  const industries = [
-    {
-      icon: Heart,
-      title: t('i1Title'),
-      description: t('i1Desc'),
-    },
-    {
-      icon: Building2,
-      title: t('i2Title'),
-      description: t('i2Desc'),
-    },
-    {
-      icon: GraduationCap,
-      title: t('i3Title'),
-      description: t('i3Desc'),
-    },
-    {
-      icon: Landmark,
-      title: t('i4Title'),
-      description: t('i4Desc'),
-    },
-    {
-      icon: Stethoscope,
-      title: t('i5Title'),
-      description: t('i5Desc'),
-    },
-    {
-      icon: FlaskConical,
-      title: t('i6Title'),
-      description: t('i6Desc'),
-    },
-  ]
+  const industries = industryList.map((entry) => ({
+    icon: entry.icon,
+    title: t(entry.titleKey),
+    description: t(entry.descriptionKey),
+  }))
 
   return (
     <section className="relative section-padding bg-white">

@@ -1,67 +1,26 @@
 'use client'
 
 import Link from 'next/link'
-import {
-  ArrowRight,
-  Package,
-  Wrench,
-  HeartPulse,
-  Microscope,
-  PhoneCall,
-  Globe,
-} from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
 import ServiceCard from '@/components/ui/ServiceCard'
 import { useTranslations, useLocale } from 'next-intl'
+import { servicePreviews } from '@/data/services'
+import { localizeHref as localizeSiteHref } from '@/lib/site'
 
 export default function ServicesPreview() {
   const t      = useTranslations('servicesPreview')
   const locale = useLocale()
 
-  function localizeHref(href: string) {
-    if (locale === 'en') return href
-    return `/${locale}${href}`
-  }
+  const localizeHref = (href: string) => localizeSiteHref(locale, href)
 
-  const services = [
-    {
-      icon: Package,
-      title: t('s1Title'),
-      description: t('s1Desc'),
-      variant: 'default' as const,
-    },
-    {
-      icon: Wrench,
-      title: t('s2Title'),
-      description: t('s2Desc'),
-      variant: 'default' as const,
-    },
-    {
-      icon: HeartPulse,
-      title: t('s3Title'),
-      description: t('s3Desc'),
-      variant: 'default' as const,
-    },
-    {
-      icon: Microscope,
-      title: t('s4Title'),
-      description: t('s4Desc'),
-      variant: 'dark' as const,
-    },
-    {
-      icon: Globe,
-      title: t('s5Title'),
-      description: t('s5Desc'),
-      variant: 'dark' as const,
-    },
-    {
-      icon: PhoneCall,
-      title: t('s6Title'),
-      description: t('s6Desc'),
-      variant: 'dark' as const,
-    },
-  ]
+  const services = servicePreviews.map((entry) => ({
+    icon: entry.icon,
+    title: t(entry.titleKey),
+    description: t(entry.descriptionKey),
+    variant: entry.variant,
+  }))
 
   return (
     <section className="section-padding bg-white">

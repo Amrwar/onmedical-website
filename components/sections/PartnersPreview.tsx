@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
+import { partners as partnerList } from '@/data/partners'
 import { useTranslations, useLocale } from 'next-intl'
 
 export default function PartnersPreview() {
@@ -16,32 +17,14 @@ export default function PartnersPreview() {
     return `/${locale}${href}`
   }
 
-  const partners = [
-    {
-      name: 'PTW Freiburg',
-      country: 'Germany',
-      badge: '🇩🇪 Germany',
-      logo: '/logo-ptw.png',
-      website: 'https://www.ptwdosimetry.com',
-      short: t('ptw.short'),
-    },
-    {
-      name: 'Ashland Medical',
-      country: 'United States',
-      badge: '🇺🇸 United States',
-      logo: '/logo-ashland.png',
-      website: 'https://www.ashland.com',
-      short: t('ashland.short'),
-    },
-    {
-      name: 'Klarity',
-      country: 'China',
-      badge: '🇨🇳 China',
-      logo: '/logo-klarity.png',
-      website: 'https://www.klarity-medical.com',
-      short: t('klarity.short'),
-    },
-  ]
+  const partners = partnerList.map((entry) => ({
+    name: entry.name,
+    country: entry.country,
+    badge: entry.badge,
+    logo: entry.logo,
+    website: entry.website,
+    short: t(entry.shortKey),
+  }))
 
   return (
     <section className="section-padding bg-white relative">

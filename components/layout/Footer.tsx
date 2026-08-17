@@ -4,15 +4,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
+import { contactChannels, localizeHref as localizeSiteHref } from '@/lib/site'
 
 export default function Footer() {
   const t      = useTranslations('footer')
   const locale = useLocale()
 
-  function localizeHref(href: string) {
-    if (locale === 'en') return href
-    return `/${locale}${href}`
-  }
+  const localizeHref = (href: string) => localizeSiteHref(locale, href)
 
   const pages = [
     { label: t('p1'), href: '/' },
@@ -98,12 +96,7 @@ export default function Footer() {
               {t('contact')}
             </p>
             <ul className="space-y-3.5">
-              {([
-                { icon: MapPin, text: 'Al Shahid Ahmed Abd Al Naby Bayoumi St. 548\nNasr City, Cairo, Egypt', href: 'https://maps.google.com/?q=30.050789,31.398390' },
-                { icon: Phone,  text: '+20 2 24115184 (Tel / Fax)',               href: 'tel:+20224115184' },
-                { icon: Phone,  text: '+20 155 217 6156 (Mobile)',               href: 'tel:+201552176156' },
-                { icon: Mail,   text: 'osama@onmedical.net',                     href: 'mailto:osama@onmedical.net' },
-              ] as { icon: typeof MapPin; text: string; href: string | null }[]).map(({ icon: Icon, text, href }, i) => (
+              {contactChannels.map(({ icon: Icon, text, href }, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Icon size={13} className="text-brand-600 mt-0.5 flex-shrink-0" strokeWidth={1.75} />
                   {href ? (

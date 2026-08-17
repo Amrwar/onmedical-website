@@ -1,45 +1,18 @@
 'use client'
 
-import { ShieldCheck, Award, Users, Cpu, BookOpen, Globe } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { useTranslations } from 'next-intl'
+import { reasons as reasonList } from '@/data/reasons'
 
 export default function WhyChooseUs() {
   const t = useTranslations('whyChooseUs')
 
-  const reasons = [
-    {
-      icon: Cpu,
-      title: t('r1Title'),
-      description: t('r1Desc'),
-    },
-    {
-      icon: Globe,
-      title: t('r2Title'),
-      description: t('r2Desc'),
-    },
-    {
-      icon: ShieldCheck,
-      title: t('r3Title'),
-      description: t('r3Desc'),
-    },
-    {
-      icon: Users,
-      title: t('r4Title'),
-      description: t('r4Desc'),
-    },
-    {
-      icon: BookOpen,
-      title: t('r5Title'),
-      description: t('r5Desc'),
-    },
-    {
-      icon: Award,
-      title: t('r6Title'),
-      description: t('r6Desc'),
-    },
-  ]
+  const reasons = reasonList.map((entry) => ({
+    icon: entry.icon,
+    title: t(entry.titleKey),
+    description: t(entry.descriptionKey),
+  }))
 
   return (
     <section className="section-padding bg-white">
